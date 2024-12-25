@@ -1,0 +1,153 @@
+.footer-right{
+    background-color: var(--main_color);
+    border-bottom-right-radius: 100%;
+    height: 400px;
+    padding:30px 80px 0 20px ;
+    color: var(--light_level_1_color);
+    overflow: hidden;
+}
+.footer-right p {
+    padding-right: 80px;
+}
+.final-footer{
+    background-color: var(--dark_level_1_color);
+    color: var(--light_level_1_color);
+    margin-top: 10px;
+}
+.contact li{
+   /* cursor: pointer; */
+}
+.pages li,.contact li{
+    position: relative;
+    transition: 0.5s;
+}
+.pages li::before{
+    content : "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--main_color);
+    transition: 0.5s;
+
+}
+.pages li:hover, .contact li:hover {
+    /* background: linear-gradient(to Left, var(--dark_level_1_color), var(--main_color));
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    text-fill-color: transparent;  */
+}
+.pages li:hover::before{
+    width: 10%; 
+} 
+.contact li:hover{
+    color:  var(--main_color);
+    transition: 0.3s;
+}
+.contact li:hover svg{
+    color:  var(--main_color);
+    fill: var(--main_color);
+}
+.contact li:hover path{
+    color:  var(--main_color);
+    fill: var(--main_color);
+}
+.btn-footer{
+    background-color: var(--main_color);
+    color: var(--light_level_1_color);
+    height: 40px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: fit-content;  
+}
+footer input{
+  outline: none;
+  background-color: inherit;
+  border: 2px solid var(--main_color);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  height: 40px ;
+  padding-left: 10px;
+}
+
+.photo-container {
+    perspective: 1000px; /* Add perspective for the 3D effect */
+    width: 150px; /* Adjust container width */
+    height: 120px; 
+  }
+.flip-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .flip-box-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; /* Ensures 3D transform works */
+    animation: flip 3s infinite ease-in-out; /* Apply the flip animation */
+  }
+  
+  .flip-box-front,
+  .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back when the front is visible */
+  }
+  
+  .flip-box-front {
+    transform: rotateY(0); /* Front side orientation */
+  }
+  
+  .flip-box-back {
+    transform: rotateY(180deg); /* Back side orientation */
+  }
+  
+  
+  .final-footer li{
+    position: relative;
+    transition: 0.5s;
+}
+.final-footer li::before{
+    content : "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--light_level_1_color);
+    transition: 0.5s;
+
+}
+
+.final-footer li:hover::before{
+    width: 50%; 
+} 
+/* Animation */
+
+@keyframes flip {
+    0% {
+      transform: rotateY(0); /* Start position */
+    }
+    50% {
+      transform: rotateY(180deg); /* Halfway (flipped) */
+    }
+    100% {
+      transform: rotateY(360deg); /* Back to the start */
+    }
+  }
+@media (max-width:500px) {
+    footer img{
+        height: 80px;
+    }
+    .footer-right{
+        padding:10px 80px 0 20px ;
+    }
+    .footer-right p {
+        padding-right: 10px;
+    }
+}
