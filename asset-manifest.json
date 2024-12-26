@@ -1,31 +1,35 @@
 {
   "files": {
-    "main.css": "/foreshore/static/css/main.33348f27.css",
-    "main.js": "/foreshore/static/js/main.b70b9670.js",
+    "main.css": "/foreshore/static/css/main.4d4848e5.css",
+    "main.js": "/foreshore/static/js/main.d7f0c7e9.js",
     "static/js/488.307e808c.chunk.js": "/foreshore/static/js/488.307e808c.chunk.js",
+    "static/media/dubai.png": "/foreshore/static/media/dubai.4552d620302d694565d8.png",
     "static/media/image 5.png": "/foreshore/static/media/image 5.324e2a6da6da3ed1a9d6.png",
     "static/media/image 3.png": "/foreshore/static/media/image 3.1e673f31a624561e49aa.png",
     "static/media/image 2.png": "/foreshore/static/media/image 2.bc6a4816cfe8ccd2b535.png",
+    "static/media/blog_3.png": "/foreshore/static/media/blog_3.d745a53ad2970604fecb.png",
     "static/media/image without background.png": "/foreshore/static/media/image without background.61544a7add45ce5b00ef.png",
+    "static/media/blog_1.png": "/foreshore/static/media/blog_1.dc765d5f092885c392d7.png",
     "static/media/banner.png": "/foreshore/static/media/banner.722930d10e626b0a3036.png",
+    "static/media/banner 02 without background.png": "/foreshore/static/media/banner 02 without background.c16686ac2966cb921dfb.png",
+    "static/media/blog_2.png": "/foreshore/static/media/blog_2.c0f7518c2a9fa237ef3f.png",
+    "static/media/banner 03 without background.png": "/foreshore/static/media/banner 03 without background.3704ecbfeda13e3ebefc.png",
     "static/media/destination_2.png": "/foreshore/static/media/destination_2.49e049c57475996dbe79.png",
     "static/media/destination_4.png": "/foreshore/static/media/destination_4.ccbbf8836accb5dd2db5.png",
     "static/media/destination_3.png": "/foreshore/static/media/destination_3.34002296cfae07e1eafa.png",
-    "static/media/blog_1.png": "/foreshore/static/media/blog_1.5f1f5810908173bdec42.png",
-    "static/media/blog_3.png": "/foreshore/static/media/blog_3.42e4b90076fa46e6de19.png",
-    "static/media/list.png": "/foreshore/static/media/list.6734c8ef1924a6a3bc5f.png",
     "static/media/destination_1.png": "/foreshore/static/media/destination_1.64528a0b75e1ad09fc2e.png",
-    "static/media/blog_2.png": "/foreshore/static/media/blog_2.700488a91e427e918183.png",
+    "static/media/banner 02 background.png": "/foreshore/static/media/banner 02 background.862ea36fde91ff3af401.png",
     "static/media/banner background.jpg": "/foreshore/static/media/banner background.06389d4cbf5bd1891ce5.jpg",
+    "static/media/banner 03 back.jpg": "/foreshore/static/media/banner 03 back.73fbd62fab8e02476def.jpg",
     "static/media/logo.svg": "/foreshore/static/media/logo.7c27ed4133d933de5ce3ed33b7d38e58.svg",
     "static/media/logo_light.svg": "/foreshore/static/media/logo_light.ea5df83bf15761330652cea7a2ba50ed.svg",
     "index.html": "/foreshore/index.html",
-    "main.33348f27.css.map": "/foreshore/static/css/main.33348f27.css.map",
-    "main.b70b9670.js.map": "/foreshore/static/js/main.b70b9670.js.map",
+    "main.4d4848e5.css.map": "/foreshore/static/css/main.4d4848e5.css.map",
+    "main.d7f0c7e9.js.map": "/foreshore/static/js/main.d7f0c7e9.js.map",
     "488.307e808c.chunk.js.map": "/foreshore/static/js/488.307e808c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.33348f27.css",
-    "static/js/main.b70b9670.js"
+    "static/css/main.4d4848e5.css",
+    "static/js/main.d7f0c7e9.js"
   ]
 }
