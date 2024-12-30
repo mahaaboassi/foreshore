@@ -1,19 +1,17 @@
 {
   "files": {
-    "main.css": "/foreshore/static/css/main.d4b9ea92.css",
-    "main.js": "/foreshore/static/js/main.72322458.js",
+    "main.css": "/foreshore/static/css/main.62d1386c.css",
+    "main.js": "/foreshore/static/js/main.238ef29f.js",
     "static/js/488.f0392c22.chunk.js": "/foreshore/static/js/488.f0392c22.chunk.js",
     "static/media/dubai.png": "/foreshore/static/media/dubai.4552d620302d694565d8.png",
     "static/media/image 5.png": "/foreshore/static/media/image 5.324e2a6da6da3ed1a9d6.png",
     "static/media/image 3.png": "/foreshore/static/media/image 3.1e673f31a624561e49aa.png",
     "static/media/image 2.png": "/foreshore/static/media/image 2.bc6a4816cfe8ccd2b535.png",
     "static/media/girl.png": "/foreshore/static/media/girl.4b52437c221fc0f03930.png",
-    "static/media/blog_3.png": "/foreshore/static/media/blog_3.d745a53ad2970604fecb.png",
+    "static/media/warm-tones-living-room-christmas-a33ab063-jpg": "/foreshore/static/media/warm-tones-living-room-christmas-a33ab063-9ef63f3845ef4e5993712fb3074b9c67.207b8d3e629af336e020.jpg",
     "static/media/image without background.png": "/foreshore/static/media/image without background.61544a7add45ce5b00ef.png",
-    "static/media/blog_1.png": "/foreshore/static/media/blog_1.dc765d5f092885c392d7.png",
     "static/media/banner.png": "/foreshore/static/media/banner.722930d10e626b0a3036.png",
     "static/media/banner 02 without background.png": "/foreshore/static/media/banner 02 without background.c16686ac2966cb921dfb.png",
-    "static/media/blog_2.png": "/foreshore/static/media/blog_2.c0f7518c2a9fa237ef3f.png",
     "static/media/banner 03 without background.png": "/foreshore/static/media/banner 03 without background.3704ecbfeda13e3ebefc.png",
     "static/media/destination_2.png": "/foreshore/static/media/destination_2.49e049c57475996dbe79.png",
     "static/media/property_6.avif": "/foreshore/static/media/property_6.cf869e8997dcd1da8c49.avif",
@@ -35,6 +33,7 @@
     "static/media/property_27.avif": "/foreshore/static/media/property_27.fb5d9ef609a36c25c0bd.avif",
     "static/media/property_23.avif": "/foreshore/static/media/property_23.2e5cf475fcb7b990d026.avif",
     "static/media/property_29.avif": "/foreshore/static/media/property_29.ac0e69beaa616f44709e.avif",
+    "static/media/image.webp": "/foreshore/static/media/image.ba34ff713fda33b7ea26.webp",
     "static/media/property_31.avif": "/foreshore/static/media/property_31.27a9587e1ee9dd10e72b.avif",
     "static/media/property_20avif.avif": "/foreshore/static/media/property_20avif.6e2c5d761515f0e0d619.avif",
     "static/media/property_32.avif": "/foreshore/static/media/property_32.49f39f0490a4a7327b45.avif",
@@ -61,12 +60,12 @@
     "static/media/logo.svg": "/foreshore/static/media/logo.7c27ed4133d933de5ce3ed33b7d38e58.svg",
     "static/media/logo_light.svg": "/foreshore/static/media/logo_light.ea5df83bf15761330652cea7a2ba50ed.svg",
     "index.html": "/foreshore/index.html",
-    "main.d4b9ea92.css.map": "/foreshore/static/css/main.d4b9ea92.css.map",
-    "main.72322458.js.map": "/foreshore/static/js/main.72322458.js.map",
+    "main.62d1386c.css.map": "/foreshore/static/css/main.62d1386c.css.map",
+    "main.238ef29f.js.map": "/foreshore/static/js/main.238ef29f.js.map",
     "488.f0392c22.chunk.js.map": "/foreshore/static/js/488.f0392c22.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4b9ea92.css",
-    "static/js/main.72322458.js"
+    "static/css/main.62d1386c.css",
+    "static/js/main.238ef29f.js"
   ]
 }
