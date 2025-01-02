@@ -11,7 +11,7 @@ function Confirmations({nextStep}) {
     },[])
     return ( <div className={`px-5 ${i18n.language == "en" ?"list-confirm":"list-confirm-ar"}`}>
         <div className='py-3'>
-            <h2 className='pb-1 text-center md:text-start'>{t("basic-info")}</h2>
+            <h2 className='pb-1 '>{t("basic-info")}</h2>
             <ul>
                 <li><div className='ilist-conf-title'>{t("property-type")} </div>: {basic.type}</li>
                 <li><div className='ilist-conf-title'>{t("property-size")}</div> : {basic.size}</li>
@@ -23,7 +23,7 @@ function Confirmations({nextStep}) {
             </ul>
         </div>
         <div className='py-3'>
-            <h2 className='text-center md:text-start'>{t("location")}</h2>
+            <h2 className=''>{t("location")}</h2>
             <ul>
                 <li><div className='ilist-conf-title'>{t("city")} </div>: {location.city}</li>
                 <li><div className='ilist-conf-title'>{t("region")} </div>: {location.region}</li>
