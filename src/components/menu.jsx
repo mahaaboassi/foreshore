@@ -10,7 +10,7 @@ function MenuNav() {
             link : "/destinations"
         },{
             name : "list-your-property",
-            link : "/listYouProperty"
+            link : "/listYourProperty"
         },{
             name : "about-usE",
             link : "/aboutUs"
