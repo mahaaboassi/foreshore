@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/foreshore/static/css/main.a055fe54.css",
-    "main.js": "/foreshore/static/js/main.4494c374.js",
+    "main.css": "/foreshore/static/css/main.3f2bda34.css",
+    "main.js": "/foreshore/static/js/main.0b1b06c0.js",
     "static/js/488.f0392c22.chunk.js": "/foreshore/static/js/488.f0392c22.chunk.js",
     "static/media/dubai.png": "/foreshore/static/media/dubai.4552d620302d694565d8.png",
     "static/media/image 5.png": "/foreshore/static/media/image 5.324e2a6da6da3ed1a9d6.png",
@@ -60,12 +60,12 @@
     "static/media/logo.svg": "/foreshore/static/media/logo.7c27ed4133d933de5ce3ed33b7d38e58.svg",
     "static/media/logo_light.svg": "/foreshore/static/media/logo_light.ea5df83bf15761330652cea7a2ba50ed.svg",
     "index.html": "/foreshore/index.html",
-    "main.a055fe54.css.map": "/foreshore/static/css/main.a055fe54.css.map",
-    "main.4494c374.js.map": "/foreshore/static/js/main.4494c374.js.map",
+    "main.3f2bda34.css.map": "/foreshore/static/css/main.3f2bda34.css.map",
+    "main.0b1b06c0.js.map": "/foreshore/static/js/main.0b1b06c0.js.map",
     "488.f0392c22.chunk.js.map": "/foreshore/static/js/488.f0392c22.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a055fe54.css",
-    "static/js/main.4494c374.js"
+    "static/css/main.3f2bda34.css",
+    "static/js/main.0b1b06c0.js"
   ]
 }
