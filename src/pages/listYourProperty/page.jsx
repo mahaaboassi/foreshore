@@ -12,7 +12,7 @@ function ListYourProperty() {
     return ( <div className="pt-24  md:pt-32 px-6 lg:px-10 sm:flex justify-center">
         <div className="form-list flex flex-col px-2  md:px-8 py-5">
          <h2 className="capitalize text-center">{t("list-your-property")}</h2>
-         <div  className="flex scale-60  sm:scale-70 md:scale-100 h-28 justify-center items-center">
+         <div  className="flex scale-70  sm:scale-70 md:scale-100 h-28 justify-center items-center">
             <div  className={`list-circular ${(localStorage.hasOwnProperty("basic-info") && currentSelected!=1) && "done"} ${currentSelected==1  && "active"} `}>
                 <div className={`number`}>
                     01
@@ -22,7 +22,7 @@ function ListYourProperty() {
                 </div>
             </div>
             <div className="flex justify-center items-center px-2">
-                <div className="w-20 h-1 bg-stone-200" ></div>
+                <div className="w-11 sm:w-20 h-1 bg-stone-200" ></div>
             </div>
             <div  className={`list-circular ${localStorage.hasOwnProperty("location") && currentSelected !=2 && "done"} ${currentSelected==2 && "active"} `}>
                 <div className={`number-bottom`}>
@@ -33,7 +33,7 @@ function ListYourProperty() {
                 </div>
             </div>
             <div  className="flex justify-center items-center px-2">
-                <div className="w-20 h-1 bg-stone-200" ></div>
+                <div className="w-11 sm:w-20 h-1 bg-stone-200" ></div>
             </div>
             <div  className={`list-circular ${localStorage.hasOwnProperty("documents") && currentSelected !=3 && "done"}  ${currentSelected==3 && "active"}`}>
                 <div className={`number`}>
@@ -44,7 +44,7 @@ function ListYourProperty() {
                 </div>
             </div>
             <div className="flex justify-center items-center px-2">
-                <div className="w-20 h-1 bg-stone-200" ></div>
+                <div className="w-11 sm:w-20 h-1 bg-stone-200" ></div>
             </div>
             <div  className={`list-circular ${currentSelected==4 && "active"} `}>
                 <div className={`number-bottom`}>
