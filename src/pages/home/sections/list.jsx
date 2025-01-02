@@ -18,7 +18,7 @@ function ListYourProperty() {
         tilte : t("list-title-3"),
         img : img_3
     }]
-    return ( <div className='px-3'>
+    return ( <div className='px-6'>
         <Header title={t("list-title")} description={t("list-desc")} />
         <div className='grid grid-cols-1 sm:grid-cols-3 gap-2'>
             {data.map((e,index)=>(<div key={`List_Your_Property_${e.tilte}`} className={`flex flex-col items-center justify-center ${index % 2 != 0?"list-margin":""}`}>

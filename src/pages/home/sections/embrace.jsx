@@ -1,12 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-// Import Images
-import img from "../../../images/list.png" 
 
-function ListYourProperty_2() {
+function Embrace() {
     const { t , i18n } = useTranslation()
-    return ( <div className=" bg-white mt-10 flex flex-col-reverse items-center justify-center md:flex-row px-3 lg:px-12">
+    return ( <div className=" embrace bg-white mt-10 flex flex-col-reverse items-center justify-center md:flex-row px-3 lg:px-12">
         <div className='w-full md:w-1/2 flex items-center justify-center'>
             {/* <img src={img} alt='List Your Property'/> */}
             <svg xmlns="http://www.w3.org/2000/svg" width="620" height="610" viewBox="0 0 620 610" fill="none">
@@ -86,11 +84,12 @@ function ListYourProperty_2() {
                 </svg>
         </div>
         <div className='w-full md:w-1/2'>
-            <h2 className='text-center py-3 weight-medium'>{t("list-2-title")}</h2>
-            <p className='text-center'>{t("list-2-desc")}</p>
+            <h2 className='text-center py-3 weight-medium uppercase'>{t("embrace-title")}</h2>
+            <p className='text-center pb-3 capitalize'>{t("embrace-desc-1")}</p>
+            <p className='text-center capitalize'>{t("embrace-desc-2")}</p>
         </div>
 
     </div> );
 }
 
-export default ListYourProperty_2;
+export default Embrace;

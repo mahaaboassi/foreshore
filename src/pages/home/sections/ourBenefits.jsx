@@ -26,22 +26,25 @@ function OurBenefits() {
     }]
     return ( <div className='benefit'>
         <Header title={t("benefit-title")} description={t("benefit-desc")} />
-        <div className='md:px-10 lg:px-36'>
+        <div className='lg:px-10'>
             {data.map((e)=>{
-                return <div key={`Benefit_${e.title}`} className='block md:flex mb-5 justify-center items-center benefit-container'>
-                        <div className='container-img'>
+                return <div key={`Benefit_${e.title}`} className={`block md:flex mb-5 justify-center items-center ${i18n.language == "en"?"benefit-container":"benefit-container-ar"} md:px-5`}>
+                        <div className='container-img  '>
                             <img  src={e.img} alt={e.title} />
                         </div>
-                        <div  className='benefit-content w-full px-3  lg:px-10'>
-                            <div className='py-5 px-5 md:px-10 shadow' >
-                                <h4 className='text-center md:text-start weight-medium capitalize'>{e.title}</h4>
-                                <p className='text-center md:text-start py-3 text-grey'>{e.hint}</p>
-                                <p className='text-center md:text-start text-grey'>{e.desc}</p>
-                                <div className=' pt-3 flex justify-center md:justify-start'>
-                                    <button className='btn-main p-3 capitalize '>Explore your plan</button>
+                        <div className='relative  w-full px-6'>
+                            <div   className={`${i18n.language == "en"?"benefit-content":"benefit-content-ar"} bg-white w-full px-6  lg:px-10 py-5 px-5 md:px-10 shadow`}>
+                                <div className='' >
+                                    <h4 className='text-center md:text-start weight-medium capitalize'>{e.title}</h4>
+                                    <p className='text-center md:text-start py-3 text-grey'>{e.hint}</p>
+                                    <p className='text-center md:text-start text-grey'>{e.desc}</p>
+                                    <div className=' pt-3 flex justify-center md:justify-start'>
+                                        <button className='btn-main p-3 capitalize '>{t("benefit-btn")}</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        
                         
                 </div>
             })}

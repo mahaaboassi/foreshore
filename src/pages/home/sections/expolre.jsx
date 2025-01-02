@@ -1,5 +1,6 @@
 import React, { useEffect, useState ,useRef} from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import Header from "../../../components/header";
 // Import Images
 import img_1 from "../../../images/destination_1.png"
@@ -19,6 +20,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 
 function ExploreDestination() {
     const {t, i18n} = useTranslation()
+    const navigate = useNavigate()
     const data = [{
         title : t("explore-title-1"),
         desc : t("explore-desc-1"),
@@ -68,7 +70,7 @@ function ExploreDestination() {
      }, []);
     return ( <div ref={targetRef}  className='explore'>
         <Header title={t("explore-title")} description={t("explore-desc")} />
-        <div>
+        <div style={{direction: "ltr"}}>
         <Swiper
             spaceBetween={10}
             slidesPerView={1}
@@ -94,10 +96,10 @@ function ExploreDestination() {
             >
                 {data.map((e)=>(<SwiperSlide key={`Destination_${e.title}`}>
                     <div className='flex flex-col items-center'>
-                        <div className={`${isInView&&"animated"} relative`}>
-                            <img  src={e.img} alt={e.title} />
+                        <div onClick={()=>navigate(`/property/3`)}  className={`${isInView&&"animated"} cursor-pointer relative`}>
+                            <img   src={e.img} alt={e.title} />
                             <div className={` flex items-center justify-center explore-title absolute top-0 left-0 right-0 bottom-0`}>
-                                <h4 className='expolre-title weight-blod uppercase'>{e.title}</h4>
+                                <h4 className='expolre-title  uppercase'>{e.title}</h4>
                             </div>
                         </div>
                         <p className='weight-medium text-center max-w-52 capitalize' >{e.desc}</p>

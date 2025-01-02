@@ -1,23 +1,23 @@
 import { TypeAnimation } from 'react-type-animation';
-function Retype({text}) {
-    return ( <TypeAnimation
-        sequence={[
-          // Same substring at the start will only be typed out once, initially
-          text,
-          1000, // wait 1s before replacing "Mice" with "Hamsters"
-        //   'We produce food for Hamsters',
-        //   1000,
-        //   'We produce food for Guinea Pigs',
-        //   1000,
-        //   'We produce food for Chinchillas',
-        //   1000
-        ]}
-        cursor ={false}
-        wrapper="span"
-        speed={50}
-        // style={{ fontSize: '2em', display: 'inline-block' }}
-        repeat={Infinity}
-      /> );
+import React, { useState, useEffect } from 'react';
+
+function Retype({ text }) {
+  const [sequence, setSequence] = useState([text]);
+
+  useEffect(() => {
+    // Update the sequence when `text` changes
+    setSequence([text, 1000]);
+  }, [text]);
+
+  return (
+    <TypeAnimation
+      sequence={sequence}
+      cursor={false}
+      wrapper="span"
+      speed={50}
+      repeat={0} // Prevent infinite repetition if not desired
+    />
+  );
 }
 
 export default Retype;
