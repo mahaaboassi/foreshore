@@ -12,7 +12,7 @@ function MenuNav() {
             name : "list-your-property",
             link : "/listYourProperty"
         },{
-            name : "about-usE",
+            name : "about-us",
             link : "/aboutUs"
         },{
             name : "contact-us",

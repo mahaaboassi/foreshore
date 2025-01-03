@@ -2,9 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from "../../../components/header";
 // Import Images
-import img_1 from "../../../images/management of your property 1.png" 
-import img_2 from "../../../images/global audiance 1.png"
-import img_3 from "../../../images/rental income 1.png"
+import img_1 from "../../../images/management of your property 1.webp" 
+import img_2 from "../../../images/global audiance 1.webp"
+import img_3 from "../../../images/rental income 1.webp"
 
 function ListYourProperty() {
     const { t , i18n } = useTranslation()

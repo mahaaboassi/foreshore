@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import Header from "../../../components/header";
 // Import Images
-import img_1 from "../../../images/warm-tones-living-room-christmas-a33ab063-9ef63f3845ef4e5993712fb3074b9c67.jpg"
+import img_1 from "../../../images/warm-tones-living-room-christmas-a33ab063-9ef63f3845ef4e5993712fb3074b9c67.webp"
 import img_2 from "../../../images/Dubai-Holiday-Home-Vacation.webp"
 import img_3 from "../../../images/image.webp"
 

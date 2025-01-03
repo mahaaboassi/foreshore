@@ -13,35 +13,43 @@ import Getaway from './sections/getaway';
 import ListYourProperty from './sections/list';
 
 // Images For Banners
-import girl from "../../images/image without background.png"
-import banner_1 from "../../images/banner background.jpg"
-import girl_2 from "../../images/banner 02 without background.png"
-import banner_2 from "../../images/banner 02 background.png"
-import girl_3 from "../../images/banner 03 without background.png"
-import banner_3 from "../../images/banner 03 back.jpg"
+import girl from "../../images/image without background.webp"
+import girl_small from "../../images/image without background_small.webp"
+import banner_1 from "../../images/banner background.webp"
+import girl_2 from "../../images/banner 02 without background.webp"
+import girl_2_small from "../../images/banner 02 without background_small.webp"
+import banner_2 from "../../images/banner 02 background.webp"
+import girl_3 from "../../images/banner 03 without background.webp"
+import girl_3_small from "../../images/banner 03 without background_small.webp"
+import banner_3 from "../../images/banner 03 back.webp"
 
 function Home() {
   const { t } = useTranslation();
     const data = [{
-      img : girl,
+      img :  window.innerWidth <= 472 ? girl_small: girl,
       background_img : banner_1,
       count : 0,
       title : t("hero-text-1"),
       hint :  t("hero-hint-1")
-    },{
-      img : girl_2,
+    },
+    {
+      img :  window.innerWidth <= 472 ? girl_2_small: girl_2,
       background_img : banner_2,
       count : 1 ,
       title : t("hero-text-1") +"2",
       hint :  t("hero-hint-1")
     },{
-      img : girl_3,
+      img : window.innerWidth <= 472 ? girl_3_small: girl_3,
       background_img : banner_3,
       count : 2 ,
       title : t("hero-text-1")+"3" ,
       hint :  t("hero-hint-1")
-    }]
-    useEffect(()=>{ window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
+    }
+  ]
+    useEffect(()=>{ 
+
+      
+      window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
     return ( <div>
       <Banner data={data} children={<SearchCard/>} />
       <OurBenefits/>

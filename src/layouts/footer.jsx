@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 // Images
-import img from "../images/logo_light.png"
-import img_2 from "../images/logo_dark.png"
+import img from "../images/logo_light.webp"
+import img_2 from "../images/logo_dark.webp"
 import { Link } from 'react-router-dom';
 
 function Footer() {

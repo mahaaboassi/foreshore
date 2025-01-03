@@ -3,19 +3,25 @@ import { useTranslation } from 'react-i18next';
 import Banner from '../home/sections/banner';
 import img_1 from "../../images/property_1.avif"
 import img_2 from "../../images/property_7.avif"
-import img_3 from "../../images/warm-tones-living-room-christmas-a33ab063-9ef63f3845ef4e5993712fb3074b9c67.jpg"
+import img_3 from "../../images/warm-tones-living-room-christmas-a33ab063-9ef63f3845ef4e5993712fb3074b9c67.webp"
 import img_4 from "../../images/Dubai-Holiday-Home-Vacation.webp"
-import img_5 from "../../images/destination_3.png"
-import img_6 from "../../images/destination_2.png"
-import img_7 from "../../images/destination_4.png"
-import img_8 from "../../images/destination_1.png"
+import img_5 from "../../images/destination_3.webp"
+import img_6 from "../../images/destination_2.webp"
+import img_7 from "../../images/destination_4.webp"
+import img_8 from "../../images/destination_1.webp"
 // Images
-import girl from "../../images/image without background.png"
-import banner_1 from "../../images/banner background.jpg"
-import girl_2 from "../../images/banner 02 without background.png"
-import banner_2 from "../../images/banner 02 background.png"
-import girl_3 from "../../images/banner 03 without background.png"
-import banner_3 from "../../images/banner 03 back.jpg"
+// Images For Banners
+import girl from "../../images/image without background.webp"
+import girl_small from "../../images/image without background_small.webp"
+import banner_1 from "../../images/banner background.webp"
+import girl_2 from "../../images/banner 02 without background.webp"
+import girl_2_small from "../../images/banner 02 without background_small.webp"
+import banner_2 from "../../images/banner 02 background.webp"
+import girl_3 from "../../images/banner 03 without background.webp"
+import girl_3_small from "../../images/banner 03 without background_small.webp"
+import banner_3 from "../../images/banner 03 back.webp"
+
+
 import { Link } from 'react-router-dom';
 import Dropdown from '../../components/dropdown';
 
@@ -23,19 +29,19 @@ function Destinations() {
     const {t,i18n} = useTranslation()
     useEffect(()=>{ window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
     const data = [{
-        img : girl,
+        img : window.innerWidth <= 472 ? girl_small: girl,
         background_img : banner_1,
         count : 0,
         title : t("destination-title"),
         hint :  t("destination-hint")
       },{
-        img : girl_2,
+        img : window.innerWidth <= 472 ? girl_2_small: girl_2,
         background_img : banner_2,
         count : 1 ,
         title : t("destination-title")+"1",
         hint :  t("destination-hint")
       },{
-        img : girl_3,
+        img : window.innerWidth <= 472 ? girl_3_small: girl_3,
         background_img : banner_3,
         count : 2 ,
         title : t("destination-title") +"2",

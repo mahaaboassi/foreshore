@@ -3,32 +3,36 @@ import { useTranslation } from 'react-i18next';
 import Banner from '../home/sections/banner';
 
 // Images
-import girl from "../../images/image without background.png"
-import banner_1 from "../../images/banner background.jpg"
-import girl_2 from "../../images/banner 02 without background.png"
-import banner_2 from "../../images/banner 02 background.png"
-import girl_3 from "../../images/banner 03 without background.png"
-import banner_3 from "../../images/banner 03 back.jpg"
+import girl from "../../images/image without background.webp"
+import girl_small from "../../images/image without background_small.webp"
+import banner_1 from "../../images/banner background.webp"
+import girl_2 from "../../images/banner 02 without background.webp"
+import girl_2_small from "../../images/banner 02 without background_small.webp"
+import banner_2 from "../../images/banner 02 background.webp"
+import girl_3 from "../../images/banner 03 without background.webp"
+import girl_3_small from "../../images/banner 03 without background_small.webp"
+import banner_3 from "../../images/banner 03 back.webp"
+
 import InputWithIcon from '../../components/inputWithIcons';
-import { Link } from 'react-router-dom';
+
 
 
 function ContactUs() {
     const { t  } = useTranslation();
     const data = [{
-        img : girl,
+        img : window.innerWidth <= 472 ? girl_small: girl,
         background_img : banner_1,
         count : 0,
         title : t("contact-title"),
         hint :  t("contact-hint")
       },{
-        img : girl_2,
+        img :  window.innerWidth <= 472 ? girl_2_small: girl_2,
         background_img : banner_2,
         count : 1 ,
         title : t("contact-title")+"1",
         hint :  t("contact-hint")
       },{
-        img : girl_3,
+        img : window.innerWidth <= 472 ? girl_3_small: girl_3,
         background_img : banner_3,
         count : 2 ,
         title : t("contact-title") +"2",

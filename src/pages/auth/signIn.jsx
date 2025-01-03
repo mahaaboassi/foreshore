@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import InputWithIcon from "../../components/inputWithIcons";
-import img from "../../images/logo_main.png"
+import img from "../../images/logo_main.webp"
 import { Link } from 'react-router-dom';
 function SignIn() {
     const { t , i18n } = useTranslation()
@@ -47,10 +47,10 @@ function SignIn() {
                     <p className='auth-link'><Link to={"/auth/signUp"}>{t("sign-up")} </Link></p>
                 </div>
             </div>
-            <div className='flex  py-4'>
-                <div className='flex items-center w-20 px-2' > <div className='line-auth' ></div></div>
+            <div className='flex justify-center  py-4'>
+                <div className='flex items-center w-16 sm:w-32  px-2' > <div className='line-auth' ></div></div>
                 <div> <p>{t("or-continue")}</p></div>
-                <div className='flex items-center w-20 px-2' ><div className='line-auth' ></div></div>
+                <div className='flex items-center w-16 sm:w-32 px-2' ><div className='line-auth' ></div></div>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                 <div>

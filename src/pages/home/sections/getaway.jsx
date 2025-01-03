@@ -1,7 +1,6 @@
 import React, { useRef, useState , useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
-import img_1 from "../../../images/banner.png"
-import img from "../../../images/dubai.png"
+import img from "../../../images/dubai.webp"
 import Retype from '../../../components/retype';
 
 

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import InputWithIcon from "../../components/inputWithIcons";
-import img from "../../images/logo_main.png"
+import img from "../../images/logo_main.webp"
 import { Link } from 'react-router-dom';
 import MobileInput from '../../components/mobileInput';
 function SignUp() {

@@ -270,11 +270,12 @@
 }
 @media (max-width:1024px) {
     .content-form{
-        height: 90px;
+        height: 120px;
     }
     
 }
 @media (max-width:768px) {
+   
     .img-hero{
         height: 220px;
     }
@@ -351,6 +352,9 @@
     }
 }
 @media (max-width:404px){
+    .content-form{
+        height: 90px;
+    }
     .explore h4{
         font-size: var(--font-size-xxs);
     }

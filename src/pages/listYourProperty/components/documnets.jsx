@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDropzone } from 'react-dropzone';
-import img_file from "../../../images/File.png"
+import img_file from "../../../images/File.webp"
 
 function Documents({ nextStep }) {
   const { t } = useTranslation();

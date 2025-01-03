@@ -2,9 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from "../../../components/header";
 // Import Images
-import img_1 from "../../../images/blog_1.png"
-import img_2 from "../../../images/blog_2.png"
-import img_3 from "../../../images/blog_3.png"
+import img_1 from "../../../images/blog_1.webp"
+import img_2 from "../../../images/blog_2.webp"
+import img_3 from "../../../images/blog_3.webp"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';

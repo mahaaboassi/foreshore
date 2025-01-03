@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import Header from "../../../components/header";
 // Import Images
-import img_1 from "../../../images/destination_1.png"
-import img_2 from "../../../images/destination_2.png"
-import img_3 from "../../../images/destination_3.png"
-import img_4 from "../../../images/destination_4.png"
+import img_1 from "../../../images/destination_1.webp"
+import img_2 from "../../../images/destination_2.webp"
+import img_3 from "../../../images/destination_3.webp"
+import img_4 from "../../../images/destination_4.webp"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 

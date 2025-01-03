@@ -2,9 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from "../../../components/header";
 // Images
-import img_1 from "../../../images/image 5.png"
-import img_2 from "../../../images/image 2.png"
-import img_3 from "../../../images/image 3.png"
+import img_1 from "../../../images/image 5.webp"
+import img_2 from "../../../images/image 2.webp"
+import img_3 from "../../../images/image 3.webp"
 
 function OurBenefits() {
     const { t, i18n} = useTranslation()

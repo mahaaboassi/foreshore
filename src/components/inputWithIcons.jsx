@@ -6,14 +6,14 @@ function InputWithIcon({icon,placeholder,isPassword=false, type,register}) {
         settypeInput(type)
     },[type])
     return (  <div className="input-with-icon w-full ">
-        <div className="px-3 text-gray-500">
+        <div className="px-2 sm:px-3 text-gray-500">
           {icon}
         </div>
         <input
           {...register}
           type={typeInput}
           placeholder={placeholder}
-          className="outline-none bg-transparent flex-1 p-2"
+          className="outline-none bg-transparent flex-1 sm:p-2"
         />
 
         {isPassword && <div className="cursor-pointer px-2" onClick={()=>{
