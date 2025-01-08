@@ -9,7 +9,7 @@ function SearchCard() {
     const { t } = useTranslation()
     const navigate = useNavigate()
     return ( <div className='form-search px-5  sm:px-10  md:px-20  lg:px-40'>
-        <div className='content-form items-center flex justify-center py-10'>
+        {/* <div className='content-form items-center flex justify-center py-10'>
         <div className='grid grid-cols-2 lg:grid-cols-4  px-2  '>
              <div className='flex items-center justify-center p-1 sm:p-2'>
                  <InputWithIcon icon={<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -39,7 +39,7 @@ function SearchCard() {
                  <button onClick={()=>navigate("/destinations")} className='btn-grey !w-full'>{t("search")}</button>
              </div>
          </div>
-        </div>
+        </div> */}
 
      </div> );
 }

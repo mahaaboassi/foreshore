@@ -11,11 +11,11 @@ function Dropdown({trigger,content,icon,returnedValue}) {
     useEffect(()=>{setValue(trigger)},[trigger])
 
     return ( <div className="dropdowp relative">
-        <div onClick={()=>setIsOpen(!isOpen)}  className="dropdwon-trigger h-11 cursor-pointer py-4 px-3 flex items-center gap-2">
+        <div onClick={()=>setIsOpen(!isOpen)}  className="dropdwon-trigger h-9 lg:h-12 cursor-pointer py-4 px-3 flex items-center gap-2">
             <div>{icon}</div>
             <div className={`${darkColor && "!text-slate-950"}`}>{t(value)}</div>
         </div>
-        {isOpen && <div style={i18n.language == "en"?{right:0}:{left:0}} className="dropdown-content menu w-full absolute top-14 ">
+        {isOpen && <div style={i18n.language == "en"?{right:0}:{left:0}} className="menu w-full absolute top-14 ">
                 {content.map((e)=>(<p onClick={()=>{
                     setValue(e)
                     returnedValue(e)

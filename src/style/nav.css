@@ -58,10 +58,10 @@
  }
  /* Hover effect on text and underline */
 .nav li  a.not-active:hover {
-    color: var(--main_color); /* Text color change */
+    color: var(--dark_level_1_color); /* Text color change */
  }
  .scrolled-nav li  a.not-active:hover {
-    color: var(--light_level_1_color); /* Text color change */
+    /* color: var(--light_level_1_color); Text color change */
  }
  
  .nav li a.not-active:hover::before, .scrolled-nav li a.not-active:hover::before {
@@ -192,4 +192,9 @@
         padding: unset;
         
      }
+  
+    .nav li  a.active::before, .scrolled-nav li  a.active::before ,.nav li  a.not-active::before, .scrolled-nav li  a.not-active::before{
+        height: 0px;
+        
+    }
 }

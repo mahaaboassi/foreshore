@@ -76,11 +76,13 @@ function Destinations() {
             </div>
             
         </div>
-        <div className='grid  sm:px-10 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 '>
-            {[img_1,img_2,img_3,img_4,img_5,img_6,img_7,img_8].map((e,i)=>(<div className='p-2  sm:p-5' key={`Card_Property_${i}`}>
+        <div className='grid px-6  lg:px-10 gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 '>
+            {[img_1,img_2,img_3,img_4,img_5,img_6,img_7,img_8].map((e,i)=>(<div className='' key={`Card_Property_${i}`}>
                 <Link to={"/property/9"}>
                 <div className='card-property cursor-pointer'>
-                    <div className='overflow-hidden h-40 sm:h-40 md:h-40 lg:h-52'> <img className='!w-full rounded object-cover h-full' src={e} alt='Proparty Image' /> </div>
+                    <div className='overflow-hidden h-32 sm:h-40 md:h-40 lg:h-52'>
+                         <img className='!w-full rounded object-cover h-full' src={e} alt='Proparty Image' />
+                    </div>
                     <div className='p-2'>
                       <h4 className='pb-1 weight-regular '>{t("property-name")}</h4>
                       

@@ -1,5 +1,4 @@
 import React from 'react';
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -10,11 +9,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 // import required modules
 import { Autoplay, EffectFade} from 'swiper/modules';
+import BannerSearch from './bannerSearch';
 
 
-function Banner({children,data}) {
-  
-
+function Banner({children,data, fromHomePage = false}) {
 
     return (<div  className='relative banner'>
             <Swiper
@@ -35,18 +33,24 @@ function Banner({children,data}) {
                   <img className='w-full girl' src={ele.img} alt="girl" />
                   
                 </div>
-                <div className='content-hero left-5 lg:left-10 '>
-                  
-                  <h2 className='text-main weight-bold'>{ele.hint}</h2>
-                  <h1 className='text-dark weight-bold'>{ele.title}</h1>
+                <div className={`${fromHomePage ? "content-hero-home": "content-hero"} left-5 lg:left-10 px-2 sm:px-5 md:px-7 `}>
+                  <h1 className='text-main  weight-bold'>{ele.hint}</h1>
+                  <h2 className='text-dark weight-bold'>{ele.title}</h2>
                 </div>
               </SwiperSlide>))}
           </Swiper>
 
         {children}
-        
+        {window.innerWidth >600 && fromHomePage  && <div className='absolute-banner left-5 lg:left-10 px-2 sm:px-5 md:px-7'>
+          <BannerSearch/>
+          </div>}
+        {window.innerWidth < 600 && fromHomePage &&<div style={{marginTop:"22px"}} className='px-6 lg:px-10'>
+           <BannerSearch/>
+          </div>}
 
     </div>   );
 }
 
 export default Banner;
+
+

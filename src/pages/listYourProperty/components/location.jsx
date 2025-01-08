@@ -21,10 +21,10 @@ const validationSchema = Yup.object({
 
 function Location({nextStep}) {
     const {t,i18n} = useTranslation()
-    const { register, handleSubmit, formState: { errors },clearErrors,watch,setValue } = useForm({
-        resolver: yupResolver(validationSchema),
-         mode: 'onChange'
-      });
+    const { register, handleSubmit, formState: { errors },clearErrors,watch,setValue } = useForm(
+        // {resolver: yupResolver(validationSchema),
+        //  mode: 'onChange'}
+        );
     const onSubmit = (data) => {
         localStorage.setItem("location",JSON.stringify(data))
         nextStep(3)

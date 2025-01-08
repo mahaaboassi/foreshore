@@ -31,15 +31,25 @@
     }
     
 }
+.absolute-banner{
+    position: absolute;
+    top: 65%;
+    transform: translateY(-65%);
+}
 .content-hero{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
-.content-hero h2,h1{
+.content-hero-home{
+    position: absolute;
+    top: 40%;
+    transform: translateY(-40%);
+}
+.content-hero h2, .content-hero-home h2,h1 {
     animation: append 1s forwards;
 }
-.content-hero h2{
+.content-hero h2, .content-hero-home h2{
     animation: append 1s forwards;
     animation-delay: 0.2s;
 }
@@ -67,7 +77,8 @@
 .container-img{
     width: 450px;
     height: 100%;
-
+    overflow: hidden;
+    border-radius: 12px
 }
 .benefit img{
     border-radius: 12px;
@@ -113,7 +124,7 @@
     width: 0;
     right: 0;
     left: 0;
-    height: 2px;
+    height: 0.5px;
     z-index: 10;
     background-color: var(--light_level_1_color) ;
 }
@@ -122,7 +133,7 @@
     position: absolute;
     bottom: 0;
     width: 0;
-    height: 2px;
+    height: 1px;
     right: 0;
     left: 0;
     background-color: var(--light_level_1_color) ;
@@ -175,7 +186,7 @@
     object-fit: cover;
 }
 .content-img{
-    background-color: rgba(0, 0, 0, 0.403);
+    /* background-color: rgba(0, 0, 0, 0.403); */
     border-radius: 12px;
 }
 .getaway h2{
@@ -200,6 +211,9 @@
     margin-top: 80px;
 }
 /* Embrace */
+.embrace {
+    background: linear-gradient(to "Left", grey,black);
+}
 .embrace svg{
     height: 500px;
 }
@@ -221,28 +235,60 @@
 .blog .content-blog{
     border-radius: 8px;
 }
-.button-mark{
-    width: 40px ;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--main_color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--light_level_1_color);
-    font-size: var(--font-size-xl);
-    cursor: pointer;
-    border: 2px solid var(--main_color);
-    transition: 0.3s;
-}
-.button-mark:hover{
-    background-color: var(--light_level_1_color);
-    color: var(--main_color);
-    cursor: pointer;
-    border: 2px solid var(--main_color);
-}
+
 .button-mark:hover span{
     transform: translateX(1px);
+}
+/* list-card */
+
+
+
+.list-card .card {
+   box-shadow: var(--shadow-box);
+   background-color: var(--light_level_1_color);
+   border-radius: 12px;
+   overflow: hidden;
+  }
+
+
+.container-img-card{
+    background-color: var(--main_color);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow-box);
+   }
+
+.circular-card-list{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    /* background-color: aqua; */
+    border-radius: 50%;
+    transition: 0.6s;
+    top :50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.list-card .card:hover{
+    color: var(--light_level_1_color) !important;
+}
+.list-card .card:hover path.change-to-black-color{
+    fill: black;
+}
+path.change-to-black-color {
+    fill: #777978;
+    transition: 0.3s;
+}
+.list-card .card:hover .circular-card-list{
+    transform: scale(13);
+    background-color: black;
+   
+
 }
 @keyframes move-left {
     0% {
@@ -275,7 +321,16 @@
     
 }
 @media (max-width:768px) {
-   
+    .absolute-banner{
+        position: absolute;
+        top: 75%;
+        transform: translateY(-75%);
+    }
+    .content-hero-home{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
     .img-hero{
         height: 220px;
     }
@@ -331,7 +386,7 @@
         font-size: 0.8rem;
     }
     .getaway img{
-        height: 300px;
+        height: 350px;
     }
     
 }
@@ -350,6 +405,21 @@
     .blog h5{
         font-size: var(--font-size-xs);
     }
+    .embrace p{
+        font-size: var(--font-size-xxs);
+    }
+    .container-img-card{
+        background-color: var(--main_color);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: var(--shadow-box);
+       }
+    
+    
 }
 @media (max-width:404px){
     .content-form{
@@ -370,5 +440,13 @@
     }
     .embrace svg{
         height: 300px;
+    }
+}
+@media (min-width:586px) and (max-width:1025px) {
+    .list-card .card:hover .circular-card-list{
+        transform: scale(25);
+        background-color: black;
+       
+    
     }
 }

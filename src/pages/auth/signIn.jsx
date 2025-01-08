@@ -38,7 +38,7 @@ function SignIn() {
             <div className='w-full py-5'>
                 <button className='btn-main !w-full'>{t("submit")}</button>
             </div>
-            <div className='flex gap-3'>
+            {/* <div className='flex gap-3'>
                 <div>
                     
                     <p>{t("new-member")}</p>
@@ -46,13 +46,13 @@ function SignIn() {
                 <div>
                     <p className='auth-link'><Link to={"/auth/signUp"}>{t("sign-up")} </Link></p>
                 </div>
-            </div>
-            <div className='flex justify-center  py-4'>
+            </div> */}
+            {/* <div className='flex justify-center  py-4'>
                 <div className='flex items-center w-16 sm:w-32  px-2' > <div className='line-auth' ></div></div>
                 <div> <p>{t("or-continue")}</p></div>
                 <div className='flex items-center w-16 sm:w-32 px-2' ><div className='line-auth' ></div></div>
-            </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
+            </div> */}
+            {/* <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                 <div>
                     <div className='flex btn-social'>
                         <div> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -86,7 +86,7 @@ function SignIn() {
                     
                 </div>
 
-            </div>
+            </div> */}
         </form>
     </div> );
 }

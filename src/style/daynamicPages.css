@@ -288,15 +288,16 @@
     text-transform: capitalize;
   }
   .card-property {
-    background-color: var(--light_level_1_color); 
+    /* background-color: var(--light_level_1_color);  */
     border-radius: 12px; 
     overflow: hidden; 
-    box-shadow: var(--shadow-box); 
+    
     transition: transform 0.5s ease; 
 }
 
 .card-property img {
     transition: transform 0.5s ease; 
+    box-shadow: var(--shadow-box); 
     overflow: hidden;
 }
 .card-property h4{

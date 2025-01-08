@@ -43,7 +43,7 @@ function BlogDetails() {
         link : "#"
     }]
     useEffect(()=>{ window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
-    return ( <div className="blog-details px-6 pt-28 lg:pt-32 lg:px-10">
+    return ( <div className="blog-details px-6 pt-16 md:pt-24 lg:pt-28 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2">
             <div className='blog-details-content py-5'>
                 <div className=''>

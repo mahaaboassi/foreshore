@@ -23,10 +23,12 @@ function Navbar() {
     },{
         name : "sign-in",
         link : "/auth/signIn"
-    },{
-        name : "sign-up",
-        link : "/auth/signUp"
-    }]
+    },
+    // {
+    //     name : "sign-up",
+    //     link : "/auth/signUp"
+    // }
+    ]
     const location = useLocation();  // Get current location
     const [scrolled, setScrolled] = useState(false);
     const isActive = (link) => {  

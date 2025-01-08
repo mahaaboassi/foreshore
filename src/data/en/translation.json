@@ -46,13 +46,17 @@
     "list-title-3" : "Maximize Your Rental Income",
     "list-desc-3" : "Lavish 3BR at the Address JBR w/ Dubai Eye Views!",
     "list-btn": "explore your list",
+    "list-property-desc-1" : "Enjoy a hassle-free experience. We handle every aspect of your holiday home, from marketing and reservations to guest check-ins and maintenance. Our team's dedication ensures your property is well-cared for, allowing you to relax and reap the rewards",
+    "list-property-desc-2" : "Expose your property to a world of travelers. Our extensive marketing network, including top booking platforms and social media, attracts guests from around the globe. By partnering with us, you tap into a vast pool of potential guests",
+    "list-property-desc-3" : "We know how to optimize your rental income. Through dynamic pricing strategies, our expert team ensures you get the best possible returns on your investment. Whether you have one property or a portfolio, we tailor our services to your needs",
+
 
     "embrace-title" : "EMBRACE THE EXTRAORDINARY, YOUR ADVENTURE BEGINS HERE",
     "embrace-desc-1" : "Embrace the extraordinary as your adventure unfolds. Every day is a new opportunity for exciting experiences and unforgettable memories.",
     "embrace-desc-2" : " From serene landscapes to urban thrills, your dream adventure is just a step away. Prepare to immerse yourself in a world of possibilities.",
 
-    "blog-title" : "PROPERTY OWNER - LIST YOUR VACATION HOME",
-    "blog-desc" : "Thinking of putting your property to work? Join our community of holiday home owners and turn your space into a lucrative asset. Dubai is a city that thrives on tourism, and there's never been a better time to be part of this dynamic market.",
+    "blog-title" : "Latest News",
+    "blog-desc" : "Lorem Ipsum: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
     "blog-title-1" : "The Ultimate Guide to Your Perfect Holiday Getaway",
     "blog-desc-1" : "Bright 3BR + Maid's Room w/ Creek Harbour Views!",
     "blog-title-2" : "Why a Holiday Home Is Better Than a Hotel",
@@ -78,7 +82,7 @@
     "privacy-policy" : "Privacy policy",
     "search" : "Search",
     "guest": "Guests",
-    "location": "Loacation",
+    "location": "Location",
 
 
     "welcome-auth" : "Welcome to Foreshore",
@@ -327,6 +331,11 @@
     "drop-files" : "Drag & drop some files here, or click to select files",
     "yes" : "Yes",
     "no" : "No",
-    "cancel" : "Cancel"
+    "cancel" : "Cancel",
+    "see-more" : "see more",
+    
+    "dubai" : "Dubai",
+    "abo" : "Abu Dubai",
+    "sharjah"  : "Sharjah"
     
   }

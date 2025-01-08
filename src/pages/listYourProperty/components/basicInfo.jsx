@@ -30,28 +30,22 @@ const validationSchema = Yup.object({
 
 function BasicInformation({nextStep}) {
     const {t,i18n} = useTranslation()
-    const { register, handleSubmit, formState: { errors },clearErrors,watch,setValue } = useForm({
-        resolver: yupResolver(validationSchema),
-         mode: 'onChange'
-      });
+    const { register, handleSubmit, formState: { errors },clearErrors,watch,setValue } = useForm(
+        // {resolver: yupResolver(validationSchema),
+        // defaultValues: JSON.parse(localStorage.getItem("basic-info") || '{}'), 
+        //  mode: 'onChange'   }
+    );
     const onSubmit = (data) => {
+        console.log(data)
         localStorage.setItem("basic-info",JSON.stringify(data))
         nextStep(2)
         
     }
-    useEffect(()=>{
-        if(localStorage.hasOwnProperty("basic-info")){
-            const data = JSON.parse(localStorage.getItem("basic-info"))
-            setValue("type",data.type)
-            setValue("size",data.size)
-            setValue("bedrooms",data.bedrooms)
-            setValue("bathrooms",data.bathrooms)
-            setValue("furnishing",data.furnishing)
-            setValue("ready",data.ready)
-            setValue("title",data.title)
-
-        }
-    },[])
+   // Simplify useEffect
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem("basic-info") || '{}');
+        Object.keys(data).forEach(key => setValue(key, data[key]));
+    }, [setValue]);
 
     return ( <form onSubmit={handleSubmit(onSubmit)} className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -60,7 +54,7 @@ function BasicInformation({nextStep}) {
                     {t("property-type")}
                 </div>
 
-                <Dropdown trigger={watch("type")?watch("type"):"type"} content={["apartment","studio","villa"]} icon={<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 16" fill="none">
+                <Dropdown trigger={watch("type") || "type"} content={["apartment","studio","villa"]} icon={<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 16" fill="none">
                     <path d="M7.47965 0.000297778C7.34639 0.00477873 7.21807 0.0511048 7.11344 0.132507L1.19141 4.72617C0.439782 5.30939 0 6.2006 0 7.14279V14.9744C0 15.5338 0.473502 16 1.04167 16H5.20833C5.7765 16 6.25 15.5338 6.25 14.9744V10.8719C6.25 10.7508 6.3354 10.6668 6.45833 10.6668H8.54167C8.6646 10.6668 8.75 10.7508 8.75 10.8719V14.9744C8.75 15.5338 9.2235 16 9.79167 16H13.9583C14.5265 16 15 15.5338 15 14.9744V7.14279C15 6.2006 14.5602 5.30939 13.8086 4.72617L7.88656 0.132507C7.77098 0.0426112 7.62687 -0.00421137 7.47965 0.000297778ZM7.5 1.39931L13.0355 5.6933C13.4872 6.0438 13.75 6.57692 13.75 7.14279V14.7693H10V10.8719C10 10.0863 9.33956 9.43602 8.54167 9.43602H6.45833C5.66044 9.43602 5 10.0863 5 10.8719V14.7693H1.25V7.14279C1.25 6.57692 1.51281 6.0438 1.96452 5.6933L7.5 1.39931Z" fill="#27CBBE"/>
                     </svg>}  returnedValue={(res)=>{
                         setValue("type", res) 

@@ -17,6 +17,7 @@ ExtraBold 800 */
 @import url("./style/daynamicPages.css");
 @import url("./style/accordion.css");
 @import url("./style/listYourProperty.css");
+@import url("./style/search.css");
 
 /* Tailwind requirments */
 @tailwind base;
@@ -250,7 +251,7 @@ textarea{
     /* height: 30px ; */
   }
   .input-with-icon input{
-    /* height: 30px ; */
+    height: 30px ;
     
   }
   .input-with-icon input::placeholder{

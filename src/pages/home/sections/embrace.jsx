@@ -1,9 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 
 function Embrace() {
     const { t , i18n } = useTranslation()
+    const navigate = useNavigate()
     return ( <div className=" embrace bg-white mt-10 flex flex-col-reverse items-center justify-center md:flex-row px-3 lg:px-12">
         <div className='w-full md:w-1/2 flex items-center justify-center'>
             {/* <img src={img} alt='List Your Property'/> */}
@@ -84,9 +86,12 @@ function Embrace() {
                 </svg>
         </div>
         <div className='w-full md:w-1/2'>
-            <h2 className='text-center py-3 weight-medium uppercase'>{t("embrace-title")}</h2>
-            <p className='text-center pb-3 capitalize'>{t("embrace-desc-1")}</p>
-            <p className='text-center capitalize'>{t("embrace-desc-2")}</p>
+            <h2 className=' py-3 text-center md:text-start weight-medium uppercase'>{t("embrace-title")}</h2>
+            <p className=' pb-3 text-center md:text-start capitalize'>{t("embrace-desc-1")}</p>
+            <p className='text-center md:text-start capitalize'>{t("embrace-desc-2")}</p>
+            <div className=' justify-center flex md:justify-start py-5 '>
+                <button onClick={()=>navigate("/destinations")} className='btn-main p-3 capitalize'>{t("benefit-btn")}</button>
+            </div>
         </div>
 
     </div> );

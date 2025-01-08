@@ -51,12 +51,12 @@ function Home() {
       
       window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
     return ( <div>
-      <Banner data={data} children={<SearchCard/>} />
+      <Banner fromHomePage={true} data={data} children={<SearchCard/>} />
       <OurBenefits/>
       <ExploreDestination/>
       <Getaway/>
-      <ListYourProperty/>
       <Embrace/>
+      <ListYourProperty/>
       <Blog/>
     </div>);
 }
