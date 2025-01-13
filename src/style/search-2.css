@@ -52,10 +52,19 @@
     padding: 5px;
     z-index: 10;
 }
+.btn-2{
+    transition: 0.2s;
+}
+.btn-2:hover{
+    background-color: silver;
+} 
 @media (max-width:900px) {
     .semi-input {
         padding: 7px;
         font-size: var(--font-size-xs);
+    }
+    .absolute-card-2{
+        top: 45px;
     }
     .btn-search-2{
         width: 100%;
@@ -67,12 +76,7 @@
     }
     
 }
-.btn-2{
-    transition: 0.2s;
-}
-.btn-2:hover{
-    background-color: silver;
-}
+
 @media (max-width:500px) {
     .search-2-container svg{
         height: 13px;
@@ -93,6 +97,8 @@
         transition: 0.3s;
         font-size: var(--font-size-xxs);
     }
-
+    .absolute-card-2{
+        top: 40px;
+    }
     
 }

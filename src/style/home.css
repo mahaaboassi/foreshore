@@ -388,6 +388,13 @@ path.change-to-black-color {
     .getaway img{
         height: 350px;
     }
+    .list-card h5{
+        font-size: var(--font-size-xs);
+        font-weight: 400;
+    }
+    .list-card p{
+        font-size: var(--font-size-xxs);
+    }
     
 }
 @media (max-width:640px){
@@ -401,6 +408,12 @@ path.change-to-black-color {
         width: 30px ;
         height: 30px;
         font-size: var(--font-size-s);
+    }
+    .benefit h4{
+        font-size: var(--font-size-s);
+    }
+    .benefit p{
+        font-size: var(--font-size-xxs);
     }
     .blog h5{
         font-size: var(--font-size-xs);
