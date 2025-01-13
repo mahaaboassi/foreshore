@@ -21,10 +21,13 @@ function BannerSearch() {
     const typeRef = useRef(null);
     const guestRef = useRef(null);
     const closeDropdown = (type,value)=>{
-        setValues(prev=>({...prev,[type]:value}))
-        setIsOpen({
+        alert("jnjn")
+        const temp = {
             location :false,type:false,guest:false
-        })
+        }
+    
+        setValues(prev=>({...prev,[type]:value}))
+        setIsOpen(temp)
     }
     const changeCount = (type)=>{
         if(type == "pls"){
@@ -36,7 +39,7 @@ function BannerSearch() {
     
     useEffect(() => {
         const handleClickOutside = (e) => {
-            console.log("here");
+
             
         if (
             locationRef.current &&
@@ -63,7 +66,7 @@ function BannerSearch() {
     return ( <div className='search-banner '>
         <div className={`flex  ${window.innerWidth < 600 && "justify-between"}`}>
             <label ref={locationRef} onClick={()=>setIsOpen({
-                location :true,type:false,guest:false
+                location :!isOpen.location,type:false,guest:false
             })} className='flex items-center gap-1 sm:gap-2 p-1 lg:p-4 relative'>
                 <div className='flex items-center icon-container-banner '>
                       <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 15 15" fill="none">

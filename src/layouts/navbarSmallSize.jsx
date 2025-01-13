@@ -20,10 +20,12 @@ function MenuNav() {
         },{
             name : "sign-in",
             link : "/auth/signIn"
-        },{
-            name : "sign-up",
-            link : "/auth/signUp"
-        }]
+        },
+        // {
+        //     name : "sign-up",
+        //     link : "/auth/signUp"
+        // }
+    ]
     const [isOpen, setIsOpen] = useState(false)
     const location = useLocation();  // Get current location
     const isActive = (link) => {  

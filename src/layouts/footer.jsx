@@ -113,11 +113,12 @@ function Footer() {
             </div>
         </div>
         <div className="final-footer py-2 px-3">
-            <div className="md:grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 flex-col-reverse flex">
+            <div className="md:grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-0 flex-col-reverse flex">
                 <div className="flex justify-center md:justify-start">
-                    <p> {t("final-hint")}</p>
+                    <p> {t("final-hint-1")} <a className='link-li' href='/' target='_blank'>Foreshore</a></p> &nbsp; | &nbsp;
+                    <p> {t("final-hint-2")} <a className='link-li' href='https://arizglobal.com' target='_blank'>ArizGlobal</a></p>
                 </div>
-                <div className="flex gap-2 justify-center">
+                {/* <div className="flex gap-2 justify-center">
                     <div>
                         <a target="_blank" href="tel:+971042281609" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 36 36" fill="none">
@@ -177,7 +178,7 @@ function Footer() {
                         </a>
                     </div>
 
-                </div>
+                </div> */}
                 <div className="flex justify-center md:justify-end">
                     <ul className="flex gap-4">
                         <li className="capitalize">

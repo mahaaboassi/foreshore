@@ -144,9 +144,15 @@ footer input{
   .final-footer li{
     position: relative;
     transition: 0.5s;
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-xxs);
 }
-.final-footer li::before{
+.link-li{
+  position: relative;
+  font-size: var(--font-size-xxxs);
+
+}
+
+.final-footer li::before, .link-li::before{
     content : "";
     position: absolute;
     bottom: 0;
@@ -156,9 +162,13 @@ footer input{
     transition: 0.5s;
 
 }
+.final-footer li:hover, .link-li:hover{
+  color: var(--main_color);
 
-.final-footer li:hover::before{
+}
+.final-footer li:hover::before, .link-li:hover::before{
     width: 50%; 
+    background-color: var(--main_color);
 } 
 /* Animation */
 

@@ -18,7 +18,7 @@ ExtraBold 800 */
 @import url("./style/accordion.css");
 @import url("./style/listYourProperty.css");
 @import url("./style/search.css");
-
+@import url("./style/search-2.css");
 /* Tailwind requirments */
 @tailwind base;
 @tailwind components;
@@ -89,6 +89,9 @@ p{
 }
 .bg-success{
   background-color: var(--success-color);
+}
+.bg-main{
+  background-color: var(--main_color);
 }
 .bg-warning{
   background-color: var(--warning-color);

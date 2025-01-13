@@ -4,7 +4,7 @@ import logo from "../logo.svg"
 import logo_light from "../logo_light.svg"
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Languages from '../components/language';
-import MenuNav from '../components/menu';
+import MenuNav from './navbarSmallSize';
 
 function Navbar() {
     const { t, i18n } = useTranslation();

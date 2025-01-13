@@ -33,20 +33,27 @@ function Banner({children,data, fromHomePage = false}) {
                   <img className='w-full girl' src={ele.img} alt="girl" />
                   
                 </div>
-                <div className={`${fromHomePage ? "content-hero-home": "content-hero"} left-5 lg:left-10 px-2 sm:px-5 md:px-7 `}>
+
+                <div className={`content-hero left-5 lg:left-10 px-2 sm:px-5 md:px-7 `}>
                   <h1 className='text-main  weight-bold'>{ele.hint}</h1>
                   <h2 className='text-dark weight-bold'>{ele.title}</h2>
                 </div>
+                  {/* ----------------------------------- Banner search --------------------------------*/}
+                {/* <div className={`${fromHomePage ? "content-hero-home": "content-hero"} left-5 lg:left-10 px-2 sm:px-5 md:px-7 `}>
+                  <h1 className='text-main  weight-bold'>{ele.hint}</h1>
+                  <h2 className='text-dark weight-bold'>{ele.title}</h2>
+                </div> */}
               </SwiperSlide>))}
           </Swiper>
 
         {children}
-        {window.innerWidth >600 && fromHomePage  && <div className='absolute-banner left-5 lg:left-10 px-2 sm:px-5 md:px-7'>
+        {/* ----------------------------------- Banner search --------------------------------*/}
+        {/* {window.innerWidth >600 && fromHomePage  && <div className='absolute-banner left-5 lg:left-10 px-2 sm:px-5 md:px-7'>
           <BannerSearch/>
           </div>}
         {window.innerWidth < 600 && fromHomePage &&<div style={{marginTop:"22px"}} className='px-6 lg:px-10'>
            <BannerSearch/>
-          </div>}
+          </div>} */}
 
     </div>   );
 }
