@@ -339,6 +339,12 @@
   font-size: var(--font-size-l);
   margin: 0;
 }
+.our-properties  h4{
+  transition: 0.3s;
+}
+.our-properties  h4:hover{
+  color: var(--main_color);
+}
 
 @media (max-width:1024px) {
 

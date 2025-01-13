@@ -114,7 +114,7 @@ function Footer() {
         </div>
         <div className="final-footer py-2 px-3">
             <div className="md:grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-0 flex-col-reverse flex">
-                <div className="flex justify-center md:justify-start">
+                <div className="flex justify-center items-center  md:justify-start">
                     <p> {t("final-hint-1")} <a className='link-li' href='/' target='_blank'>Foreshore</a></p> &nbsp; | &nbsp;
                     <p> {t("final-hint-2")} <a className='link-li' href='https://arizglobal.com' target='_blank'>ArizGlobal</a></p>
                 </div>
@@ -179,7 +179,7 @@ function Footer() {
                     </div>
 
                 </div> */}
-                <div className="flex justify-center md:justify-end">
+                <div className="flex justify-center items-center md:justify-end">
                     <ul className="flex gap-4">
                         <li className="capitalize">
                             <Link  to="/terms&conditions">
