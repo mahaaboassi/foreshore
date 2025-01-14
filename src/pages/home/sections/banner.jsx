@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -12,8 +13,9 @@ import { Autoplay, EffectFade} from 'swiper/modules';
 import BannerSearch from './bannerSearch';
 
 
-function Banner({children,data, fromHomePage = false}) {
 
+function Banner({children,data, fromHomePage = false}) {
+    const {t, i18n } = useTranslation()
     return (<div  className='relative banner'>
             <Swiper
               spaceBetween={30}
@@ -34,9 +36,9 @@ function Banner({children,data, fromHomePage = false}) {
                   
                 </div>
 
-                <div className={`content-hero left-5 lg:left-10 px-2 sm:px-5 md:px-7 `}>
-                  <h1 className='text-main capitalize weight-bold'>{ele.hint}</h1>
-                  <h2 className='text-dark capitalize weight-medium '>{ele.title}</h2>
+                <div className={`content-hero left-5 lg:left-10 px-2 sm:px-5 md:px-7 ${i18n.language == "ar" ? "arabic-dir":"w-full en-dir"} `}>
+                  <h1  className={`text-main capitalize weight-bold `}>{ele.hint}</h1>
+                  <h2 className={`text-dark capitalize weight-medium `}>{ele.title}</h2>
                 </div>
                   {/* ----------------------------------- Banner search --------------------------------*/}
                 {/* <div className={`${fromHomePage ? "content-hero-home": "content-hero"} left-5 lg:left-10 px-2 sm:px-5 md:px-7 `}>

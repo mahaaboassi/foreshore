@@ -32,19 +32,19 @@ function Home() {
       title : t("hero-text-1"),
       hint :  t("hero-hint-1")
     },
-    {
-      img :  window.innerWidth <= 500 ? girl_2_small: girl_2,
-      background_img : banner_2,
-      count : 1 ,
-      title : t("hero-text-2") ,
-      hint :  t("hero-hint-2")
-    },{
-      img : window.innerWidth <= 500 ? girl_3_small: girl_3,
-      background_img : banner_3,
-      count : 2 ,
-      title : t("hero-text-3") ,
-      hint :  t("hero-hint-3")
-    }
+    // {
+    //   img :  window.innerWidth <= 500 ? girl_2_small: girl_2,
+    //   background_img : banner_2,
+    //   count : 1 ,
+    //   title : t("hero-text-2") ,
+    //   hint :  t("hero-hint-2")
+    // },{
+    //   img : window.innerWidth <= 500 ? girl_3_small: girl_3,
+    //   background_img : banner_3,
+    //   count : 2 ,
+    //   title : t("hero-text-3") ,
+    //   hint :  t("hero-hint-3")
+    // }
   ]
     useEffect(()=>{ 
 
