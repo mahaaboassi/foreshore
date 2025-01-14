@@ -61,7 +61,7 @@ function Navbar() {
                     <ul className='  gap-3 hidden md:flex '>
                         {
                             data.map((e,index)=>(<li key={`Navbar_${e.name}_${index}`}>
-                                <NavLink to={e.link} className={isActive(e.link) ? "weight-semiBold active  capitalize" : "weight-regular not-active capitalize"}>
+                                <NavLink to={e.link} className={isActive(e.link) ? `weight-semiBold active ${i18n.language == "ar"? "ar-nav" :"en-nav"}  capitalize` : `weight-regular ${i18n.language == "ar"? "ar-nav" :"en-nav"} not-active capitalize`}>
                                     {t(e.name)}
                                 </NavLink>
                             </li>))
