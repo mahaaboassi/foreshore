@@ -43,10 +43,10 @@
     transition: transform 0.3s ease;
   
  }
- .nav li a.en-nav.not-active::before{
+ .nav li a.en-nav.not-active::before,.scrolled-nav li a.en-nav.not-active::before{
     transform-origin: bottom right;
  }
- .nav a.ar-nav.not-active::before{
+ .nav a.ar-nav.not-active::before,.scrolled-nav a.ar-nav.not-active::before{
     transform-origin: bottom left;
  }
  .nav li  a.active::before, .scrolled-nav li  a.active::before {
@@ -62,10 +62,10 @@
     
 
  }
- .nav li  a.en-nav.active::before{
+ .nav li  a.en-nav.active::before,.scrolled-nav li  a.en-nav.active::before{
     transform-origin: bottom left;
  }
- .nav li a.ar-nav.active::before{
+ .nav li a.ar-nav.active::before,.scrolled-nav li a.ar-nav.active::before{
     transform-origin: bottom right;
  }
  /* Hover effect on text and underline */
@@ -80,10 +80,10 @@
     transform: scaleX(1); /* Slide in the underline */
 
  }
- .nav li  a.en-nav.not-active:hover::before{
+ .nav li  a.en-nav.not-active:hover::before,.scrolled-nav li  a.en-nav.not-active:hover::before{
     transform-origin: bottom left;
  }
- .nav li a.ar-nav.not-active:hover::before{
+ .nav li a.ar-nav.not-active:hover::before,.scrolled-nav li a.ar-nav.not-active:hover::before{
     transform-origin: bottom right;
  }
 .line{
