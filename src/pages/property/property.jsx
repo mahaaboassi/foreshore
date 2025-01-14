@@ -122,7 +122,7 @@ function PropertyDetails() {
             </div>
             <p className="pb-2">{`${currentSlide+1}/${slides.length}`}</p>
         </div>
-        <div className="slider-container md:h-96 ">
+        <div style={{direction:"ltr"}} className="slider-container md:h-96 ">
           {slides.map((slide, index) => (
             <div
               key={slide.id}

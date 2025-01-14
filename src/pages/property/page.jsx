@@ -9,47 +9,26 @@ import img_5 from "../../images/destination_3.webp"
 import img_6 from "../../images/destination_2.webp"
 import img_7 from "../../images/destination_4.webp"
 import img_8 from "../../images/destination_1.webp"
-// Images
 // Images For Banners
-import girl from "../../images/image without background.webp"
-import girl_small from "../../images/image without background_small.webp"
-import banner_1 from "../../images/banner background.webp"
-import girl_2 from "../../images/banner 02 without background.webp"
-import girl_2_small from "../../images/banner 02 without background_small.webp"
-import banner_2 from "../../images/banner 02 background.webp"
-import girl_3 from "../../images/banner 03 without background.webp"
-import girl_3_small from "../../images/banner 03 without background_small.webp"
-import banner_3 from "../../images/banner 03 back.webp"
+import image from "../../images/explore.webp"
+import small_size from "../../images/explore_small.webp"
 
 
 import { Link } from 'react-router-dom';
-import Dropdown from '../../components/dropdown';
 
 function Destinations() {
     const {t,i18n} = useTranslation()
     useEffect(()=>{ window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
     const data = [{
-        img : window.innerWidth <= 472 ? girl_small: girl,
-        background_img : banner_1,
+        img : window.innerWidth <= 472 ? small_size: image,
+        background_img : window.innerWidth <= 472 ? small_size:  image,
         count : 0,
-        title : t("destination-title"),
-        hint :  t("destination-hint")
-      },{
-        img : window.innerWidth <= 472 ? girl_2_small: girl_2,
-        background_img : banner_2,
-        count : 1 ,
-        title : t("destination-title")+"1",
-        hint :  t("destination-hint")
-      },{
-        img : window.innerWidth <= 472 ? girl_3_small: girl_3,
-        background_img : banner_3,
-        count : 2 ,
-        title : t("destination-title") +"2",
-        hint :  t("destination-hint")
+        title : t("destination-title-0"),
+        hint :  t("destination-hint-0")
       }]
     const [isOpen, setIsOpen] =  useState()
     return ( <div className='our-properties'>
-        <Banner data={data} />
+        <Banner  data={data} />
         <div className="px-6 py-10  lg:px-10">
             <div className='flex justify-between items-center'>
             <h3 className='capitalize weight-semiBold'>{t("our-properties")} (41)</h3>

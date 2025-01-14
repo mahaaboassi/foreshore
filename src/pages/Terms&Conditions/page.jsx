@@ -3,35 +3,17 @@ import { useTranslation } from 'react-i18next';
 import Banner from '../home/sections/banner';
 
 // Images
-import girl from "../../images/image without background.webp"
-import girl_small from "../../images/image without background_small.webp"
-import banner_1 from "../../images/banner background.webp"
-import girl_2 from "../../images/banner 02 without background.webp"
-import girl_2_small from "../../images/banner 02 without background_small.webp"
-import banner_2 from "../../images/banner 02 background.webp"
-import girl_3 from "../../images/banner 03 without background.webp"
-import girl_3_small from "../../images/banner 03 without background_small.webp"
-import banner_3 from "../../images/banner 03 back.webp"
+import terms from "../../images/terms.webp"
+import terms_smallSize from "../../images/terms_small.webp"
+
 
 function TermaAndConditions() {
     const { t  } = useTranslation();
     const data = [{
-        img : window.innerWidth <= 472 ? girl_small: girl,
-        background_img : banner_1,
+        img : window.innerWidth <= 472 ? terms_smallSize: terms,
+        background_img : window.innerWidth <= 472 ? terms_smallSize: terms,
         count : 0,
         title : t("terms-and-conditions"),
-        hint :  ""
-      },{
-        img : window.innerWidth <= 472 ? girl_2_small: girl_2,
-        background_img : banner_2,
-        count : 1 ,
-        title : t("terms-and-conditions")+"1",
-        hint :  ""
-      },{
-        img : window.innerWidth <= 472 ? girl_3_small: girl_3,
-        background_img : banner_3,
-        count : 2 ,
-        title : t("terms-and-conditions") +"2",
         hint :  ""
       }]
       const dataTerms = [{

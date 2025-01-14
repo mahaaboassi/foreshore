@@ -7,8 +7,14 @@
     "list-your-property" : "List Your property",
     "sign-in" : "Sign In",
     "sign-up" : "Sign Up",
-    "hero-hint-1" : "EXPERIENCE YOUR ",
-    "hero-text-1" : "DREAM VACATION HOME",
+    "hero-hint-0" : "EXPERIENCE YOUR ",
+    "hero-text-0" : "DREAM VACATION HOME",
+    "hero-hint-1" : "Welcome to Your Dream Stay",
+    "hero-text-1" : "Open the door to endless possibilities with Foreshore! From cozy retreats to luxury vacation homes, explore stays crafted just for you. Begin your journey today!",
+    "hero-hint-2" : "Effortless Stays, Every Time",
+    "hero-text-2" : "Find places that feel like home—curated for comfort and convenience. Your perfect getaway starts here!",
+    "hero-hint-3" : "Find Your Ideal Vacation Spot",
+    "hero-text-3" : "Search, book, and unwind. With Foreshore, your next unforgettable vacation is just a click away!",
 
     "benefit-title" : "LEARN moRE ABOUT OUR BENEFITS",
     "benefit-desc" : "Lorem Ipsum: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
@@ -304,8 +310,10 @@
     "dubai-UAE" : "Dubai, United Arabic Emirate",
 
     
-    "destination-hint" : "DISCOVER YOUR ",
-    "destination-title" : "DREAM DESTINATIONS",
+    "destination-hint-0" : "DISCOVER YOUR ",
+    "destination-title-0" : "DREAM DESTINATIONS",
+    "destination-hint" : "Explore Iconic Getaways",
+    "destination-title" : "From serene beaches to vibrant cityscapes, discover destinations that inspire and rejuvenate. Where will your next adventure take you? ",
     "our-properties" : "our properties",
 
     "property-type" : "Property Type",
