@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next';
 import Banner from '../home/sections/banner';
 
 // images 
-import privacy from "../../images/privacy.webp"
-import small_size from "../../images/privacy_small.webp"
-
+import image from "../../images/privacy.webp"
+import small_size from "../../images/privacy 500x330.webp"
+import medium_size from "../../images/privacy policy 700 x 330.webp"
 
 function PrivacyPolicy() {
     const { t  } = useTranslation();
     const data = [{
-        img :  window.innerWidth <= 472 ? small_size: privacy,
-        background_img : window.innerWidth <= 472 ? small_size : privacy,
+        img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
+        background_img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
         count : 0,
         title : t("privacy-policy"),
         hint :  ""

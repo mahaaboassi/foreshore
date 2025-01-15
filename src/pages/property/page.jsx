@@ -11,7 +11,8 @@ import img_7 from "../../images/destination_4.webp"
 import img_8 from "../../images/destination_1.webp"
 // Images For Banners
 import image from "../../images/explore.webp"
-import small_size from "../../images/explore_small.webp"
+import small_size from "../../images/explore 500x330.webp"
+import medium_size from "../../images/explore 700x330.webp"
 
 
 import { Link } from 'react-router-dom';
@@ -20,8 +21,8 @@ function Destinations() {
     const {t,i18n} = useTranslation()
     useEffect(()=>{ window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
     const data = [{
-        img : window.innerWidth <= 472 ? small_size: image,
-        background_img : window.innerWidth <= 472 ? small_size:  image,
+        img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image) ,
+        background_img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
         count : 0,
         title : t("destination-title-0"),
         hint :  t("destination-hint-0")

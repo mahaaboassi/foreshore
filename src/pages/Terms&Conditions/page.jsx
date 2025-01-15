@@ -3,15 +3,16 @@ import { useTranslation } from 'react-i18next';
 import Banner from '../home/sections/banner';
 
 // Images
-import terms from "../../images/terms.webp"
-import terms_smallSize from "../../images/terms_small.webp"
+import image from "../../images/terms.webp"
+import small_size from "../../images/contract 500x330.webp"
+import medium_size from "../../images/contract 700x330.webp"
 
 
 function TermaAndConditions() {
     const { t  } = useTranslation();
     const data = [{
-        img : window.innerWidth <= 472 ? terms_smallSize: terms,
-        background_img : window.innerWidth <= 472 ? terms_smallSize: terms,
+        img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
+        background_img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
         count : 0,
         title : t("terms-and-conditions"),
         hint :  ""

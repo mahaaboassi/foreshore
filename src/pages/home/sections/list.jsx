@@ -1,11 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from "../../../components/header";
-// Import Images
-import img_1 from "../../../images/management of your property 1.webp" 
-import img_2 from "../../../images/global audiance 1.webp"
-import img_3 from "../../../images/rental income 1.webp"
-import img from "../../../images/woman-stand-at-the-top-look-at-the-skyscraper-in-t-2023-11-27-05-35-48-utc.webp"
 import { useNavigate } from 'react-router-dom';
 
 function ListYourProperty() {

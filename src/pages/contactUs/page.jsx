@@ -5,8 +5,8 @@ import InputWithIcon from '../../components/inputWithIcons';
 
 // Images
 import image from "../../images/conct.webp"
-import small_size from "../../images/contact_small.webp"
-
+import small_size from "../../images/contact us 500x330.webp"
+import medium_size from "../../images/contact 700x330.webp"
 
 
 
@@ -15,8 +15,8 @@ import small_size from "../../images/contact_small.webp"
 function ContactUs() {
     const { t  } = useTranslation();
     const data = [{
-        img : window.innerWidth <= 472 ? small_size: image,
-        background_img : window.innerWidth <= 472 ? small_size: image,
+        img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
+        background_img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
         count : 0,
         title : t("contact-title"),
         hint :  t("contact-hint")

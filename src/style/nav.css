@@ -212,6 +212,5 @@
   
     .nav li  a.active::before, .scrolled-nav li  a.active::before ,.nav li  a.not-active::before, .scrolled-nav li  a.not-active::before{
         height: 0px;
-        
     }
 }
