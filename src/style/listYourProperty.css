@@ -134,9 +134,22 @@
     min-width: 100px;
     font-weight: 500;
 }
+.files-countiner{
+    font-size: var(--font-size-s);
+}
+.icon-delete{
+    color: var(--main_color);
+    cursor: pointer;
+}
 @media (max-width:500px) {
     .list-confirm,.list-confirm-ar{
         min-width: unset;
+    }
+    .form-list p{
+        font-size: var(--font-size-xxs);
+    }
+    .files-countiner{
+        font-size: var(--font-size-xs);
     }
     
 }

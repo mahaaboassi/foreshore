@@ -345,6 +345,9 @@
     
     "dubai" : "Dubai",
     "abo" : "Abu Dubai",
-    "sharjah"  : "Sharjah"
+    "sharjah"  : "Sharjah",
+
+    "welcome-list-1" : "Welcome to Foreshore! We're excited to help you list your property effortlessly.",
+    "welcome-list-2" : "Please take a moment to share the required details. This will enable us to provide the best service and ensure your property gets the attention it deserves."
     
   }

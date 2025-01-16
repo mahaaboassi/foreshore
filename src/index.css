@@ -19,6 +19,7 @@ ExtraBold 800 */
 @import url("./style/listYourProperty.css");
 @import url("./style/search.css");
 @import url("./style/search-2.css");
+@import url("./style/public.css");
 /* Tailwind requirments */
 @tailwind base;
 @tailwind components;

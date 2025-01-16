@@ -4,9 +4,9 @@ import Banner from '../home/sections/banner';
 import InputWithIcon from '../../components/inputWithIcons';
 
 // Images
-import image from "../../images/conct.webp"
+import image from "../../images/contact us 1350 x 500.webp"
 import small_size from "../../images/contact us 500x330.webp"
-import medium_size from "../../images/contact 700x330.webp"
+import medium_size from "../../images/contact us 700x330.webp"
 
 
 
@@ -15,8 +15,8 @@ import medium_size from "../../images/contact 700x330.webp"
 function ContactUs() {
     const { t  } = useTranslation();
     const data = [{
-        img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
-        background_img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
+        img : window.innerWidth <= 520 ? small_size : (window.innerWidth <=750 ? medium_size: image),
+        background_img : window.innerWidth <= 520 ? small_size : (window.innerWidth <=750 ? medium_size: image),
         count : 0,
         title : t("contact-title"),
         hint :  t("contact-hint")

@@ -1,14 +1,16 @@
 import React ,{useEffect, useState}  from 'react';
 import { useTranslation } from 'react-i18next';
 
-function Confirmations({nextStep}) {
+function Confirmations({nextStep, onSubmit,loading}) {
     const { t ,i18n } = useTranslation();
     const [location, setLoacation] = useState({})
     const [basic, setBasic] = useState({})
+    const [isLoading, setIsLoading] = useState(false)
     useEffect(()=>{
         setLoacation(JSON.parse(localStorage.getItem("location")))
         setBasic(JSON.parse(localStorage.getItem("basic-info")))
     },[])
+    useEffect(()=>{setIsLoading(loading)},[loading])
     return ( <div className={`px-5 ${i18n.language == "en" ?"list-confirm":"list-confirm-ar"}`}>
         <div className='py-3'>
             <h2 className='pb-1 '>{t("basic-info")}</h2>
@@ -42,11 +44,15 @@ function Confirmations({nextStep}) {
 
         <div className=' py-2 grid grid-cols-1 sm:grid-cols-2 gap-2'>
             <div><button onClick={()=>{nextStep(1)
+                  localStorage.removeItem("$user-info")
                 localStorage.removeItem("location")
                 localStorage.removeItem("basic-info")
                 localStorage.removeItem("documents")
             }} type="submit" className='btn-grey p-5 !w-full'>{t("cancel")}</button></div>
-            <div><button type="submit" className='btn-main p-5 !w-full'>{t("submit")}</button></div>
+            <div>
+                <button onClick={onSubmit}  type="submit" className='btn-main p-5 !w-full'>
+                    {t("submit")}
+                    </button></div>
         </div>
     </div> );
 }

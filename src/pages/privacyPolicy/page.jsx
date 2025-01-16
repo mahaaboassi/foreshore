@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import Banner from '../home/sections/banner';
 
 // images 
-import image from "../../images/privacy.webp"
-import small_size from "../../images/privacy 500x330.webp"
-import medium_size from "../../images/privacy policy 700 x 330.webp"
+import image from "../../images/pp 1350x500.webp"
+import small_size from "../../images/privacy policy 500x330.webp"
+import medium_size from "../../images/pp 700x 330.webp"
 
 function PrivacyPolicy() {
     const { t  } = useTranslation();

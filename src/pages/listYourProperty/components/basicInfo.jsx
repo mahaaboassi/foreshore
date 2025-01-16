@@ -36,7 +36,6 @@ function BasicInformation({nextStep}) {
         //  mode: 'onChange'   }
     );
     const onSubmit = (data) => {
-        console.log(data)
         localStorage.setItem("basic-info",JSON.stringify(data))
         nextStep(2)
         

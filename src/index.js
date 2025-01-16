@@ -7,12 +7,14 @@ import "./i18n"
 // Redux 
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import Notification from './components/notification';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+       <App />
+       <Notification/>
     </Provider>
   </React.StrictMode>
 );

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useDropzone } from 'react-dropzone';
 import img_file from "../../../images/File.webp"
 
-function Documents({ nextStep }) {
+function Documents({ nextStep,filesExist ,returnedFiles }) {
   const { t } = useTranslation();
 
   const [files, setFiles] = useState([]); // State to hold the uploaded files
@@ -11,6 +11,7 @@ function Documents({ nextStep }) {
   const onSubmit = (data) => {
     localStorage.setItem('documents', JSON.stringify(files));
     nextStep(4);
+    returnedFiles(files)
   };
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -23,22 +24,22 @@ function Documents({ nextStep }) {
   });
    useEffect(()=>{
           if(localStorage.hasOwnProperty("documents")){
-              setFiles(JSON.parse(localStorage.getItem("documents")))
-  
+             setFiles(filesExist)
+              // setFiles(JSON.parse(localStorage.getItem("documents")))
           }
       },[])
   return (
     <div className="w-full">
       <div className="">
         <div>
-          <div className="pb-2 label-title">
+          <div className="pb-2 label-title capitalize">
             {t('documents')}
           </div>
           <div
             {...getRootProps()}
             className='text-center dropzone p-10 w-full cursor-pointer'
           >
-            <div className='flex justify-center'>
+            <div className='flex justify-center pb-4'>
                 <img alt='file' src={img_file} />
             </div>
             <input {...getInputProps()} />
@@ -50,13 +51,14 @@ function Documents({ nextStep }) {
       {/* Display uploaded files */}
       {files.length > 0 && (
         <div className="py-2">
-           <div className="pb-2 label-title">
+           <div className="pb-2 label-title capitalize">
             {t('files')}
           </div>
-          <ul>
-            {files.map((file) => (
-              <li key={file.name}>
-                <strong>{file.name}</strong> ({file.size} bytes)
+          <ul className='files-countiner'>
+            {files.map((file,index) => (
+              <li className='flex justify-between items-center' key={file.name}>
+                <div><strong>{file.name}</strong> ({file.size} bytes)</div>
+                <div onClick={()=> setFiles(files.filter((e,i)=>(i != index)))} className='icon-delete'>x</div>
               </li>
             ))}
           </ul>

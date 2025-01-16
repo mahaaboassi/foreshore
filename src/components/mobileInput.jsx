@@ -9,41 +9,14 @@ function MobileInput({register,value,returnedCountry,country_id,isOpenMenu=true}
     const [ selectedCountry, setSelectedCountry,] = useState({})
     const [number ,setNumber ] = useState()
     const [isOpen ,setIsOpen ] = useState(false)
-    const [loading, setLoading] = useState(true)
     useEffect(()=>{
         setSelectedCountry(countriesWithCodeNumber.find(e => e.code == "AE"))
-        // const controller = new AbortController()
-        // const signal = controller.signal
-        // getCountry(signal)
-        // return () => controller.abort()
+        returnedCountry(countriesWithCodeNumber.find(e => e.code == "AE"))
     },[])
     useEffect(()=>{
         setNumber(value)
     },[value])
-    // const getCountry = async (signal)=>{
-    //     setLoading(true)
-    //     const { response , message } = await Helper({
-    //         url : apiRoutes.country.all,
-    //         method : "GET",
-    //         signal
-    //     })
-    //     if(response){
-            
-    //         if(country_id){
-    //             response.data.forEach((ele)=>{
-    //                 if(ele.id == country_id){
-    //                     setSelectedCountry(ele)
-    //                 }
-    //             })
-    //         }else{
-    //             setCountries(response.data)
-    //             setSelectedCountry(response.data[0])
-    //             returnedCountry(response.data[0])
-    //         }
-           
-    //         setLoading(false)
-    //     }
-    // }
+
     const handleSearch = (e) => {
         if(e.target.value.length >2 ){
             const searchQuery = e.target.value.toLowerCase();
@@ -94,7 +67,7 @@ function MobileInput({register,value,returnedCountry,country_id,isOpenMenu=true}
         </div>
         <div className="w-full">
             <input  disabled={!isOpenMenu} placeholder="XX XX XX" {...register} value={number} onChange={(e)=>{
-                // register.onChange(e)
+                register.onChange(e)
                 setNumber(e.target.value)
                 }} type="number" />
         </div>
@@ -105,7 +78,7 @@ function MobileInput({register,value,returnedCountry,country_id,isOpenMenu=true}
             {countries.length>0 ? countries.map((ele)=>{
                 const code = ele.code.toLowerCase()
                 return <li onClick={()=>{setSelectedCountry(ele)
-                    // returnedCountry(ele)
+                    returnedCountry(ele)
                     setIsOpen(false)
                 }} className="flex mb-2 gap-2 cursor-pointer hover:text-stone-700 details-country" key={`Countries_${ele.name}`}>
                 <img className="w-5 h-4  rounded" alt={ele.name} src={`https://flagcdn.com/w320/${code}.png`} />
