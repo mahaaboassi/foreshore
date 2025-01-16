@@ -41,3 +41,11 @@
       transform: rotate(360deg);
     }
   }
+
+
+  @media (max-width:500px) {
+    .svg404{
+        height: 300px;
+    }
+    
+  }

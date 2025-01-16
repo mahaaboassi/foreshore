@@ -6,8 +6,8 @@ function NotFound () {
     const navigate = useNavigate()
     const { t } = useTranslation()
     return ( <div className=" ">
-        <div className="flex justify-center pt-20">
-        <svg xmlns="http://www.w3.org/2000/svg" width="617" height="473" viewBox="0 0 617 473" fill="none">
+        <div className="flex justify-center pt-16 sm:pt-20">
+        <svg className='svg404' xmlns="http://www.w3.org/2000/svg" width="617" height="473" viewBox="0 0 617 473" fill="none">
             <g clip-path="url(#clip0_489_984)">
             <mask id="mask0_489_984" maskUnits="userSpaceOnUse" x="44" y="35" width="546" height="410">
             <path d="M44.8359 35.3359H589.143V444.74H44.8359V35.3359Z" fill="white"/>
@@ -193,7 +193,7 @@ function NotFound () {
         </svg>
         </div>
         <div className="flex justify-center py-5">
-            <button onClick={()=>navigate("/")} className="btn-main p-2">{t("go-to-home-page")}</button>
+            <button onClick={()=>navigate("/")} className="btn-main p-5">{t("go-to-home-page")}</button>
         </div>
     </div> );
 }
