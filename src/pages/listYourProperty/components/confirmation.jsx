@@ -51,7 +51,7 @@ function Confirmations({nextStep, onSubmit,loading}) {
             }} type="submit" className='btn-grey p-5 !w-full'>{t("cancel")}</button></div>
             <div>
                 <button onClick={onSubmit}  type="submit" className='btn-main p-5 !w-full'>
-                    {t("submit")}
+                    {isLoading?<div  className="loader"></div>:t("submit")} 
                     </button></div>
         </div>
     </div> );

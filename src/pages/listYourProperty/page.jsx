@@ -27,13 +27,13 @@ function ListYourProperty() {
     const onSubmit = async()=>{
         const data = new FormData()
         setLoading(true)
-        // if(localStorage.getItem("$user-info")){
-        //     const user = JSON.parse(localStorage.getItem("$user-info"))
-        //     Object.keys(user).forEach((key)=>{
-        //         data.append(key,user[key])
+        if(localStorage.getItem("$user-info")){
+            const user = JSON.parse(localStorage.getItem("$user-info"))
+            Object.keys(user).forEach((key)=>{
+                data.append(key,user[key])
                 
-        //     })
-        // }
+            })
+        }
         if(localStorage.getItem("location")){
             const location = JSON.parse(localStorage.getItem("location")) 
             Object.keys(location).forEach((key)=>{
@@ -67,10 +67,10 @@ function ListYourProperty() {
                     bgColor : "bg-success",
                     message : res.message
                 }))
-                // localStorage.removeItem("$user-info")
-                // localStorage.removeItem("location")
-                // localStorage.removeItem("basic-info")
-                // localStorage.removeItem("documents")
+                localStorage.removeItem("location")
+                localStorage.removeItem("basic-info")
+                localStorage.removeItem("documents")
+                setCurrentSelected(1)
 
             }else{
                 dispatch(changeNotification({
@@ -163,6 +163,7 @@ function ListYourProperty() {
          {currentSelected == 3 && <Documents filesExist={files} returnedFiles={(res)=>setFiles(res)} nextStep={(res)=>setCurrentSelected(res)} /> }
          {currentSelected == 4 && <Confirmations loading={loading} onSubmit={onSubmit} nextStep={(res)=>{
             setCurrentSelected(res)
+            setIsSignIn(false)
             
             
          }} /> }

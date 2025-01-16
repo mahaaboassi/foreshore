@@ -41,7 +41,7 @@ function Notification() {
         }))} className="flex justify-end cursor-pointer py-1">
             x
         </div>
-        <h5>{data.message}</h5>
+        <p>{data.message}</p>
       </div> : "");
 }
 
