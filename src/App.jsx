@@ -13,6 +13,7 @@ import BlogDetails from "./pages/blog/blog";
 import PropertyDetails from "./pages/property/property";
 import Destinations from "./pages/property/page";
 import ListYourProperty from "./pages/listYourProperty/page";
+import NotFound from "./pages/404_Page/404Page";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
                <Route element={<SignIn/>} path="signIn"/>
                <Route element={<SignUp/>} path="signUp"/>
             </Route>
+            <Route path="*" element={<NotFound/>} />
           </Route>
       </Routes>
     </BrowserRouter>

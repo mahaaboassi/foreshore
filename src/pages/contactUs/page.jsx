@@ -4,9 +4,9 @@ import Banner from '../home/sections/banner';
 import InputWithIcon from '../../components/inputWithIcons';
 
 // Images
-import image from "../../images/contact us 1350 x 500.webp"
-import small_size from "../../images/contact us 500x330.webp"
-import medium_size from "../../images/contact us 700x330.webp"
+import image from "../../images/contact us  1350x500.webp"
+import small_size from "../../images/contact us p500x500.webp"
+import medium_size from "../../images/contact us p700x500.webp"
 
 
 

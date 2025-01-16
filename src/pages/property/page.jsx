@@ -10,11 +10,11 @@ import img_6 from "../../images/destination_2.webp"
 import img_7 from "../../images/destination_4.webp"
 import img_8 from "../../images/destination_1.webp"
 // Images For Banners
-import image from "../../images/explore.webp"
-import small_size from "../../images/explore 500x330.webp"
-import medium_size from "../../images/explore 700x330.webp"
-
-
+import image from "../../images/1300x500.webp"
+import small_size from "../../images/explore 500x500.webp"
+import medium_size from "../../images/explore 700x500.webp"
+import banner_2 from "../../images/banner 02 background.webp"
+import banner_3 from "../../images/banner 03 back.webp"
 import { Link } from 'react-router-dom';
 
 function Destinations() {
@@ -22,14 +22,14 @@ function Destinations() {
     useEffect(()=>{ window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
     const data = [{
         img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image) ,
-        background_img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
+        background_img : banner_3,
         count : 0,
         title : t("destination-title-0"),
         hint :  t("destination-hint-0")
       }]
     const [isOpen, setIsOpen] =  useState()
     return ( <div className='our-properties'>
-        <Banner  data={data} />
+        <Banner fromHomePage={true} data={data} />
         <div className="px-6 py-10  lg:px-10">
             <div className='flex justify-between items-center'>
             <h3 className='capitalize weight-semiBold'>{t("our-properties")} (41)</h3>
