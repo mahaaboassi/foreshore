@@ -105,8 +105,7 @@ function ListYourProperty() {
         <div className="form-list flex flex-col px-2  md:px-8 py-5">
          <h2 className="capitalize text-center">{t("list-your-property")}</h2>
          {!isSignIn? <div className='pt-8'>
-            <p className='sm:w-96'>{t("welcome-list-1")} </p>
-            <p className='sm:w-96 py-4'>{t("welcome-list-2")} </p>
+            <p className='sm:w-96 pb-4'>{t("welcome-list-1")} {" "} {t("welcome-list-2")} </p>
             <UserInfo returnedGoNext={(res)=>{
                 if(res) {
                     setCurrentSelected(1)

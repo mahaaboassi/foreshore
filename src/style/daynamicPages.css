@@ -341,17 +341,29 @@
 }
 .our-properties  h4{
   transition: 0.3s;
+  height: 50px;
+  
 }
 .our-properties  h4:hover{
   color: var(--main_color);
 }
-
+.one-property  svg{
+  width: 25px !important;
+}
+.one-property h4{
+  font-weight: 500;
+  font-size: var(--font-size-l);
+}
 @media (max-width:1024px) {
 
     .about-content .root-img{
         width: 50%;;
         height: 200px;
         margin: auto;
+    }
+    .our-properties  h4{
+      height: 50px;
+      
     }
       
 }
@@ -394,6 +406,13 @@
   .card-property h4{
       font-size: var(--font-size-xs);
     }
+    .our-properties  h4{
+      height: 55px;
+      
+    }
+    .one-property h4{
+      font-size: var(--font-size-s);
+    }
 }
 
 @media (max-width: 400px) {
@@ -403,5 +422,11 @@
   .card-property h4{
     font-size: var(--font-size-xxs);
   }
-  
+  .our-properties  h4{
+    height: 70px;
+    
+  }
+  .one-property h4{
+    font-size: var(--font-size-s);
+  }
 }

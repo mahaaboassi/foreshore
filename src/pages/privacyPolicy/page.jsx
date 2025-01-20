@@ -13,8 +13,8 @@ function PrivacyPolicy() {
         img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
         background_img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
         count : 0,
-        title : t("privacy-policy"),
-        hint :  ""
+        title : t("privacy-policy-title"),
+        hint :  t("privacy-policy-hint")
       }]
       const dataPolicy = [{
         title : "",

@@ -4,9 +4,9 @@ const getToken = ()=>{
 }
 
 export const  Helper =  async ({url, body , method ,signal, hasToken=false , params})=>{
-    for (const [key, value] of body.entries()) {
-        console.log(`${key}: ${value}`);
-      }
+    // for (const [key, value] of body.entries()) {
+    //     console.log(`${key}: ${value}`);
+    //   }
     const isFormData = body instanceof FormData;
     
     try {

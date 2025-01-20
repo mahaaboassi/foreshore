@@ -14,8 +14,8 @@ function TermaAndConditions() {
         img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
         background_img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image),
         count : 0,
-        title : t("terms-and-conditions"),
-        hint :  ""
+        title : t("terms-and-conditions-title"),
+        hint :  t("terms-and-conditions-hint")
       }]
       const dataTerms = [{
         title : "terms-title-1",

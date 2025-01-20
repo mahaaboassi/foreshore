@@ -95,9 +95,11 @@ function ContactUs() {
             </div>
             <div className='my-20 grid grid-cols-1 lg:grid-cols-2  px-6 md:lg-20 lg:px-36 gap-4 '>
                 <div>
-                    <div>
-                        <h3 className='weight-semiBold pb-5 capitalize'>{t("contact-info")}</h3>
+                    <div className='pb-5'>
+                        <h3 className='weight-semiBold  capitalize'>{t("contact-info")}</h3>
+                        <p className=''>{t("contact-body")}</p>
                     </div>
+                    
                 <ul className='contact-us-div flex flex-col gap-4'>
                     {infoContact.map((e)=>(<li key={`Contact_us_info_${e.name}`}>
                         <a  target="_blank" href={e.link}>

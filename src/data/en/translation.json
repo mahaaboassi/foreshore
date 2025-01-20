@@ -7,17 +7,15 @@
     "list-your-property" : "List Your property",
     "sign-in" : "Sign In",
     "sign-up" : "Sign Up",
-    "hero-hint-0" : "EXPERIENCE YOUR ",
-    "hero-text-0" : "DREAM VACATION HOME",
-    "hero-hint-1" : "Welcome to Your Dream Stay",
-    "hero-text-1" : "Open the door to endless possibilities with Foreshore! From cozy retreats to luxury vacation homes, explore stays crafted just for you. Begin your journey today!",
-    "hero-hint-2" : "Effortless Stays, Every Time",
-    "hero-text-2" : "Find places that feel like home—curated for comfort and convenience. Your perfect getaway starts here!",
-    "hero-hint-3" : "Find Your Ideal Vacation Spot",
-    "hero-text-3" : "Search, book, and unwind. With Foreshore, your next unforgettable vacation is just a click away!",
+    "hero-hint-1" : "Maximize Your Property’s Potential",
+    "hero-text-1" : "Turn your property into a thriving vacation rental with Foreshore. We handle bookings, guests, and management so you can enjoy effortless earnings.",
+    "hero-hint-2" : "Simplified Property Management",
+    "hero-text-2" : "List with Foreshore and watch your property work for you. From Airbnb bookings to guest satisfaction, we take care of everything.",
+    "hero-hint-3" : "Your Next Stay Awaits",
+    "hero-text-3" : "Looking for a quick escape? Discover vacation homes curated for comfort and convenience. Book with ease, stay with joy.",
 
     "benefit-title" : "LEARN moRE ABOUT OUR BENEFITS",
-    "benefit-desc" : "Lorem Ipsum: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
+    "benefit-desc" : "Experience premium stays with unmatched comfort and prime locations.",
     "benefit-title-1" : "Prime Locations",
     "benefit-hint-1": "Your Gateway to Dubai's Finest Destinations",
     "benefit-desc-1" : "Explore our holiday homes strategically located in the heart of Dubai, offering easy access to the city's top attractions.",
@@ -30,7 +28,7 @@
     "benefit-btn": "Plan Your Trip",
 
     "explore-title" : "EXPLORE DESTINATIONS",
-    "explore-desc" : "Lorem Ipsum: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
+    "explore-desc" : "Discover Dubai’s finest spots, from harbours to downtown luxury.",
     "explore-title-1" : "DUBAI - HARBOUR",
     "explore-desc-1" : "Bright 3BR + Maid's Room w/ Creek Harbour Views!",
     "explore-title-2" : "DUBAI - DOWN TOWN",
@@ -62,7 +60,7 @@
     "embrace-desc-2" : " From serene landscapes to urban thrills, your dream adventure is just a step away. Prepare to immerse yourself in a world of possibilities.",
 
     "blog-title" : "Latest News",
-    "blog-desc" : "Lorem Ipsum: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
+    "blog-desc" : "Get travel tips and updates for unforgettable stays. ",
     "blog-title-1" : "The Ultimate Guide to Your Perfect Holiday Getaway",
     "blog-desc-1" : "Bright 3BR + Maid's Room w/ Creek Harbour Views!",
     "blog-title-2" : "Why a Holiday Home Is Better Than a Hotel",
@@ -74,7 +72,7 @@
     "english" : "English",
     "arabic" : "Arabic",
 
-    "footer-desc" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor ",
+    "footer-desc" : "Foreshore is dedicated to transforming properties into premium homestay destinations, providing seamless property management and rental solutions. Our services include listing your property, maximizing rental income, and ensuring exceptional guest experiences.",
     "footer-subscribe" : "Get Exclusive Updates Subscribe To Our Newsletter",
     "subscribe" : "Subscribe" ,
     "email" : "Email" ,
@@ -86,9 +84,14 @@
     "final-hint-1" : "© 2023 by",
     "final-hint-2" : " Powered by",
     "terms-and-conditions" : "Terms & conditions",
+    "terms-and-conditions-hint" : "Know the Terms, Embrace the Journey",
+    "terms-and-conditions-title" : "Transparency at every step. Explore our terms and conditions to make your experience seamless and secure.",
     "privacy-policy" : "Privacy policy",
+    "privacy-policy-hint" : "Your Privacy, Our Priority",
+    "privacy-policy-title" : "We are committed to safeguarding your personal information. Read our privacy policy to understand how we protect your data.",
     "search" : "Search",
     "guest": "Guests",
+    "beds": "beds",
     "location": "Location",
 
 
@@ -105,8 +108,8 @@
     "number" : "Number",
 
 
-    "about-hint-1" : "ABOUT FORESHORE PREMIER",
-    "about-text-1" : "PREMIER VACATION RETREATS",
+    "about-hint-1" : " Partner with Foreshore",
+    "about-text-1" : "We are more than property managers we are your trusted partner in turning homes into successful vacation rentals. Let us handle the details while you reap the rewards. ",
     "about-sub-title" : "What We Do",
     "about-desc" : "Lorem Ipsum: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
     "about-desc-1" : "At Foreshore Holiday Homes, we're not just in the business of providing holiday homes; we're in the business of creating memories. Our story begins with a passion for hospitality and a deep appreciation for the art of travel. We believe that every journey should be filled with comfort, convenience, and a touch of luxury.",
@@ -229,8 +232,9 @@
     "message" : "Message",
     "phone": "Phone",
     "submit" : "Submit",
-    "contact-hint": "CONTACT US ",
-    "contact-title" : "TO BOOK YOUR TRIP",
+    "contact-hint": "Contact Us",
+    "contact-title" : "We are here to make your travel dreams come true ",
+    "contact-body" : "Whether you have questions, need assistance, or are ready to plan your dream vacation, we are just a call or email away. ",
     "contact-info" : "Contact Information",
 
 
@@ -310,8 +314,8 @@
     "dubai-UAE" : "Dubai, United Arabic Emirate",
 
     
-    "destination-hint-0" : "DISCOVER YOUR ",
-    "destination-title-0" : "DREAM DESTINATIONS",
+    "destination-hint-0" : "Explore and Stay",
+    "destination-title-0" : "Whether it’s a weekend escape or a luxury getaway, find unique stays tailored to your style. Your adventure begins here. ",
     "destination-hint" : "Explore Iconic Getaways",
     "destination-title" : "From serene beaches to vibrant cityscapes, discover destinations that inspire and rejuvenate. Where will your next adventure take you? ",
     "our-properties" : "our properties",
@@ -348,6 +352,13 @@
     "sharjah"  : "Sharjah",
     "go-to-home-page": "Home Page",
     "welcome-list-1" : "Welcome to Foreshore! We're excited to help you list your property effortlessly.",
-    "welcome-list-2" : "Please take a moment to share the required details. This will enable us to provide the best service and ensure your property gets the attention it deserves."
+    "welcome-list-2" : "Please take a moment to share the required details. This will enable us to provide the best service and ensure your property gets the attention it deserves.",
+
+    "where-you’ll-be" : "where you’ll be",
+    "what-this-place-offers" : "What this place offers",
+    "about-this-place" : "About this place",
+    "show-all-anemities" : "show all anemities"
+
+
     
   }

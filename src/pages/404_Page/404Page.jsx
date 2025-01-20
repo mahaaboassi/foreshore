@@ -7,6 +7,7 @@ function NotFound () {
     const { t } = useTranslation()
     return ( <div className=" ">
         <div className="flex justify-center pt-16 sm:pt-20">
+
         <svg className='svg404' xmlns="http://www.w3.org/2000/svg" width="617" height="473" viewBox="0 0 617 473" fill="none">
             <g clip-path="url(#clip0_489_984)">
             <mask id="mask0_489_984" maskUnits="userSpaceOnUse" x="44" y="35" width="546" height="410">
