@@ -1,12 +1,12 @@
 import React , {useState ,useRef , useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { Helper } from '../../../functionality/helper';
 import { apiRoutes } from '../../../functionality/apiRoutes';
 
-function SearchCard() {
+function SearchCard({isDestinationPage = false}) {
     const { t, i18n } = useTranslation()
-    const [ types, setTypes] = useState(undefined)
+    const [ types, setTypes] = useState([])
     const navigate = useNavigate()
     const [ isOpen , setIsOpen] = useState({
         location: false,
@@ -17,7 +17,9 @@ function SearchCard() {
         location: "",
         type : ""
     })
-    const [count, setCount] = useState(1)
+    const [ searchParams, setSearchParams ] = useSearchParams()
+    const [ count, setCount ] = useState(1)
+    const [ resetOpen, setResetOpen] = useState(false)
     const locationRef = useRef(null);
     const typeRef = useRef(null);
     const guestRef = useRef(null);
@@ -63,6 +65,18 @@ function SearchCard() {
         controller.abort()
         };
     }, []);
+    useEffect(()=>{
+        setValues({
+            location : searchParams.get("city") || "",
+            type : searchParams.get("type") || ""
+        })
+        setCount(parseInt(searchParams.get("guests"))|| 1)
+        if(searchParams.get("city") || searchParams.get("type") || searchParams.get("guests")) {
+            setResetOpen(true)
+        }else{
+            setResetOpen(false)
+        }
+    },[searchParams])
     const getTypes = async (signal) =>{
             const { response, message} = await Helper({
                 url : apiRoutes.type.getAllTypes,
@@ -78,7 +92,23 @@ function SearchCard() {
             }
         }
     const handleSearch = ()=>{
-        navigate(`/destinations?${values.location?`city=${values.location}&`:""}${values.type?`type=${values.type}&`:""}${count>1?`guests=${count}`:""}`)
+        if(!isDestinationPage){
+
+            navigate(`/destinations?${values.location?`city=${values.location}&`:""}${values.type?`type=${values.type}&`:""}${count>1?`guests=${count}`:""}`)
+        }else{
+            
+            if (values.location) searchParams.set("city", values.location);
+            if (values.type) searchParams.set("type", values.type);
+            if (count > 1) searchParams.set("guests", count); // Ensures guests count is valid
+            setSearchParams(searchParams)
+        }
+        
+    }
+    const resetFilter = ()=>{
+        searchParams.delete("city")
+        searchParams.delete("guests")
+        searchParams.delete("type")
+        setSearchParams(searchParams)
     }
     return ( <div className=' px-6  lg:px-28 '>
         <div className='search-2-container grid grid-cols-2  sm:grid-cols-4 flex justify-between p-3 lg:p-5 gap-2 sm:gap-3 lg:gap-6'>
@@ -109,7 +139,7 @@ function SearchCard() {
                             <ul>
                                 <li onClick={()=>{closeDropdown("location",t("dubai"))}} className='capitalize dropdown-content p-1'>{t("dubai")}</li>
                                 <li onClick={()=>{closeDropdown("location",t("sharjah"))}}  className='capitalize dropdown-content p-1'>{t("sharjah")}</li>
-                                <li onClick={()=>{closeDropdown("location",t("abo dubai"))}} className='capitalize dropdown-content p-1'>{t("abo")}</li>
+                                <li onClick={()=>{closeDropdown("location",t("abo"))}} className='capitalize dropdown-content p-1'>{t("abo")}</li>
                             </ul>
                         </div>}
                     </div>
@@ -129,7 +159,7 @@ function SearchCard() {
                             {values.type != "" && <span className='capitalize' style={{fontSize:"12px"}} >({values.type})</span>}
 
                         </div>
-                        {isOpen.type && <div className='absolute-card-2 min-w-40'>
+                        {isOpen.type && types.length>0 && <div className='absolute-card-2 min-w-40'>
                                 <ul>
                                 {types.map((e)=>(<li key={`Types_Search_Card_${e._id}`} onClick={()=>{closeDropdown("type",i18n.language == "en"?(e.name_en?e.name_en:""):(e.name_ar?e.name_ar:""))}}  className='capitalize dropdown-content p-1'>{i18n.language == "en"?(e.name_en?e.name_en:""):(e.name_ar?e.name_ar:"")}</li>))}
                                 </ul>
@@ -161,8 +191,14 @@ function SearchCard() {
                         </div>}
                     </div>
             </div>
-            <div className='fourth flex items-center'>
-                    <div onClick={handleSearch} className='btn-search-2 flex items-center gap-2'>  
+            <div className='fourth flex items-center gap-2'>
+                   {resetOpen && <div onClick={resetFilter} className='btn-search-2 flex capitalize items-center gap-2'>  
+                        <div className=' items-center '>
+                            {t("reset")}
+                            {/* <span style={{fontSize:"12px"}} >({count})</span> */}
+                        </div>
+                    </div>}
+                    <div onClick={handleSearch} className='btn-search-2 capitalize flex items-center gap-2'>  
                         <div className=' items-center '>
                             {t("search")}
                             {/* <span style={{fontSize:"12px"}} >({count})</span> */}

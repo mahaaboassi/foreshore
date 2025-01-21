@@ -29,12 +29,12 @@ const SlidesComponent = ({images,onClick})=>{
     const handlePrev = () => {
         setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
     };
-    return(<div onClick={onClick} style={{direction:"ltr"}} className="slider-container-explore ">
+    return(<div  style={{direction:"ltr"}} className="slider-container-explore w-full ">
             {slides.map((slide, index) => (<div
                 key={slide._id}
                 className={`slider-item-explore ${index === currentSlide ? "active" : ""}`}
             >
-                <img src={slide.url} alt={`Slide ${slide._id}`} />
+                <img onClick={onClick} src={slide.url} alt={`Slide ${slide._id}`} />
             </div>))}
             <button className="slider-nav-explore left" onClick={handlePrev}>
                 &#10094;

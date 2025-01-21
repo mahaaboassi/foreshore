@@ -1,18 +1,21 @@
 import React ,{useEffect, useState}  from 'react';
 import { useTranslation } from 'react-i18next';
 import Banner from '../home/sections/banner';
+
+import { Link, useSearchParams} from 'react-router-dom';
+import { Helper } from '../../functionality/helper';
+import { apiRoutes } from '../../functionality/apiRoutes';
+import SearchCard from '../home/sections/searchCard';
 // Images For Banners
 import image from "../../images/1300x500.webp"
 import small_size from "../../images/explore 500x500.webp"
 import medium_size from "../../images/explore 700x500.webp"
 import banner_3 from "../../images/banner 03 back.webp"
-import { Link, useSearchParams } from 'react-router-dom';
-import { Helper } from '../../functionality/helper';
-import { apiRoutes } from '../../functionality/apiRoutes';
 
 function Destinations() {
     const {t,i18n} = useTranslation()
-    const [searchParams] = useSearchParams()
+    const [ searchParams, setSearchParams] = useSearchParams()
+    const [notFound, setNotFound ] = useState("")
     const data = [{
         img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image) ,
         background_img : banner_3,
@@ -20,10 +23,10 @@ function Destinations() {
         title : t("destination-title-0"),
         hint :  t("destination-hint-0")
       }]
-    const [isOpen, setIsOpen] =  useState()
     const [ loading, setLoading] = useState(true)
-    const [ dataFromApi, setDataFromApi] = useState(undefined)
+    const [ dataFromApi, setDataFromApi] = useState([])
     useEffect(()=>{
+        setNotFound("")
         const controller = new AbortController()
         const signal = controller.signal
         const city = searchParams.get("city") || ""
@@ -33,57 +36,52 @@ function Destinations() {
         if(city) params.city = city
         if(type) params.type = type
         if(guests) params.guests = guests
-        const getData = async (signal)=>{
-            const { response , message } = await Helper({
-                url : apiRoutes.property.getAllProperties,
-                signal,
-                params,
-                method : "GET"
-            })
-            if(response){
-                setDataFromApi(response.data)
-                // console.log(response);
-                setLoading(false)
-            }else{
-                console.log(message);
-                setLoading(false)
-                
-            }
-        }
-        getData(signal)
+
+        getData(signal,params)
         // window.scrollTo({ top: 0,  behavior: 'smooth' })
         return ()=> controller.abort()
 
     },[searchParams])
+    const getData = async (signal,params)=>{
+        setDataFromApi([])
+        const { response , message } = await Helper({
+            url : apiRoutes.property.getAllProperties,
+            signal,
+            params,
+            method : "GET"
+        })
+        if(response){
+            setDataFromApi(response.data)
+
+            setLoading(false)
+        }else{
+            setLoading(false)
+            if(message == "No properties found."){
+
+                setNotFound(i18n.language == "en"?"No properties found ^_*.":"لا يوجد عقارات ^_*.")
+
+                getData(undefined , {page :1 , limit:10})
+                
+                
+            }
+            
+        }
+    }
     return ( <div className='our-properties'>
-        <Banner fromHomePage={true} data={data} />
+        <Banner children={<SearchCard isDestinationPage={true} />} fromHomePage={true} data={data} />
+        {notFound != "" && <div className='flex capitalize justify-center pb-5'>
+            <p className='text-error py-4 font-medium'>
+                {notFound}
+            </p>
+        </div>}
         <div className="px-6 py-10  lg:px-10">
             <div className='flex justify-between items-center'>
             <h3  className='capitalize weight-semiBold'>{t("our-properties")} ({dataFromApi?dataFromApi.length:"-"})</h3>
-            <div className="dropdowp relative">
-                <div onClick={()=>setIsOpen(!isOpen)}  className="dropdwon-trigger">
-                    <div className='flex gap-1 justify-between filter-btn py-1 px-2 items-center cursor-pointer'>
-                        <p>
-                        {t("filter-by-type")}
-                        </p>
-                        <div style={isOpen?{transform:"rotate(180deg)"}:{}}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M17.92 8.17999H11.69H6.07999C5.11999 8.17999 4.63999 9.33999 5.31999 10.02L10.5 15.2C11.33 16.03 12.68 16.03 13.51 15.2L15.48 13.23L18.69 10.02C19.36 9.33999 18.88 8.17999 17.92 8.17999Z" fill="white"/>
-                            </svg>
-                        </div>
-                            
-                    </div>
-                </div>
-                {isOpen && <div style={i18n.language == "en"?{right:0,zIndex:8}:{left:0,zIndex:8}} className=" w-40 absolute top-10 ">
-                <div className='dropdown-filter p-2'>
-                        {["apartment","studio","villa"].map((e)=>(<p onClick={()=>setIsOpen(false)} className='dropdown-content  transition-all duration-300 ease-in-out p-2 rounded-md cursor-pointer'>{t(e)}</p>))}
-                    </div>
-                </div>}
-            </div> 
             </div>
             
         </div>
-        {loading || dataFromApi == undefined ?<div className="loading">
+       
+        {loading || dataFromApi.length == 0 ?<div className="loading">
         <div className="bounce"></div>
         <div className="bounce"></div>
         <div className="bounce"></div>

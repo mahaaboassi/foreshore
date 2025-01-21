@@ -7,13 +7,15 @@ import InputWithIcon from '../../components/inputWithIcons';
 import image from "../../images/contact us  1350x500.webp"
 import small_size from "../../images/contact us p500x500.webp"
 import medium_size from "../../images/contact us p700x500.webp"
+import { contactData } from '../../data/contactData';
+
 
 
 
 
 
 function ContactUs() {
-    const { t  } = useTranslation();
+    const { t  ,i18n} = useTranslation();
     const data = [{
         img : window.innerWidth <= 520 ? small_size : (window.innerWidth <=750 ? medium_size: image),
         background_img : window.innerWidth <= 520 ? small_size : (window.innerWidth <=750 ? medium_size: image),
@@ -24,20 +26,20 @@ function ContactUs() {
     
     useEffect(()=>{ window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
     const infoContact = [{
-        name : "+971 04-2281609",
+        name : contactData.call,
         icon : <svg width="25" height="25" className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="PhoneIcon" >
                     <path fill='white' d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path>
                 </svg>,
-        link : "tel:+971042281609"
+        link : `tel:${contactData.call}`
     },{
-        name : "info@foreshore.ae",
+        name : contactData.email,
         icon :  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 25 24" fill="none">
                     <path d="M12.5 11.1075L22.085 4.95C21.6996 4.66096 21.2317 4.50323 20.75 4.5H4.24998C3.76828 4.50323 3.30033 4.66096 2.91498 4.95L12.5 11.1075Z" fill="white"/>
                     <path d="M12.905 12.6303L12.7775 12.6903H12.7175C12.6484 12.7212 12.5751 12.7414 12.5 12.7503C12.4377 12.7582 12.3748 12.7582 12.3125 12.7503H12.2525L12.125 12.6903L2.075 6.19531C2.02698 6.37647 2.00179 6.56291 2 6.75031V17.2503C2 17.847 2.23705 18.4193 2.65901 18.8413C3.08097 19.2633 3.65326 19.5003 4.25 19.5003H20.75C21.3467 19.5003 21.919 19.2633 22.341 18.8413C22.7629 18.4193 23 17.847 23 17.2503V6.75031C22.9982 6.56291 22.973 6.37647 22.925 6.19531L12.905 12.6303Z" fill="white"/>
                 </svg>,
-        link : "mailto:info@foreshore.ae"
+        link : `mailto:${contactData.email}` 
     },{
-        name : t("address"),
+        name : i18n.language == "en" ? contactData.location_en: contactData.location_ar,
         icon : <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 15 15" fill="none">
                     <g clipPath="url(#clip0_203_2297)">
                         <path d="M7.5 7.5C6.8125 7.5 6.25 6.9375 6.25 6.25C6.25 5.5625 6.8125 5 7.5 5C8.1875 5 8.75 5.5625 8.75 6.25C8.75 6.9375 8.1875 7.5 7.5 7.5ZM11.25 6.375C11.25 4.10625 9.59375 2.5 7.5 2.5C5.40625 2.5 3.75 4.10625 3.75 6.375C3.75 7.8375 4.96875 9.775 7.5 12.0875C10.0312 9.775 11.25 7.8375 11.25 6.375ZM7.5 1.25C10.125 1.25 12.5 3.2625 12.5 6.375C12.5 8.45 10.8313 10.9062 7.5 13.75C4.16875 10.9062 2.5 8.45 2.5 6.375C2.5 3.2625 4.875 1.25 7.5 1.25Z" fill="white"/>
@@ -114,7 +116,7 @@ function ContactUs() {
 
                 </div>
                 <div>
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.0633505688365!2d55.170182574831!3d24.99796323974274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43e8b051b1c5%3A0x22c2903666b955be!2sForeshore%20Vacation%20Home%20Rentals%20LLC!5e0!3m2!1sen!2sae!4v1736317607736!5m2!1sen!2sae" width="600" height="450" style={{border:"0"}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <iframe src={contactData.map} width="600" height="450" style={{border:"0"}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
             </div>
