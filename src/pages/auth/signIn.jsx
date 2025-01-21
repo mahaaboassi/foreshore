@@ -1,30 +1,99 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import InputWithIcon from "../../components/inputWithIcons";
 import img from "../../images/logo_main.webp"
-import { Link } from 'react-router-dom';
+// for validation
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
+import { Helper } from '../../functionality/helper';
+import { apiRoutes } from '../../functionality/apiRoutes';
+import { useDispatch } from 'react-redux';
+import { changeNotification } from '../../redux/actions/notification';
+import { useNavigate } from 'react-router-dom';
+
+const validationSchema = Yup.object({
+    email: Yup.string().email('Invalid email format') // Ensures the email is valid
+    .required('Email is required'),
+    password: Yup.string().min(6,"Password must be at least 6 characters long").required('Password is required'),   
+  });
 function SignIn() {
-    const { t , i18n } = useTranslation()
-    useEffect(()=>{ window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
+    const { t  } = useTranslation()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const { register, handleSubmit, formState: { errors } } = useForm(
+        {resolver: yupResolver(validationSchema), 
+            mode: 'onChange'   }
+    );
+    const onSubmit = async (data) => {
+        setloading(true)
+        const {response ,message} = await Helper({
+            url : apiRoutes.auth.signIn,
+            method : "POST",
+            body : {
+                email : data.email,
+                password : data.password
+            }
+        })
+        if(response){
+            
+            if(response.error == 1){
+                dispatch(changeNotification({
+                    isOpen : true,
+                    bgColor : "bg-error",
+                    message : response.message
+                }))
+            }else{
+                localStorage.setItem("$user",JSON.stringify({
+                    name : response.data.name || "",
+                    email : response.data.email || "",
+                    role : response.data.role || "",
+                    id : response.data.userId || ""
+                }))
+                localStorage.setItem("$-TOKEN",response.data.token)
+                dispatch(changeNotification({
+                    isOpen : true,
+                    bgColor : "bg-successfully",
+                    message : message
+                }))
+                navigate("/")
+            }
+            setloading(false)
+            
+        } else{
+            setloading(false)
+            dispatch(changeNotification({
+                isOpen : true,
+                bgColor : "bg-error",
+                message : message
+            }))
+        }  
+    }
+    const [loading, setloading] = useState(false)
+    useEffect(()=>{ 
+        if(localStorage.getItem("$user")) navigate("/")
+        window.scrollTo({ top: 0,  behavior: 'smooth' })
+    },[])
     return ( <div className='card-auth px-2  md:px-8'>
         <div className="flex justify-center pb-5">
             <img className='w-20' src={img} alt="logo" />
         </div>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div>
-                <InputWithIcon placeholder={t("email")} icon={<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <InputWithIcon register={register("email")} placeholder={t("email")} icon={<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                         <path d="M12.5 1.75H1.5C0.947715 1.75 0.5 2.19772 0.5 2.75V11.25C0.5 11.8023 0.947715 12.25 1.5 12.25H12.5C13.0523 12.25 13.5 11.8023 13.5 11.25V2.75C13.5 2.19772 13.0523 1.75 12.5 1.75Z" stroke="#27CBBE" strokeLinecap="round" strokeLinejoin="round"/>
                         <path d="M0.5 3L6.36 6.52424C6.53969 6.62973 6.76615 6.6875 7 6.6875C7.23385 6.6875 7.46031 6.62973 7.64 6.52424L13.5 3" stroke="#27CBBE" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>} />
-                
+                {errors.email && <p className="p-0.5 text-error">{errors.email.message}</p>}
             </div>
             <div className='py-5'>
-                <InputWithIcon isPassword={true} type="password" placeholder={t("password")} icon={<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                <InputWithIcon register={register("password")} isPassword={true} type="password" placeholder={t("password")} icon={<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                         <path d="M13.3573 6.67871H3.643C2.97237 6.67871 2.42871 7.22237 2.42871 7.893V15.1787C2.42871 15.8494 2.97237 16.393 3.643 16.393H13.3573C14.0279 16.393 14.5716 15.8494 14.5716 15.1787V7.893C14.5716 7.22237 14.0279 6.67871 13.3573 6.67871Z" stroke="#27CBBE" strokeLinecap="round" strokeLinejoin="round"/>
                         <path d="M12.75 6.67885V4.85742C12.75 3.73025 12.3023 2.64924 11.5052 1.85222C10.7082 1.05519 9.62717 0.607422 8.5 0.607422C7.37283 0.607422 6.29182 1.05519 5.4948 1.85222C4.69777 2.64924 4.25 3.73025 4.25 4.85742V6.67885" stroke="#27CBBE" strokeLinecap="round" strokeLinejoin="round"/>
                         <path d="M8.49972 12.143C8.83503 12.143 9.10686 11.8712 9.10686 11.5359C9.10686 11.2005 8.83503 10.9287 8.49972 10.9287C8.16441 10.9287 7.89258 11.2005 7.89258 11.5359C7.89258 11.8712 8.16441 12.143 8.49972 12.143Z" stroke="#27CBBE" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>} />
+                {errors.password && <p className="p-0.5 text-error">{errors.password.message}</p>}
             </div>
             <div className='flex justify-between'>
                 <div className='flex gap-1'>
@@ -36,7 +105,7 @@ function SignIn() {
                 </div>
             </div>
             <div className='w-full py-5'>
-                <button className='btn-main !w-full'>{t("submit")}</button>
+                <button type='submit' className='btn-main !w-full'>{loading?<div className='loader  '></div>:t("submit")}</button>
             </div>
             {/* <div className='flex gap-3'>
                 <div>

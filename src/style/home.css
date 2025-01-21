@@ -497,7 +497,7 @@ path.change-to-black-color {
 
 
 /* for heading and sub heading */
-@media (max-width: 780px) {
+@media (max-width: 1024px) {
     .content-hero h1{
         font-size: var(--font-size-xxl);
     }
@@ -517,23 +517,26 @@ path.change-to-black-color {
         line-height: 15px;
     }
     .en-dir h2{
-        max-width: 60%; 
+        max-width: 50%; 
     }
     .arabic-dir{
-        right: 40% !important;
+        right: 45% !important;
     }
     
 }
 @media (max-width: 400px) {
     .content-hero h1{
-        font-size: var(--font-size-l);
+        font-size: var(--font-size-s);
     }
     .content-hero h2{
         font-size: var(--font-size-xxs);
         line-height: 15px;
     }
     .en-dir h2{
-        max-width: 80%; 
+        max-width: 50%; 
+    }
+    .arabic-dir{
+        right: 45% !important;
     }
     
 }

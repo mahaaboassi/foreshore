@@ -1,6 +1,6 @@
 
 const getToken = ()=>{
-    return localStorage.getItem("token") ? localStorage.getItem("token") : ""
+    return localStorage.getItem("$-TOKEN") ? localStorage.getItem("$-TOKEN") : ""
 }
 
 export const  Helper =  async ({url, body , method ,signal, hasToken=false , params})=>{

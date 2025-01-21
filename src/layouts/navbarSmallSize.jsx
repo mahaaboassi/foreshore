@@ -5,27 +5,14 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 function MenuNav() {
     const menuRef = useRef()
-        const { t, i18n } = useTranslation();
-        const data = [{
-            name : "destination",
-            link : "/destinations"
-        },{
-            name : "list-your-property",
-            link : "/listYourProperty"
-        },{
-            name : "about-us",
-            link : "/aboutUs"
-        },{
-            name : "contact-us",
-            link : "/contactUs"
-        },{
-            name : "sign-in",
-            link : "/auth/signIn"
-        },
-        // {
-        //     name : "sign-up",
-        //     link : "/auth/signUp"
-        // }
+    const { t, i18n } = useTranslation();
+    const userExist = localStorage.getItem("$user")
+    const data = [{  name : "destination", link : "/destinations"},
+        { name : "list-your-property", link : "/listYourProperty" },
+        { name : "about-us", link : "/aboutUs" },
+        { name : "contact-us", link : "/contactUs" },
+        ... (!userExist ? [{ name : "sign-in", link : "/auth/signIn" } ]: [])
+
     ]
     const [isOpen, setIsOpen] = useState(false)
     const location = useLocation();  // Get current location

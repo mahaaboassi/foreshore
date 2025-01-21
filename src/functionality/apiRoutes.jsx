@@ -1,9 +1,10 @@
 export const Host = "https://backendforeshore.vercel.app/api"
+// const Host = "http://localhost:3000/api"
 
 export  const apiRoutes = {
     sendEmail : `${Host}/admin/list`,
     auth : {
-        signIn : `${Host}/login`,
+        signIn : `${Host}/auth/signIn`,
         signUp : `${Host}/sign-up`,
     },
     property : {

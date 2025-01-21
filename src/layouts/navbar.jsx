@@ -5,35 +5,24 @@ import logo_light from "../logo_light.svg"
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Languages from '../components/language';
 import MenuNav from './navbarSmallSize';
+import Avatar from '../components/avatar';
 
 function Navbar() {
     const { t, i18n } = useTranslation();
-    const data = [{
-        name : "destination",
-        link : "/destinations"
-    },{
-        name : "list-your-property",
-        link : "/listYourProperty"
-    },{
-        name : "about-us",
-        link : "/aboutUs"
-    },{
-        name : "contact-us",
-        link : "/contactUs"
-    },{
-        name : "sign-in",
-        link : "/auth/signIn"
-    },
-    // {
-    //     name : "sign-up",
-    //     link : "/auth/signUp"
-    // }
+    const userExist = localStorage.getItem("$user")
+    const data = [{  name : "destination", link : "/destinations"},
+        { name : "list-your-property", link : "/listYourProperty" },
+        { name : "about-us", link : "/aboutUs" },
+        { name : "contact-us", link : "/contactUs" },
+        ... (!userExist ? [{ name : "sign-in", link : "/auth/signIn" } ]: [])
+
     ]
     const location = useLocation();  // Get current location
     const [scrolled, setScrolled] = useState(false);
     const isActive = (link) => {  
         return location.pathname === link ;
     };
+    const [ user, setUser ] = useState({})
     const handleScroll = () => {
         if (window.scrollY > 100) { // Change 50 to the scroll position threshold
           setScrolled(true);
@@ -45,11 +34,12 @@ function Navbar() {
       useEffect(() => {
         // Add the scroll event listener
         window.addEventListener('scroll', handleScroll);
-    
+
         // Clean up the event listener on component unmount
         return () => {
           window.removeEventListener('scroll', handleScroll);
         };
+        
       }, []);
     return ( <div className="container-nav py-3 px-6  lg:py-5 lg:px-10 ">
             <div className={`flex justify-between  ${scrolled ? "scrolled-nav":"nav"}`}>
@@ -67,10 +57,14 @@ function Navbar() {
                             </li>))
                         }
                     </ul>
+                    {userExist &&  <Avatar/>}
                     <div className='my-2 line'>
                         
                     </div>
+                   
+                    
                     <Languages/>
+                    
                 </div>
                 
             </div>

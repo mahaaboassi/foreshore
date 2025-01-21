@@ -116,6 +116,26 @@
       transform: translate(-50%,-50%);
     }
   }
+
+  /* Avatar */
+  .avatar{
+    width: 28px;
+    /* height: 30px; */
+    border-radius: 50%;
+    font-size: var(--font-size-xxs);
+    /* background-color: var(--light_level_1_color); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  @media (max-width:768px) {
+
+    .avatar{
+      width: 20px;
+    }
+    
+  }
   @media (max-width:710px) {
     .alert-card{
       width: 420px;
