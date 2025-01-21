@@ -125,6 +125,19 @@
 }
 
 /* Explore */
+.container-images img{
+    border-radius: 12px;
+    position: relative;
+    
+}
+
+.container-images{
+    border-radius: 12px;
+}
+.continer-div{
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.519);
+}
 .expolre-title{
     position: relative;
     /* border-top: 2px solid var(--light_level_1_color);
@@ -132,6 +145,7 @@
     color: var(--light_level_1_color) ;
     padding: 10px 0;
     font-weight: 600;
+
 }
 .expolre-title::before{
     content: "";

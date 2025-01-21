@@ -4,12 +4,13 @@ import { useTranslation } from 'react-i18next';
 import Retype from "../../components/retype";
 import { Helper } from '../../functionality/helper';
 import { apiRoutes } from '../../functionality/apiRoutes';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 function PropertyDetails() {
    const { t ,i18n } = useTranslation();
    const { id } = useParams()
+   const navigate = useNavigate()
    const [ slides, setSlides]  = useState([])
    const bufferToString = (buffer) => {
         return new TextDecoder().decode(new Uint8Array(buffer));
@@ -56,6 +57,12 @@ function PropertyDetails() {
                 setLoading(false)
             }else{
                 console.log(message);
+                if(message == "Property not found."){
+                  navigate("/destinations")
+                }
+                if(message == "Something went wrong, please try again."){
+                  navigate("/destinations")
+                }
                 setLoading(false)
                 
             }

@@ -20,36 +20,6 @@ import { Pagination, Navigation } from 'swiper/modules';
 import { Helper } from '../../../functionality/helper';
 import { apiRoutes } from '../../../functionality/apiRoutes';
 
-
-const SlidesComponent = ({images,onClick})=>{
-    const [ slides, setSlides]  = useState([])
-    useEffect(()=>{setSlides(images)},[images])
-    const [currentSlide, setCurrentSlide] = useState(0);
-    
-    const handleNext = () => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
-    };
-    
-    const handlePrev = () => {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    };
-    return(<div onClick={onClick} style={{direction:"ltr"}} className="slider-container-explore ">
-            {slides.map((slide, index) => (<div
-                key={slide._id}
-                className={`slider-item-explore ${index === currentSlide ? "active" : ""}`}
-            >
-                <img src={slide.url} alt={`Slide ${slide._id}`} />
-            </div>))}
-            <button className="slider-nav-explore left" onClick={handlePrev}>
-                &#10094;
-            </button>
-            <button className="slider-nav-explore right" onClick={handleNext}>
-                &#10095;
-            </button>
-            </div>
-            )
-}
-
 function ExploreDestination() {
     const {t, i18n} = useTranslation()
     const navigate = useNavigate()
@@ -106,7 +76,6 @@ function ExploreDestination() {
      }, []);
     const [ dataFromApi, setDataFromApi ] = useState(undefined)
     const [ loading, setLoading ] = useState(true)
-
     const getData = async(signal)=>{
         const { response , message } = await Helper({
             url : apiRoutes.property.getAllProperties,
@@ -123,8 +92,6 @@ function ExploreDestination() {
         }
         
     }
-
-
     return ( <div ref={targetRef}  className='explore'>
         <Header title={t("explore-title")} description={t("explore-desc")} />
         <div className='flex justify-center pt-4 '>
@@ -148,11 +115,11 @@ function ExploreDestination() {
                             spaceBetween: 10,
                         },
                         768: {
-                            slidesPerView: 3, // 2 slides for screens 768px and larger
+                            slidesPerView: 2, // 2 slides for screens 768px and larger
                             spaceBetween: 15,
                         },
                         1024: {
-                            slidesPerView: 4, // 3 slides for screens 1024px and larger
+                            slidesPerView: 3, // 3 slides for screens 1024px and larger
                             spaceBetween: 20,
                         },
                     }}
@@ -161,13 +128,12 @@ function ExploreDestination() {
                     >
                         {dataFromApi.map((e)=>(<SwiperSlide key={`Destination_${e.name_en?e.name_en:""}`}>
                             <div className='flex container-images flex-col items-center'>
-                                {/* <div onClick={()=>navigate(`/property/${e._id}`)}  className={`${isInView&&"animated"} cursor-pointer relative`}>
-                                    <img   src={e.files?e.files[0].url:""} alt={e.name_en?e.name_en:""} /> */}
+                                <div onClick={()=>navigate(`/property/${e._id}`)}  className={`${isInView&&"animated"} cursor-pointer relative`}>
+                                    <img   src={e.files?e.files[0].url:""} alt={e.name_en?e.name_en:""} />
                                     {/* <div className={` flex items-center justify-center continer-div explore-title absolute top-0 left-0 right-0 bottom-0`}>
                                         <h4 className='expolre-title  uppercase'>{e.city?e.city:""},{" "} {e.region?e.region:""}</h4>
                                     </div> */}
-                                {/* </div> */}
-                                <SlidesComponent onClick={()=>navigate(`/property/${e._id}`)} images={e.files} />
+                                </div>
                                 <p className='weight-medium text-center max-w-52 mt-2 capitalize' >{i18n.language == "en"?(e.name_en?e.name_en:""):(e.name_ar?e.name_ar:"")}</p>
 
                             </div>
