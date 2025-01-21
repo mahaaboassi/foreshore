@@ -1,62 +1,85 @@
 import React , {useState ,useRef , useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { Helper } from '../../../functionality/helper';
+import { apiRoutes } from '../../../functionality/apiRoutes';
 
 function SearchCard() {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
+    const [ types, setTypes] = useState(undefined)
     const navigate = useNavigate()
-        const [ isOpen , setIsOpen] = useState({
-            location: false,
-            type : false,
-            guest :false
+    const [ isOpen , setIsOpen] = useState({
+        location: false,
+        type : false,
+        guest :false
+    })
+    const [ values , setValues] = useState({
+        location: "",
+        type : ""
+    })
+    const [count, setCount] = useState(1)
+    const locationRef = useRef(null);
+    const typeRef = useRef(null);
+    const guestRef = useRef(null);
+    const closeDropdown = (type,value)=>{
+        setValues(prev=>({...prev,[type]:value}))
+        setIsOpen({
+            location :false,type:false,guest:false
         })
-        const [ values , setValues] = useState({
-            location: "",
-            type : ""
-        })
-        const [count, setCount] = useState(1)
-        const locationRef = useRef(null);
-        const typeRef = useRef(null);
-        const guestRef = useRef(null);
-        const closeDropdown = (type,value)=>{
-            setValues(prev=>({...prev,[type]:value}))
+    }
+    const changeCount = (type)=>{
+        if(type == "pls"){
+            if(count<7) setCount(count+1)
+        }else if(type == "min"){
+            if(count>1) setCount(count-1)
+        }
+    }
+    
+    useEffect(() => {
+        const controller = new AbortController()
+        const signal = controller.signal
+        const handleClickOutside = (e) => {
+            
+        if (
+            locationRef.current &&
+            !locationRef.current.contains(e.target) &&
+            typeRef.current &&
+            !typeRef.current.contains(e.target) &&
+            guestRef.current &&
+            !guestRef.current.contains(e.target)
+        ) {
             setIsOpen({
-                location :false,type:false,guest:false
+            location: false,
+            type: false,
+            guest: false,
+            });
+        }
+        };
+
+        document.addEventListener("click", handleClickOutside);
+        getTypes(signal)
+        return () => {
+        document.removeEventListener("click", handleClickOutside);
+        controller.abort()
+        };
+    }, []);
+    const getTypes = async (signal) =>{
+            const { response, message} = await Helper({
+                url : apiRoutes.type.getAllTypes,
+                params :{page :1, limit : 10},
+                method : "GET",
+                signal
             })
-        }
-        const changeCount = (type)=>{
-            if(type == "pls"){
-                if(count<7) setCount(count+1)
-            }else if(type == "min"){
-                if(count>1) setCount(count-1)
-            }
-        }
-        
-        useEffect(() => {
-            const handleClickOutside = (e) => {
+            if(response){
+                setTypes(response.data)
+            }else{
+                console.log(message);
                 
-            if (
-                locationRef.current &&
-                !locationRef.current.contains(e.target) &&
-                typeRef.current &&
-                !typeRef.current.contains(e.target) &&
-                guestRef.current &&
-                !guestRef.current.contains(e.target)
-            ) {
-                setIsOpen({
-                location: false,
-                type: false,
-                guest: false,
-                });
             }
-            };
-    
-            document.addEventListener("click", handleClickOutside);
-    
-            return () => {
-            document.removeEventListener("click", handleClickOutside);
-            };
-        }, []);
+        }
+    const handleSearch = ()=>{
+        navigate(`/destinations?${values.location?`city=${values.location}&`:""}${values.type?`type=${values.type}&`:""}${count>1?`guests=${count}`:""}`)
+    }
     return ( <div className=' px-6  lg:px-28 '>
         <div className='search-2-container grid grid-cols-2  sm:grid-cols-4 flex justify-between p-3 lg:p-5 gap-2 sm:gap-3 lg:gap-6'>
             <div ref={locationRef} className='first flex items-center  gap-2'>
@@ -78,15 +101,15 @@ function SearchCard() {
                             
                         </div>
                         <div className=' items-center '>
-                            {t("location")} {" "}
-                           {values.location != "" &&  <span style={{fontSize:"12px"}} >({values.location})</span>}
+                            {t("location")} {""}
+                           {values.location != "" &&  <span className='capitalize' style={{fontSize:"12px"}} >({values.location})</span>}
                         {/* <div style={{fontSize:"12px"}}>{values.location}</div> */}
                         </div>
                         {isOpen.location && <div  className='absolute-card-2 min-w-40'>
                             <ul>
                                 <li onClick={()=>{closeDropdown("location",t("dubai"))}} className='capitalize dropdown-content p-1'>{t("dubai")}</li>
                                 <li onClick={()=>{closeDropdown("location",t("sharjah"))}}  className='capitalize dropdown-content p-1'>{t("sharjah")}</li>
-                                <li onClick={()=>{closeDropdown("location",t("abo"))}} className='capitalize dropdown-content p-1'>{t("abo")}</li>
+                                <li onClick={()=>{closeDropdown("location",t("abo dubai"))}} className='capitalize dropdown-content p-1'>{t("abo")}</li>
                             </ul>
                         </div>}
                     </div>
@@ -103,14 +126,12 @@ function SearchCard() {
                         </div>
                         <div className=' items-center '>
                             {t("type")} {" "}
-                            {values.type != "" && <span style={{fontSize:"12px"}} >({values.type})</span>}
+                            {values.type != "" && <span className='capitalize' style={{fontSize:"12px"}} >({values.type})</span>}
 
                         </div>
                         {isOpen.type && <div className='absolute-card-2 min-w-40'>
                                 <ul>
-                                    <li onClick={()=>{closeDropdown("type",t("apartment"))}} className='capitalize dropdown-content p-1'>{t("apartment")}</li>
-                                    <li onClick={()=>{closeDropdown("type",t("studio"))}}  className='capitalize dropdown-content p-1'>{t("studio")}</li>
-                                    <li onClick={()=>{closeDropdown("type",t("villa"))}} className='capitalize dropdown-content p-1'>{t("villa")}</li>
+                                {types.map((e)=>(<li key={`Types_Search_Card_${e._id}`} onClick={()=>{closeDropdown("type",i18n.language == "en"?(e.name_en?e.name_en:""):(e.name_ar?e.name_ar:""))}}  className='capitalize dropdown-content p-1'>{i18n.language == "en"?(e.name_en?e.name_en:""):(e.name_ar?e.name_ar:"")}</li>))}
                                 </ul>
                             </div>}
                     </div>
@@ -141,7 +162,7 @@ function SearchCard() {
                     </div>
             </div>
             <div className='fourth flex items-center'>
-                    <div onClick={()=>navigate("/destinations")} className='btn-search-2 flex items-center gap-2'>  
+                    <div onClick={handleSearch} className='btn-search-2 flex items-center gap-2'>  
                         <div className=' items-center '>
                             {t("search")}
                             {/* <span style={{fontSize:"12px"}} >({count})</span> */}

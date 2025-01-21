@@ -1,26 +1,18 @@
 import React ,{useEffect, useState}  from 'react';
 import { useTranslation } from 'react-i18next';
 import Banner from '../home/sections/banner';
-import img_1 from "../../images/property_1.avif"
-import img_2 from "../../images/property_7.avif"
-import img_3 from "../../images/warm-tones-living-room-christmas-a33ab063-9ef63f3845ef4e5993712fb3074b9c67.webp"
-import img_4 from "../../images/Dubai-Holiday-Home-Vacation.webp"
-import img_5 from "../../images/destination_3.webp"
-import img_6 from "../../images/destination_2.webp"
-import img_7 from "../../images/destination_4.webp"
-import img_8 from "../../images/destination_1.webp"
 // Images For Banners
 import image from "../../images/1300x500.webp"
 import small_size from "../../images/explore 500x500.webp"
 import medium_size from "../../images/explore 700x500.webp"
-import banner_2 from "../../images/banner 02 background.webp"
 import banner_3 from "../../images/banner 03 back.webp"
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Helper } from '../../functionality/helper';
 import { apiRoutes } from '../../functionality/apiRoutes';
 
 function Destinations() {
     const {t,i18n} = useTranslation()
+    const [searchParams] = useSearchParams()
     const data = [{
         img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image) ,
         background_img : banner_3,
@@ -34,14 +26,18 @@ function Destinations() {
     useEffect(()=>{
         const controller = new AbortController()
         const signal = controller.signal
+        const city = searchParams.get("city") || ""
+        const guests = parseInt(searchParams.get("guests") )|| ""
+        const type = searchParams.get("type") || ""
+        const params = {page : 1, limit : 50}
+        if(city) params.city = city
+        if(type) params.type = type
+        if(guests) params.guests = guests
         const getData = async (signal)=>{
             const { response , message } = await Helper({
                 url : apiRoutes.property.getAllProperties,
                 signal,
-                params:{
-                    page : 1,
-                    limit : 50
-                },
+                params,
                 method : "GET"
             })
             if(response){
@@ -58,7 +54,7 @@ function Destinations() {
         // window.scrollTo({ top: 0,  behavior: 'smooth' })
         return ()=> controller.abort()
 
-    },[])
+    },[searchParams])
     return ( <div className='our-properties'>
         <Banner fromHomePage={true} data={data} />
         <div className="px-6 py-10  lg:px-10">

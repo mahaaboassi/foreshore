@@ -1,12 +1,8 @@
-import React, { useEffect, useState ,useRef} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import Header from "../../../components/header";
-// Import Images
-import img_1 from "../../../images/destination_1.webp"
-import img_2 from "../../../images/destination_2.webp"
-import img_3 from "../../../images/destination_3.webp"
-import img_4 from "../../../images/destination_4.webp"
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -53,54 +49,13 @@ const SlidesComponent = ({images,onClick})=>{
 function ExploreDestination() {
     const {t, i18n} = useTranslation()
     const navigate = useNavigate()
-    const data = [{
-        title : t("explore-title-1"),
-        desc : t("explore-desc-1"),
-        img : img_1
-    },{
-        title : t("explore-title-2"),
-        desc : t("explore-desc-2"),
-        img : img_2
-    },{
-        title : t("explore-title-3"),
-        desc : t("explore-desc-3"),
-        img : img_3
-    },{
-        title : t("explore-title-4"),
-        desc : t("explore-desc-4"),
-        img : img_4
-    }]
-    const targetRef = useRef(null);
-    const [isInView, setIsInView] = useState(false);
-    
    useEffect(() => {
     const controller = new AbortController()
     const signal = controller.signal
-     const handleIntersection = (entries) => {
-       entries.forEach(entry => {
-         if (entry.isIntersecting) {
-           setIsInView(true); // Set state to true when the div is in view
-         } else {
-           setIsInView(false); // Set state to false when the div is out of view
-         }
-       });
-     };
- 
-     const observer = new IntersectionObserver(handleIntersection, {
-       root: null, // Observe with respect to the viewport
-       rootMargin: '0px',
-       threshold: 0.5, // Trigger when 50% of the div is visible
-     });
- 
-     // Start observing the target div
-     if (targetRef.current) {
-       observer.observe(targetRef.current);
-     }
      //  GET DATA 
      getData(signal)
      // Cleanup observer on component unmount
      return () => {
-       if (targetRef.current) observer.unobserve(targetRef.current);
         controller.abort()
      };
      }, []);
@@ -125,7 +80,7 @@ function ExploreDestination() {
     }
 
 
-    return ( <div ref={targetRef}  className='explore'>
+    return ( <div  className='explore'>
         <Header title={t("explore-title")} description={t("explore-desc")} />
         <div className='flex justify-center pt-4 '>
             <button onClick={()=>navigate("/destinations")} className='btn-main p-3 capitalize'>{t("our-destination")}</button>

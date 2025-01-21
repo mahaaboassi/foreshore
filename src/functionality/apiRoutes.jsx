@@ -11,6 +11,10 @@ export  const apiRoutes = {
         getOne : (id)=>(`${Host}/admin/getProperty/${id}`),
       
     },
+    type : {
+        getAllTypes : `${Host}/admin/getAllTypes`,
+      
+    },
 }
 
 

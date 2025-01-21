@@ -2,10 +2,13 @@ import React ,{useEffect, useRef, useState}  from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useNavigate } from 'react-router-dom';
+import { Helper } from '../../../functionality/helper';
+import { apiRoutes } from '../../../functionality/apiRoutes';
+
 
 function BannerSearch() {
     
-    const { t  } = useTranslation();
+    const { t ,i18n } = useTranslation();
     const navigate = useNavigate();
     const [ isOpen , setIsOpen] = useState({
         location: false,
@@ -21,7 +24,6 @@ function BannerSearch() {
     const typeRef = useRef(null);
     const guestRef = useRef(null);
     const closeDropdown = (type,value)=>{
-        alert("jnjn")
         const temp = {
             location :false,type:false,guest:false
         }
@@ -36,11 +38,11 @@ function BannerSearch() {
             if(count>1) setCount(count-1)
         }
     }
-    
+    const [ types, setTypes] = useState(undefined)
     useEffect(() => {
+        const controller = new AbortController()
+        const signal = controller.signal
         const handleClickOutside = (e) => {
-
-            
         if (
             locationRef.current &&
             !locationRef.current.contains(e.target) &&
@@ -58,11 +60,26 @@ function BannerSearch() {
         };
 
         document.addEventListener("click", handleClickOutside);
-
+        getTypes(signal)
         return () => {
         document.removeEventListener("click", handleClickOutside);
+        controller.abort()
         };
     }, []);
+    const getTypes = async (signal) =>{
+        const { response, message} = await Helper({
+            url : apiRoutes.type.getAllTypes,
+            params :{page :1, limit : 10},
+            method : "GET",
+            signal
+        })
+        if(response){
+            setTypes(response.data)
+        }else{
+            console.log(message);
+            
+        }
+    }
     return ( <div className='search-banner '>
         <div className={`flex  ${window.innerWidth < 600 && "justify-between"}`}>
             <label ref={locationRef} onClick={()=>setIsOpen({
@@ -88,7 +105,7 @@ function BannerSearch() {
                     <ul>
                         <li onClick={()=>{closeDropdown("location",t("dubai"))}} className='capitalize dropdown-content p-1'>{t("dubai")}</li>
                         <li onClick={()=>{closeDropdown("location",t("sharjah"))}}  className='capitalize dropdown-content p-1'>{t("sharjah")}</li>
-                        <li onClick={()=>{closeDropdown("location",t("abo"))}} className='capitalize dropdown-content p-1'>{t("abo")}</li>
+                        <li onClick={()=>{closeDropdown("location",t("abo Dhabi"))}} className='capitalize dropdown-content p-1'>{t("abo")}</li>
                     </ul>
                 </div>}
             </label >
@@ -106,8 +123,9 @@ function BannerSearch() {
                 </div>
                 {isOpen.type && <div className='location-card min-w-40'>
                     <ul>
-                        <li onClick={()=>{closeDropdown("type",t("apartment"))}} className='capitalize dropdown-content p-1'>{t("apartment")}</li>
-                        <li onClick={()=>{closeDropdown("type",t("studio"))}}  className='capitalize dropdown-content p-1'>{t("studio")}</li>
+                        {types.map((e)=>(<li onClick={()=>{closeDropdown("type",t("studio"))}}  className='capitalize dropdown-content p-1'>{i18n.language == "en"?(e.name_en?e.name_en:""):(e.name_ar?e.name_ar:"")}</li>))}
+                        
+                        
                         <li onClick={()=>{closeDropdown("type",t("villa"))}} className='capitalize dropdown-content p-1'>{t("villa")}</li>
                     </ul>
                 </div>}

@@ -437,6 +437,13 @@
 .our-properties  h4:hover{
   color: var(--main_color);
 }
+.one-property  h3{
+  font-size: var(--font-size-s) !important;
+  padding: 5px 0 !important;
+}
+.hint{
+  font-size: var(--font-size-xs);
+}
 .one-property  svg{
   width: 25px !important;
 }

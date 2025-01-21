@@ -133,10 +133,10 @@ function PropertyDetails() {
                     {
                           hintAmentities.map((child)=>(<div  key={`Hint_Features_Property_${child.id}`}>
                             
-                              <p className='flex items-center gap-3 mb-2' >
+                              <div className='flex items-center gap-3 mb-2 hint' >
                                   <div dangerouslySetInnerHTML={{__html : bufferToString(child.icon?.data)}}></div>
                                   <div className=''>{i18n.language == "en" ?(child.name_en?child.name_en:""):(child.name_ar?child.name_ar:"")}</div>
-                                </p>
+                                </div>
                             
 
                           </div>))
@@ -183,7 +183,7 @@ function PropertyDetails() {
                     {" "}{dataFromApi.street?dataFromApi.street:""} , {" "}{dataFromApi.building?dataFromApi.building:""},
                     {" "}{dataFromApi.floor?dataFromApi.floor:""}
                     </p>
-                    <iframe className='!w-full rounded' src={dataFromApi.link_map?dataFromApi.link_map:""} width="600" height="450" style={{border:"0"}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe className='!w-full rounded' src={dataFromApi.link_map?dataFromApi.link_map:""} width="600" height="450" style={{border:"0"}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                   </div>}
                 </div>
               </div>
