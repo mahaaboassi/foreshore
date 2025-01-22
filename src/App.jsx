@@ -14,6 +14,7 @@ import PropertyDetails from "./pages/property/property";
 import Destinations from "./pages/property/page";
 import ListYourProperty from "./pages/listYourProperty/page";
 import NotFound from "./pages/404_Page/404Page";
+import UserProperties from "./pages/userProperties/page";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="property/:id" element={<PropertyDetails/>} />
             <Route path="destinations" element={<Destinations/>} />
             <Route path="listYourProperty" element={<ListYourProperty/>} />
+            <Route path="properties" element={<UserProperties/>} />
             <Route element={<LayoutAuth/>} path="auth/*">
                <Route element={<SignIn/>} path="signIn"/>
                <Route element={<SignUp/>} path="signUp"/>

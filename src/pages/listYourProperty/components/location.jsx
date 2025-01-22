@@ -83,7 +83,7 @@ function Location({nextStep}) {
                 </div>
                 <div>
                     <InputWithIcon register={register("street")} icon={<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-                        <g clip-path="url(#clip0_154_1577)">
+                        <g clipPath="url(#clip0_154_1577)">
                         <path d="M0.536133 14.4657L3.75042 0.537109M7.5004 0.537109V2.67997M7.5004 6.42994V8.57281M7.5004 12.3228V14.4657M14.4647 14.4657L11.2504 0.537109" stroke="#27CBBE" stroke-width="1.71429" stroke-linecap="round" stroke-linejoin="round"/>
                         </g>
                         <defs>

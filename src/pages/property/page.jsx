@@ -8,7 +8,7 @@ import { apiRoutes } from '../../functionality/apiRoutes';
 import SearchCard from '../home/sections/searchCard';
 // Images For Banners
 import image from "../../images/1300x500.webp"
-import small_size from "../../images/explore 500x500.webp"
+import small_size from "../../images/500x500-explore.webp"
 import medium_size from "../../images/explore 700x500.webp"
 import banner_3 from "../../images/banner 03 back.webp"
 

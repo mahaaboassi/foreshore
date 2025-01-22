@@ -129,6 +129,71 @@
     align-items: center;
     cursor: pointer;
   }
+  /* Data table */
+  .photo-datatable{
+    border-radius: 12px;
+    width: 60px;
+    height: 50px;
+    object-fit: cover;
+  }
+ /* If you're using custom styles in your CSS */
+.bagde-first {
+  background-color: #ff6347;  /* Example color */
+  color: white;
+  border-radius: 12px;
+}
+
+.bagde-2 {
+  background-color: #32cd32;
+  color: white;
+  border-radius: 12px;
+}
+
+.bagde-3 {
+  background-color: #1e90ff;
+  color: white;
+  border-radius: 12px;
+}
+table th{
+  font-size: var(--font-size-xs)!important;
+}
+
+/* 404 Page */
+.page-404{
+  position: relative;
+}
+
+.card-404{
+  position: absolute;
+  top: 0;
+  right:0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-404 .parent{
+  background-color: var(--light_level_1_color);
+  width: 500px;
+  height: 300px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-box);  
+}
+@media (max-width:1024px) {
+  /* width="441" height="171" */
+  .card-404 .parent{
+    background-color: var(--light_level_1_color);
+    width: 300px;
+    height: 200px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-box);  
+  }
+  .card-404 .parent svg{
+    width: 300px;
+    height: 100px;
+  }
+}
   @media (max-width:768px) {
 
     .avatar{
@@ -142,6 +207,21 @@
 
     }
     
+  }
+
+  @media (max-width:500px) {
+    /* width="441" height="171" */
+    .card-404 .parent{
+      background-color: var(--light_level_1_color);
+      width: 300px;
+      height: 200px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-box);  
+    }
+    .card-404 .parent svg{
+      width: 300px;
+      height: 100px;
+    }
   }
   @media (max-width:430px) {
     .alert-card{

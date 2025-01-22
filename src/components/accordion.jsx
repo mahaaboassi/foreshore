@@ -8,7 +8,7 @@ function Accordion({question,answer,withIcons=false,isFromFAQ=false}) {
              <h5  className="weight-regular">{question}</h5>
              <div  onClick={()=>setIsOpen(!isOpen)} className={`flex cursor-pointer justify-center items-center ${isOpen?"icon-accordion-less":"icon-accordion-more"}`}>
                 {isOpen ? <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
-                        <g clip-path="url(#clip0_19_137)">
+                        <g clipPath="url(#clip0_19_137)">
                         <path d="M13 8.66663L6.5 15.1666L8.0275 16.6941L13 11.7325L17.9725 16.6941L19.5 15.1666L13 8.66663Z" fill="#FDFDFD"/>
                         </g>
                         <defs>
@@ -17,7 +17,7 @@ function Accordion({question,answer,withIcons=false,isFromFAQ=false}) {
                         </clipPath>
                         </defs>
                         </svg> :<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
-                        <g clip-path="url(#clip0_19_95)">
+                        <g clipPath="url(#clip0_19_95)">
                         <path d="M17.9725 9.30579L13 14.2675L8.0275 9.30579L6.5 10.8333L13 17.3333L19.5 10.8333L17.9725 9.30579Z" fill="#FDFDFD"/>
                         </g>
                         <defs>

@@ -14,7 +14,7 @@ import ListYourProperty from './sections/list';
 
 // Images For Banners
 import girl from "../../images/image without background.webp"
-import girl_small from "../../images/b 500 x 330.webp"
+import girl_small from "../../images/500x500 h.webp"
 import girl_medium from "../../images/A 700x330.webp"
 import banner_1 from "../../images/banner background.webp"
 import girl_2 from "../../images/banner 02 without background.webp"

@@ -1,11 +1,13 @@
 import React, { useRef, useState,useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
     
 function Avatar() {
     const user = JSON.parse(localStorage.getItem("$user"))
     const { t, i18n } = useTranslation()
     const [ isOpen , setIsOpen ] = useState(false)
     const menuRef = useRef()
+    const navigate = useNavigate()
     useEffect(() => {
         const handleClickOutside = (e) => {
             
@@ -55,6 +57,7 @@ function Avatar() {
                 </li>
                 <li onClick={()=>{
                     setIsOpen(false)
+                    navigate("/properties")
                 }}  className="flex gap-2">
                     <div className="flex capitalize items-center">
                       {t("my-properties")}
