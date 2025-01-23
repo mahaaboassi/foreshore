@@ -20,6 +20,7 @@ ExtraBold 800 */
 @import url("./style/search.css");
 @import url("./style/search-2.css");
 @import url("./style/public.css");
+@import url("./style/chat.css");
 /* Tailwind requirments */
 @tailwind base;
 @tailwind components;
@@ -288,5 +289,27 @@ textarea{
   .whatsapp-icon svg{
     width : 60px  ;
     height : 60px 
+  }
+  .social-icons{
+    position: fixed;
+    bottom: 105px;
+    top: unset;
+    transform: unset;
+  }
+}
+@media (max-width : 500px){
+  .social-icons{
+    position: fixed;
+    bottom: 95px;
+    top: unset;
+    transform: unset;
+  }
+}
+@media (max-width : 360px){
+  .social-icons{
+    position: fixed;
+    bottom: 87px;
+    top: unset;
+    transform: unset;
   }
 }

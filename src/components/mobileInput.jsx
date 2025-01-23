@@ -4,7 +4,7 @@ import InputWithIcon from "./inputWithIcons";
 import { countriesWithCodeNumber } from "../data/data";
 // import { Helper } from "../../functionality/helper";
 // import { apiRoutes } from "../../functionality/apiRoutes";
-function MobileInput({register,value,returnedCountry,country_id,isOpenMenu=true}) {
+function MobileInput({register,value,returnedCountry,country_id,isOpenMenu=true,fromChatPopup=false}) {
     const [ countries, setCountries] = useState(countriesWithCodeNumber)
     const [ selectedCountry, setSelectedCountry,] = useState({})
     const [number ,setNumber ] = useState()
@@ -29,14 +29,15 @@ function MobileInput({register,value,returnedCountry,country_id,isOpenMenu=true}
         }
        
     };
-    return ( <div className="mobile-input items-center">
+    return ( <div className={`${"mobile-input"} items-center`}>
         <div className={`flex items-center min-w-8 sm:min-w-12 ${isOpenMenu && "cursor-pointer"}`} onClick={()=>{
             if(isOpenMenu)
                 setIsOpen(!isOpen)
             
         }}>
+            
             {/* {loading ? <div className="loader-dark0"></div> : */}
-            <img className="w-5  rounded" alt={ "country_name" in selectedCountry && selectedCountry.country_name} src={"code" in selectedCountry ?`https://flagcdn.com/w320/${selectedCountry.code.toLowerCase()}.png` :""} />
+            <img className="w-5 h-4 object-cotaint  rounded" alt={ "country_name" in selectedCountry && selectedCountry.country_name} src={"code" in selectedCountry ?`https://flagcdn.com/w320/${selectedCountry.code.toLowerCase()}.png` :""} />
             {/* } */}
             {isOpenMenu && <div className="flex cursor-pointer items-center">
                 {isOpen ? <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -71,7 +72,7 @@ function MobileInput({register,value,returnedCountry,country_id,isOpenMenu=true}
                 setNumber(e.target.value)
                 }} type="number" />
         </div>
-        <ul className={`${isOpen?"block":"hidden"} menu-countries`}>
+        <ul className={`${isOpen?"block":"hidden"} ${fromChatPopup?"menu-countries-popup":"menu-countries"} `}>
             <li className="py-2">
                 <InputWithIcon onChange={handleSearch} placeholder={"Search"} isDark={true}/>
             </li>

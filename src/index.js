@@ -8,6 +8,7 @@ import "./i18n"
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import Notification from './components/notification';
+import ChatComonent from './components/chat';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,7 @@ root.render(
     <Provider store={store}>
        <App />
        <Notification/>
+       <ChatComonent/>
     </Provider>
   </React.StrictMode>
 );

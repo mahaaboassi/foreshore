@@ -48,7 +48,7 @@ function NotFound () {
                 </svg>
                 </div>
                 <div className="flex justify-center pb-5">
-                    <button onClick={()=>navigate("/")} className="btn-main p-5">{t("go-to-home-page")}</button>
+                    <button onClick={()=>navigate("/")} className="btn-main p-3 md:p-5">{t("go-to-home-page")}</button>
                 </div>
             </div>
         </div>
