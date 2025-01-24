@@ -6,6 +6,23 @@ import img_2 from "../images/logo_dark.webp"
 import { Link } from 'react-router-dom';
 import { contactData } from '../data/contactData';
 
+// for validation
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
+import {  useState } from "react";
+import { Helper } from '../functionality/helper';
+import { apiRoutes } from '../functionality/apiRoutes';
+import { useDispatch } from 'react-redux';
+import { changeNotification } from '../redux/actions/notification';
+
+const validationSchema = Yup.object({
+    email: Yup.string()
+    .email('Please enter a valid email address')
+    .required('Email is required')
+  });
+
+  
 function Footer() {
     const {t , i18n} = useTranslation()
     const data = [{
@@ -27,8 +44,40 @@ function Footer() {
         name : "faq",
         link :"/FAQs"
     }]
+    const dispatch = useDispatch()
+    const [ loading, setLoading] = useState(false)
+    const { register, handleSubmit, formState: { errors }} = useForm(
+                {resolver: yupResolver(validationSchema), 
+                 mode: 'onChange'   }
+    );
+    const onSubmit = async (data) => {
+        setLoading(true)
+        const { response, message } = await Helper({
+            url : apiRoutes.contact.subsecribe,
+            method : "POST",
+            body : { email : data.email}
+        })
+        if(response){
+            setLoading(false)
+            dispatch(changeNotification({
+                isOpen : true,
+                bgColor : "bg-success",
+                message : response.message
 
-    
+            }))
+        }else{
+            console.log(message);
+            setLoading(false)
+            dispatch(changeNotification({
+                isOpen : true,
+                bgColor : "bg-error",
+                message : message
+
+            }))
+
+        }
+        
+    }
     return ( <footer className="mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2">
             <div className={`${i18n.language == "en"?"footer-en":"footer-ar"} footer-right`}>
@@ -52,12 +101,14 @@ function Footer() {
 
             </div>
             <div className={`px-5 ${i18n.language == "en"?"footer-container-en":"footer-container-ar"}`}>
-                <div>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <h5 className="weight-regular mt-10 md:mt-0 text-center sm:text-start">{t("footer-subscribe")}</h5>
-                    <div className="flex pt-4 pb-1 justify-center sm:justify-start ">
-                        <input placeholder={t("email")} /><button className="btn-footer p-3 capitalize">{t("subscribe")}</button>
+                    <div   className="flex pt-4 pb-1 justify-center sm:justify-start ">
+                        <input {...register("email")} placeholder={t("email")} />
+                        <button className="btn-footer p-3 min-w-32 capitalize">{loading?<div className='loader'></div>:t("subscribe")}</button>
                     </div>
-                </div>
+                    {errors.email && <p className="p-0.5 text-error">{errors.email.message}</p>}
+                </form>
                 <div className="grid grid-cols-1 sm:grid-cols-2 ">
                     <div className="pages">
                         <h4 className="uppercase weight-semiBold text-center sm:text-start py-3">{t("pages")}</h4>

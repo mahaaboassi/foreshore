@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
-function InputWithIcon({icon,placeholder,isPassword=false, type,register}) {
+function InputWithIcon({icon,placeholder,isPassword=false,onChange, type,register}) {
     const [typeInput, settypeInput] = useState("")
+    const [ valueInput, setValueInput ] = useState("")
     useEffect(()=>{
         settypeInput(type)
     },[type])
@@ -12,6 +13,11 @@ function InputWithIcon({icon,placeholder,isPassword=false, type,register}) {
         <input
           {...register}
           type={typeInput}
+          onChange={(e)=>{
+                    if (register?.onChange) register.onChange(e);  // Call register's onChange
+                    if (onChange) onChange(e);  // Call custom onChange if provided
+                     setValueInput(e.target.value)
+        }}
           placeholder={placeholder}
           className="outline-none bg-transparent flex-1 sm:p-2"
         />

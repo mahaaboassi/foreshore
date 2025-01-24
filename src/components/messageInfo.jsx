@@ -5,7 +5,7 @@ import InputWithIcon from "./inputWithIcons";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 
 
@@ -21,7 +21,7 @@ const validationSchema = Yup.object({
   });
 
 
-function MessageInfo({returnedData,loading}) {
+function MessageInfo({returnedData}) {
         const { register, handleSubmit, formState: { errors },clearErrors,watch,setValue } = useForm(
             {resolver: yupResolver(validationSchema), 
              mode: 'onChange'   }
@@ -29,13 +29,13 @@ function MessageInfo({returnedData,loading}) {
         const onSubmit = (data) => {
             data["country_dial"] = country.dial_code
             data["message"] = message || ""
+            setIsSend(true)
             returnedData(data)
             
         }
         const [country, setCountry] = useState({})
         const [message, setMessage] = useState("")
-        const [isLoading, setIsLoading] = useState(false)
-        useEffect(()=>{setIsLoading(loading)},[loading])
+        const [isSend, setIsSend] = useState(false)
     return ( <form onSubmit={handleSubmit(onSubmit)}  className="w-full flex flex-col gap-2">
         <div>
               <InputWithIcon register={register("name")} placeholder={"Name"} icon={<svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 10 12" fill="none">
@@ -62,8 +62,8 @@ function MessageInfo({returnedData,loading}) {
               <textarea onChange={(e)=>setMessage(e.target.value)} placeholder={"Message"}  />
           </div>
       <div className=''>
-          <button type="submit" className='btn-main  !w-full'>
-            {isLoading?<div className="loader"></div>:"Submit"}
+          <button disabled={isSend} type="submit" className='btn-main  !w-full'>
+            {"Submit"}
           </button>
       </div>
     </form> );

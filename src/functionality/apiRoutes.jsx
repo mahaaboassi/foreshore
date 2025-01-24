@@ -17,6 +17,10 @@ export  const apiRoutes = {
         getAllTypes : `${Host}/admin/getAllTypes`,
       
     },
+    contact : {
+        contactUs : `${Host}/admin/contactUS`,
+        subsecribe : `${Host}/admin/subscribe`
+    }
 }
 
 
