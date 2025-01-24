@@ -447,6 +447,7 @@ path.change-to-black-color {
     }
     .blog h5{
         font-size: var(--font-size-xs);
+        
     }
     .embrace p{
         font-size: var(--font-size-xxs);
@@ -537,6 +538,15 @@ path.change-to-black-color {
     }
     .arabic-dir{
         right: 45% !important;
+    }
+    .blog h5{
+        font-size: 11px;
+    }
+    
+}
+@media (min-width: 307px) and (max-width: 500px) {
+    .blog h5{
+        height: 95px;
     }
     
 }

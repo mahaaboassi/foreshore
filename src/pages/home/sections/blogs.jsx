@@ -53,11 +53,14 @@ function Blog() {
             >
                 {blogsData.map((e,i)=>(<SwiperSlide key={`Blog_${e.title_en}_${i}`}>
                     <div className='flex flex-col items-center max-w-96'>
-                        <div className='p-3 content-blog '>
+                        <div className='content-blog '>
                             <div className='flex justify-center'>
                                 <img className='w-full object-cover h-32 sm:h-40 md:h-52 '  src={e.image} alt={e.title_en} />
                             </div>
-                            <h5 style={i18n.language=="ar"?{direction:"rtl"}:{direction:"ltr"}}  className='weight-blod capitalize py-3 flex  min-h-14 md:min-h-20 items-center '>{i18n.language == "en"?e.title_en:e.title_ar}</h5>
+                            <h5 style={i18n.language=="ar"?{direction:"rtl"}:{direction:"ltr"}}  className='weight-blod capitalize py-3 flex min-h-16 sm:min-h-14 md:min-h-20 items-center '>
+                                {window.innerWidth<400?i18n.language == "en"?e.title_en:e.title_ar
+                                :i18n.language == "en"?e.title_en:e.title_ar}
+                            </h5>
                             <div >
                                 <button onClick={()=>navigate(`/blog/${e.id}`)} className='btn-main !w-full capitalize  button-mark'>
                                     {i18n.language=="ar" && <span className='px-2 flex items-center'>&lt;</span>}
