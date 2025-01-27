@@ -55,14 +55,15 @@ function ChatComonent() {
         }])
     }
     const reSelect =()=>{
-        if(!closeChat)setConversation(prev=>[...prev,... chatData])
+        // if(!closeChat)
+            setConversation(prev=>[...prev,... chatData])
     }
     useEffect(() => {
         // Auto-scroll to the bottom whenever conversation updates
         chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [conversation,loading]);
     const closeConversation = () => {
-        if(!closeChat){
+        // if(!closeChat){
             setCloseChat(true)
             setConversation(prev=>[...prev,{
                 sender : "support",
@@ -71,7 +72,7 @@ function ChatComonent() {
                 content :<>Thank you for your interest! We appreciate it.😊</>,
                 answer : ""
             }])
-        }
+        // }
         
     }
     const sendData = async(data)=>{
@@ -138,7 +139,7 @@ function ChatComonent() {
                     </div>
                     <div style={{overflowY: "scroll",height : window.innerWidth < 500? window.innerHeight - 350: window.innerHeight - 370}} className="p-2 div-scroll flex flex-col gap-2">
                             {conversation.map((e,i)=>(<div key={`Conversation_${i}_${e.key}_${e.id}`} onClick={()=>{
-                                if(!closeChat){
+                                // if(!closeChat){
                                     if(e.key == "question" ){
                                         setConversation(prev=>([...prev,{
                                             sender : "support",
@@ -166,7 +167,7 @@ function ChatComonent() {
                                         },]))
     
                                     }
-                                }
+                                // }
                                 
                             }} className={`${(e.key =="question" || e.key =="answer" || e.key =="no-option")?"support-line":(e.key == "finish"?"message-close":"")} ${(e.key=="question" || e.key =="no-option") && "cursor-pointer"}`}>
                                 {e.content}

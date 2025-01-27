@@ -1,11 +1,12 @@
-
 import React ,{useEffect, useState}  from 'react';
 import { useTranslation } from 'react-i18next';
 import Retype from "../../components/retype";
 import { Helper } from '../../functionality/helper';
 import { apiRoutes } from '../../functionality/apiRoutes';
 import { useNavigate, useParams } from 'react-router-dom';
-
+// Download PDF
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import PropertyPDF from './component/pdfProperty';
 
 function PropertyDetails() {
    const { t ,i18n } = useTranslation();
@@ -195,9 +196,12 @@ function PropertyDetails() {
                 <div className='w-full pb-3'>
                   <button className='btn-main capitalize !w-full'>{t("book-now")}</button>
                 </div>
-                <div className='w-full'>
-                  <button className='btn-main capitalize !w-full'>{t("download")}</button>
-                </div>
+                {/* <div className='w-full'>
+                  <PDFDownloadLink document={<PropertyPDF property={dataFromApi} />} fileName="document.pdf">
+                    {({ loading }) => (loading ? 'Loading...' : 'Download PDF')}
+                  </PDFDownloadLink>
+                  <button  className='btn-main capitalize !w-full'>{t("download")}</button>
+                </div> */}
               </div>
             </div>
           </div>
