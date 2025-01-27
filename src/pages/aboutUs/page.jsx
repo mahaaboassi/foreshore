@@ -4,7 +4,8 @@ import Banner from '../home/sections/banner';
 
 // Images
 import image from "../../images/about_us.webp"
-import small_size from "../../images/about us 500 x330.webp"
+import small_size from "../../images/info 700x330.webp"
+// import small_size from "../../images/about us 500 x330.webp"
 import medium_size from "../../images/info 700x330.webp"
 import about_1 from "../../images/about (1).webp"
 import about_2 from "../../images/about (2).webp"

@@ -32,15 +32,28 @@ function ChatComonent() {
     const [ closeChat, setCloseChat ] = useState(false)
     const [ loading, setLoading ] = useState(false)
     const chatEndRef = useRef(null);
-    useEffect(()=>{setOpen(openChatRedux.isOpen)},[openChatRedux])
     const [conversation , setConversation] = useState([])
+    useEffect(()=>{
+        setOpen(openChatRedux.isOpen)
+        setTimeout(() => {
+            chatEndRef.current?.scrollIntoView();
+          }, 100);
+    },[openChatRedux])
+    useEffect(() => {
+        // Auto-scroll to the bottom whenever conversation updates
+        chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [conversation,loading,openChatRedux]);
+    
 
     useEffect(()=>{
         const dataForChat = [{
             sender : "support",
             key : "hospitality",
             id : 1,
-            content : <div>Welcome to our website! 😊</div>,
+            content : <div className="text-center">
+                <p className="weight-medium py-3">Thank You For Visiting FORESHORE</p>
+                <div>We are here to chat if you're looking for anymore information.</div>
+            </div>,
             answer : <></>
         },...chatData]
         setConversation(dataForChat)
@@ -50,7 +63,14 @@ function ChatComonent() {
             sender : "support",
             key : "connect with support",
             id :100,
-            content :<MessageInfo  returnedData={(data)=>{sendData(data)}} />,
+            content :<div>
+                <div className="text-main weight-medium py-2">Contact To Support</div>
+                <MessageInfo  returnedData={(data)=>{sendData(data)}} />
+                <div className="py-1" >
+                    Would you like to <span className="cursor-pointer weight-medium hover:text-stone-600" onClick={reSelect}>Go Back</span>,{" "}
+                    <span className="cursor-pointer weight-medium hover:text-stone-600" onClick={closeConversation}>close conversation</span>
+                </div>
+            </div>,
             answer : ""
         }])
     }
@@ -58,10 +78,7 @@ function ChatComonent() {
         // if(!closeChat)
             setConversation(prev=>[...prev,... chatData])
     }
-    useEffect(() => {
-        // Auto-scroll to the bottom whenever conversation updates
-        chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, [conversation,loading]);
+    
     const closeConversation = () => {
         // if(!closeChat){
             setCloseChat(true)
@@ -139,37 +156,41 @@ function ChatComonent() {
                     </div>
                     <div style={{overflowY: "scroll",height : window.innerWidth < 500? window.innerHeight - 350: window.innerHeight - 370}} className="p-2 div-scroll flex flex-col gap-2">
                             {conversation.map((e,i)=>(<div key={`Conversation_${i}_${e.key}_${e.id}`} onClick={()=>{
-                                // if(!closeChat){
-                                    if(e.key == "question" ){
-                                        setConversation(prev=>([...prev,{
-                                            sender : "support",
-                                            key : "answer",
-                                            id :100,
-                                            content : <div>
-                                                <div className="text-main">{e.content}</div>
-                                                <div>{e.answer}</div>
-                                                <div >
-                                                    Would you like to <span className="cursor-pointer weight-medium hover:text-stone-600" onClick={reSelect}>Reselect</span>,{" "}
-                                                    <span className="cursor-pointer weight-medium hover:text-stone-600" onClick={closeConversation}>close conversation</span>,{" "}
-                                                    or <span className="cursor-pointer weight-medium hover:text-stone-600" onClick={connectWithSupport}> Connect With Support</span>? 
-                                                </div>
-                                            </div>,
-                                            answer : ""
-                                        },]))
-                                    }else if(e.key == "no-option"){
-                                        setConversation(prev=>([...prev,{
-                                            sender : "support",
-                                            key : "no-potion-selected",
-                                            id :100,
-                                            content :<><div> Do you want connect with support <span onClick={connectWithSupport} className="cursor-pointer weight-medium hover:text-stone-600" >Yes</span>, {"  "}
-                                            <span className="cursor-pointer weight-medium hover:text-stone-600" onClick={closeConversation}>Close Conversation</span> </div></>,
-                                            answer : ""
-                                        },]))
-    
-                                    }
-                                // }
+                                if(e.key == "book" || e.key == "list" ){
+                                    setConversation(prev=>([...prev,{
+                                        sender : "support",
+                                        key : "answer",
+                                        id :100,
+                                        content : <div>
+                                            <div className="text-main weight-medium ">{e.content}</div>
+                                            <div>
+                                                <div  className="py-1">{e.answer}</div>
+                                                <div><MessageInfo returnedData={(data)=>{
+                                                    let temp = data
+                                                    temp.message = e.key == "list" ? "This message is from a user requesting to list a property." : "This message is from a user requesting to book a property."
+                                                    sendData(temp)}} withoutMessage={true}/></div>
+                                            </div>
+                                            <div className="py-1" >
+                                                Would you like to <span className="cursor-pointer weight-medium hover:text-stone-600" onClick={reSelect}>Go Back</span>,{" "}
+                                                <span className="cursor-pointer weight-medium hover:text-stone-600" onClick={closeConversation}>close conversation</span>,{" "}
+                                                or <span className="cursor-pointer weight-medium hover:text-stone-600" onClick={connectWithSupport}> Connect With Support</span>? 
+                                            </div>
+                                        </div>,
+                                        answer : ""
+                                    },]))
+                                }else if(e.key == "no-option"){
+                                    setConversation(prev=>([...prev,{
+                                        sender : "support",
+                                        key : "no-potion-selected",
+                                        id :100,
+                                        content :<><div> Do you want connect with support <span onClick={connectWithSupport} className="cursor-pointer weight-medium hover:text-stone-600" >Yes</span>, {"  "}
+                                        <span className="cursor-pointer weight-medium hover:text-stone-600" onClick={closeConversation}>Close Conversation</span> </div></>,
+                                        answer : ""
+                                    },]))
+
+                                }
                                 
-                            }} className={`${(e.key =="question" || e.key =="answer" || e.key =="no-option")?"support-line":(e.key == "finish"?"message-close":"")} ${(e.key=="question" || e.key =="no-option") && "cursor-pointer"}`}>
+                            }} className={`${(e.key =="book" || e.key =="list")?"support-line cursor-pointer text-center mx-auto":(e.key == "finish"?"message-close":"")} ${(e.key=="question" || e.key =="no-option") && "cursor-pointer"}`}>
                                 {e.content}
                                 </div>))}
                                 <div ref={chatEndRef} />

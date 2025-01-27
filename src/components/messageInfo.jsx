@@ -21,7 +21,7 @@ const validationSchema = Yup.object({
   });
 
 
-function MessageInfo({returnedData}) {
+function MessageInfo({ returnedData, withoutMessage = false}) {
         const { register, handleSubmit, formState: { errors },clearErrors,watch,setValue } = useForm(
             {resolver: yupResolver(validationSchema), 
              mode: 'onChange'   }
@@ -58,9 +58,10 @@ function MessageInfo({returnedData}) {
               <MobileInput register={register("phone_number")}  fromChatPopup={true} returnedCountry={(ele)=>{setCountry(ele) }}/>
               {errors.phone_number && <p className="p-0.5 text-error">{errors.phone_number.message}</p>}
           </div>
-          <div className='w-full small-size-auth-input ' >
+          {!withoutMessage && <div className='w-full small-size-auth-input ' >
               <textarea onChange={(e)=>setMessage(e.target.value)} placeholder={"Message"}  />
-          </div>
+          </div>}
+          
       <div className=''>
           <button disabled={isSend} type="submit" className='btn-main  !w-full'>
             {"Submit"}

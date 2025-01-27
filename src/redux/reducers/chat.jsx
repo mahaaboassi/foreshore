@@ -1,5 +1,5 @@
 const initialValues = {
-    isOpen : false,
+    isOpen : true,
 }
 
 export const reducerChat = (state = initialValues , action)=>{
