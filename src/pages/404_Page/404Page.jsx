@@ -4,12 +4,15 @@ import { useNavigate } from "react-router-dom";
 import image_larg from "../../images/bb.webp"
 import image_medium from "../../images/cc.webp"
 import image_small from "../../images/dd.webp"
+import { Helmet } from 'react-helmet-async';
 
 function NotFound () {
     const navigate = useNavigate()
     const { t } = useTranslation()
     return ( <div className="page-404">
-        
+        <Helmet>
+            <title>Foreshore | 404 Error</title>
+        </Helmet>
         <img className='w-full' alt='background' src={window.innerWidth <= 500 ? image_small : (window.innerWidth <=700 ? image_medium: image_larg)} />
         <div className='card-404 pt-16 md:pt-24 lg:pt-28 '>
             <div className='parent'>

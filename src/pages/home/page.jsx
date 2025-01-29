@@ -11,6 +11,7 @@ import OurBenefits from './sections/ourBenefits';
 import ExploreDestination from './sections/expolre';
 import Getaway from './sections/getaway';
 import ListYourProperty from './sections/list';
+import { Helmet } from 'react-helmet-async';
 
 // Images For Banners
 import girl from "../../images/image without background.webp"
@@ -54,6 +55,9 @@ function Home() {
       
       window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
     return ( <div>
+      <Helmet>
+        <title>Foreshore | Holiday Home Rental</title>
+      </Helmet>
       <Banner fromHomePage={true} data={data} children={<SearchCard/>} />
       <OurBenefits/>
       <ExploreDestination/>

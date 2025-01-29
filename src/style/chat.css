@@ -52,9 +52,8 @@
 }
 .container-conversation{
     position: relative;
-
     border-radius: 12px;
-    width: 400px;
+    width: 350px;
     position: fixed;
     z-index: 11;
     bottom: 25px;
@@ -126,10 +125,14 @@
         bottom: 0;
     }
 }
-
+@media ( max-width : 1000px){
+    .container-conversation{
+        width: 300px;
+    }
+}
 @media ( max-width : 500px){
     .container-conversation{
-        width: 350px;
+        width: 300px;
     }
     .avatar-chat{
         width: 30px;

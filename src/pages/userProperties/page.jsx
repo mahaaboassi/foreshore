@@ -5,6 +5,7 @@ import { Helper } from '../../functionality/helper';
 import { apiRoutes } from '../../functionality/apiRoutes';
 import { useNavigate } from 'react-router-dom';     
 import { format } from 'date-fns';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -145,6 +146,9 @@ function UserProperties() {
 
     }
     return ( <div className=" px-6 pt-16 md:pt-24 lg:pt-28 lg:px-10">
+       <Helmet>
+          <title>Foreshore | My Properties</title>
+        </Helmet>
         <div>
             <h2 className='capitalize weight-medium text-center'>{t("my-properties")}</h2>
         </div>

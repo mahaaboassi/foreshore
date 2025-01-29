@@ -11,6 +11,7 @@ import image from "../../images/1300x500.webp"
 import small_size from "../../images/500x500-explore.webp"
 import medium_size from "../../images/explore 700x500.webp"
 import banner_3 from "../../images/banner 03 back.webp"
+import { Helmet } from 'react-helmet-async';
 
 function Destinations() {
     const {t,i18n} = useTranslation()
@@ -68,6 +69,9 @@ function Destinations() {
         }
     }
     return ( <div className='our-properties'>
+        <Helmet>
+            <title>Foreshore | Destinations</title>
+        </Helmet>
         <Banner children={<SearchCard isDestinationPage={true} />} fromHomePage={true} data={data} />
         {notFound != "" && <div className='flex capitalize justify-center pb-5'>
             <p className='text-error py-4 font-medium'>

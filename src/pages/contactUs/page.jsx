@@ -18,6 +18,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -116,6 +117,10 @@ function ContactUs() {
         link : "https://goo.gl/maps/YOUR_LOCATION_MAP"
     }]
     return ( <div className='contact-us-content'>
+
+        <Helmet>
+            <title>Foreshore | Contact Us</title>
+        </Helmet>
         <Banner data={data} />
         <form onSubmit={handleSubmit(onSubmit)} className=' relative  px-6 md:lg-20 lg:px-36'>
             <div className='form-contact p-5 md:px-10 lg:px-20 flex flex-col gap-5'>

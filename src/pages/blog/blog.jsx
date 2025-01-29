@@ -5,6 +5,7 @@ import profile_img from "../../images/profile.webp"
 import { contactData } from '../../data/contactData';
 import { useParams } from 'react-router-dom';
 import { blogsData } from '../../data/blogData';
+import { Helmet } from 'react-helmet-async';
 
 function BlogDetails() {
     const { t ,i18n} = useTranslation()
@@ -84,6 +85,9 @@ function BlogDetails() {
         window.scrollTo({ top: 0,  behavior: 'smooth' })
     },[])
     return ( <div className="blog-details px-6 pt-16 md:pt-24 lg:pt-28 lg:px-10">
+        <Helmet>
+            <title>Foreshore | Blog</title>
+        </Helmet>
         <div className="grid grid-cols-1 md:grid-cols-2">
             <div className='blog-details-content py-5'>
                 <div className=''>

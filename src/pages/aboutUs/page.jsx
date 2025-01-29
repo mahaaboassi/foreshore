@@ -11,6 +11,7 @@ import about_1 from "../../images/about (1).webp"
 import about_2 from "../../images/about (2).webp"
 import { dataFAQ } from '../../data/dataFAQ';
 import Accordion from '../../components/accordion';
+import { Helmet } from 'react-helmet-async';
 
 
 function AboutUs() {
@@ -34,6 +35,9 @@ function AboutUs() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
     return ( <div className='about'>
+        <Helmet>
+            <title>Foreshore | About Us</title>
+        </Helmet>
         <Banner data={data}  />
 
         <div className='px-6 md:px-20  lg:px-36 about-content '>

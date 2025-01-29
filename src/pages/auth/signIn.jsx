@@ -12,6 +12,7 @@ import { apiRoutes } from '../../functionality/apiRoutes';
 import { useDispatch } from 'react-redux';
 import { changeNotification } from '../../redux/actions/notification';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const validationSchema = Yup.object({
     email: Yup.string().email('Invalid email format') // Ensures the email is valid
@@ -76,6 +77,9 @@ function SignIn() {
         window.scrollTo({ top: 0,  behavior: 'smooth' })
     },[])
     return ( <div className='card-auth px-2  md:px-8'>
+        <Helmet>
+            <title>Foreshore | Sign In</title>
+        </Helmet>
         <div className="flex justify-center pb-5">
             <img className='w-20' src={img} alt="logo" />
         </div>

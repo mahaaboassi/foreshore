@@ -6,6 +6,7 @@ import Banner from '../home/sections/banner';
 import image from "../../images/terms.webp"
 import small_size from "../../images/contract 500x330.webp"
 import medium_size from "../../images/contract 700x330.webp"
+import { Helmet } from 'react-helmet-async';
 
 
 function TermaAndConditions() {
@@ -74,6 +75,9 @@ function TermaAndConditions() {
       },]
     useEffect(()=>{ window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
     return ( <div>
+            <Helmet>
+              <title>Foreshore | Terms & Conditions</title>
+            </Helmet>
             <Banner data={data}/>
             <div  className=' relative  px-6  lg:px-10'>
                 <div className='terms px-5 md:px-10  py-8'>

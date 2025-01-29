@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 // Download PDF
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import PropertyPDF from './component/pdfProperty';
+import { Helmet } from 'react-helmet-async';
 
 function PropertyDetails() {
    const { t ,i18n } = useTranslation();
@@ -73,7 +74,11 @@ function PropertyDetails() {
         return ()=> controller.abort()
 
     },[id])
-    return ( loading || dataFromApi == undefined ?<div className="loading pt-40">
+    return (<>
+    <Helmet>
+      <title>Foreshore | Property Details</title>
+    </Helmet>
+    { loading || dataFromApi == undefined ?<div className="loading pt-40">
             <div className="bounce"></div>
             <div className="bounce"></div>
             <div className="bounce"></div>
@@ -205,7 +210,9 @@ function PropertyDetails() {
               </div>
             </div>
           </div>
-        </div>);
+        </div>}
+    
+    </>);
 }
 
 export default PropertyDetails;

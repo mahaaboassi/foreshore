@@ -1,6 +1,7 @@
 import React ,{useEffect, useState}  from 'react';
 import { useTranslation } from 'react-i18next';
 import Banner from '../home/sections/banner';
+import { Helmet } from 'react-helmet-async';
 
 // images 
 import image from "../../images/privacy p1350x500.webp"
@@ -43,6 +44,9 @@ function PrivacyPolicy() {
       }]
     useEffect(()=>{ window.scrollTo({ top: 0,  behavior: 'smooth' })},[])
     return ( <div>
+            <Helmet>
+              <title>Foreshore | Privacy Policy</title>
+            </Helmet>
             <Banner data={data}/>
             <div  className=' relative  px-6  lg:px-10'>
                 <div className='terms px-5 md:px-10  py-8'>

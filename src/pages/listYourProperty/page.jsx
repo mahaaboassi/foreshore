@@ -10,6 +10,7 @@ import Documents from "./components/documnets";
 import Confirmations from "./components/confirmation";
 import UserInfo from './components/userInfo';
 import { changeNotification } from '../../redux/actions/notification';
+import { Helmet } from 'react-helmet-async';
 
 
 function ListYourProperty() {
@@ -102,6 +103,9 @@ function ListYourProperty() {
         }
     }
     return ( <div className="pt-24  md:pt-32 px-6 lg:px-10 sm:flex justify-center">
+        <Helmet>
+            <title>Foreshore | List Your Property</title>
+        </Helmet>
         <div className="form-list flex flex-col px-2  md:px-8 py-5">
          <h2 className="capitalize text-center">{t("list-your-property")}</h2>
          {!isSignIn? <div className='pt-8'>

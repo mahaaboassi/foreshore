@@ -135,7 +135,7 @@ function ChatComonent() {
                     <path d="M16 2C9.4 2 4 7.3 4 13.9V17.4C4 17.5 4 17.5 4 17.6C4 17.7 4 17.9 4 18C4 20.8 6.2 23 9 23C9.6 23 10 22.6 10 22V14C10 13.4 9.6 13 9 13C7.9 13 6.8 13.4 6 14V13.8C6 8.4 10.5 4 16 4C21.5 4 26 8.4 26 13.9V14C25.2 13.4 24.1 13 23 13C22.4 13 22 13.4 22 14V22C22 22.6 22.4 23 23 23C23.7 23 24.4 22.8 25 22.6C24 24.7 22.2 26.3 20 27.2C20 27.1 20 27.1 20 27C20 26.4 19.6 26 19 26H16C15.4 26 15 26.4 15 27V29C15 29.6 15.4 30 16 30C22.6 30 28 24.8 28 18.4V17.4V15V13.9C28 7.3 22.6 2 16 2Z" fill="#27CBBE"/>
                 </svg>
             </div>
-            {open && <div className="container-conversation" style={{height : window.innerHeight - 300}}>
+            {open && <div className="container-conversation" style={{height : window.innerHeight - 350}}>
                 <div className="chat-open">
                     <div className="row-support">
                     <div className="flex justify-between items-center p-2">
@@ -154,7 +154,7 @@ function ChatComonent() {
                     
 
                     </div>
-                    <div style={{overflowY: "scroll",height : window.innerWidth < 500? window.innerHeight - 350: window.innerHeight - 370}} className="p-2 div-scroll flex flex-col gap-2">
+                    <div style={{overflowY: "scroll",height : window.innerWidth < 550? window.innerHeight - 400: window.innerHeight - 420}} className="p-2 div-scroll flex flex-col gap-2">
                             {conversation.map((e,i)=>(<div key={`Conversation_${i}_${e.key}_${e.id}`} onClick={()=>{
                                 if(e.key == "book" || e.key == "list" ){
                                     setConversation(prev=>([...prev,{
