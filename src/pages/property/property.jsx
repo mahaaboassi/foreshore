@@ -8,11 +8,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import PropertyPDF from './component/pdfProperty';
 import { Helmet } from 'react-helmet-async';
+import { useDispatch } from 'react-redux';
+import { changePopup } from '../../redux/actions/popup';
 
 function PropertyDetails() {
    const { t ,i18n } = useTranslation();
    const { id } = useParams()
    const navigate = useNavigate()
+   const dispatch = useDispatch()
    const [ slides, setSlides]  = useState([])
    const bufferToString = (buffer) => {
         return new TextDecoder().decode(new Uint8Array(buffer));
@@ -28,7 +31,6 @@ function PropertyDetails() {
     };
     const [hintAmentities , setHintAmentities] = useState([])
     const [ loading, setLoading] = useState(true)
-    const [ isOpen , setIsOpen] = useState(false)
     const [ dataFromApi, setDataFromApi] = useState(undefined)
     useEffect(()=>{
         const controller = new AbortController()
@@ -74,6 +76,29 @@ function PropertyDetails() {
         return ()=> controller.abort()
 
     },[id])
+    const openPopup = ()=>{
+      dispatch(changePopup({
+        isOpen : true,
+        isForm : false,
+        component : <div>
+        <h4 className='capitalize pt-5 pb-2'>{t("what-this-place-offers")}</h4>
+       <div className='px-2 grid grid-cols-1 sm:grid-cols-2'>
+     {
+       dataFromApi.features.map((e)=>(<div  key={`Features_Property_${e.id}`}>
+         <h5 className='weight-medium'>{i18n.language == "en"? (e.name_en?e.name_en:""):(e.name_ar?e.name_ar:"")}</h5>
+         <ul className='py-2'>
+             {e.subFeatures.map(child=>(<li className='flex items-center gap-3 mb-2' key={`Title_amenities_${child.id}`}>
+               <div dangerouslySetInnerHTML={{__html : bufferToString(child.icon?.data)}}></div>
+               <div className=''>{i18n.language == "en" ?(child.name_en?child.name_en:""):(child.name_ar?child.name_ar:"")}</div>
+             </li>))}
+         </ul>
+
+       </div>))
+     }
+        </div>
+        </div>
+      }))
+    }
     return (<>
     <Helmet>
       <title>Foreshore | Property Details</title>
@@ -149,45 +174,14 @@ function PropertyDetails() {
                         }
                 </div>
                 <div className='my-4'>
-                  <button onClick={()=>setIsOpen(true)} className='btn-main p-5 capitalize' >{t("show-all-anemities")}</button>
+                  <button onClick={openPopup} className='btn-main p-5 capitalize' >{t("show-all-anemities")}</button>
                 </div>
 
-                {
-                  isOpen && <div style={{height:window.innerHeight-100}} className='alert-card div-scroll'>
-                    <div className='flex justify-between items-center'>
-                     <h4 className='capitalize pt-5 pb-2'>{t("what-this-place-offers")}</h4>
-                     <div onClick={()=>setIsOpen(false)} className='cursor-pointer flex justify-center items-center' ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <g clipPath="url(#clip0_17_1174)">
-                        <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#27CBBE"/>
-                        </g>
-                        <defs>  
-                        <clipPath id="clip0_17_1174">
-                        <rect width="24" height="24" fill="white"/>
-                        </clipPath>
-                        </defs>
-                        </svg></div>
-                    </div>
-                    <div className='px-2 grid grid-cols-1 sm:grid-cols-2'>
-                  {
-                    dataFromApi.features.map((e)=>(<div  key={`Features_Property_${e.id}`}>
-                      <h5>{i18n.language == "en"? (e.name_en?e.name_en:""):(e.name_ar?e.name_ar:"")}</h5>
-                      <ul className='py-2'>
-                          {e.subFeatures.map(child=>(<li className='flex items-center gap-3 mb-2' key={`Title_amenities_${child.id}`}>
-                            <div dangerouslySetInnerHTML={{__html : bufferToString(child.icon?.data)}}></div>
-                            <div className=''>{i18n.language == "en" ?(child.name_en?child.name_en:""):(child.name_ar?child.name_ar:"")}</div>
-                          </li>))}
-                      </ul>
-
-                    </div>))
-                  }
-                </div>
-                  </div>
-                }
+                
                 <h4 className='capitalize pt-5 pb-2'> {t("where-you’ll-be")}</h4>
                 {<div className='!w-full px-2'>
-                    <p className='pb-3'>{dataFromApi.city?dataFromApi.city:""},{" "}{dataFromApi.region?dataFromApi.region:""},
-                    {" "}{dataFromApi.street?dataFromApi.street:""} , {" "}{dataFromApi.building?dataFromApi.building:""},
-                    {" "}{dataFromApi.floor?dataFromApi.floor:""}
+                    <p className='pb-3'>{dataFromApi.region?dataFromApi.region:""},
+                    {" "}{dataFromApi.city?dataFromApi.city:""} , United Arab Emirates
                     </p>
                     <iframe className='!w-full rounded' src={dataFromApi.link_map?dataFromApi.link_map:""} width="600" height="450" style={{border:"0"}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                   </div>}

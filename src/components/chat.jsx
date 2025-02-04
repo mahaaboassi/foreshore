@@ -74,7 +74,7 @@ function ChatComonent() {
         dispatch(changePopup({
             isOpen : true,
             isForm : true,
-            component : <div style={i18n.language == "en" ?{direction : "ltr"}:{direction : "rtl"} } className="mt-2">
+            component : <div style={i18n.language == "en" ?{direction : "ltr"}:{direction : "rtl"} } className=" bg-white">
                     <div className="text-main weight-medium title-card ">{key == "list" ?t("list-your-property"):t("book-your-property")}</div>
                     <div>
                         <div  className="py-1">{t("desc-your-property")}</div>

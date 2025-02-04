@@ -103,22 +103,24 @@
     transform: translate(-50%,-50%);
     background-color: var(--light_level_1_color);
     animation: upCard 0.3s forwards ease-in;
+    border: 1px solid var(--main_color);
   }
   .alert-card-form{
     width: 40%;
     overflow-y: unset;
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-xs)
   }
 
   @keyframes upCard {
+
     from {
 
-      bottom: 45%;
-      transform: translate(-50%,-45%);
+      top: 55%;
+      transform: translate(-50%,-55%);
 
     }to{
      
-      left: 50%;
+      top: 50%;
       transform: translate(-50%,-50%);
     }
   }
