@@ -1,12 +1,20 @@
 import React, { useState, useEffect , useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { changePopup } from '../redux/actions/popup';
 
 
 function Languages() {
     const [isOpen, setIsOpen] = useState(false)
     const { t, i18n } = useTranslation();
+    const dispatch = useDispatch()
     const changeLanguage = (lang) => {
       i18n.changeLanguage(lang);
+        dispatch(changePopup({
+            isOpen : false ,
+            isForm : false ,
+            component : <></>     
+        })) 
     };
     const menuRef = useRef()
     useEffect(() => {

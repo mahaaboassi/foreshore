@@ -10,6 +10,7 @@ import store from './redux/store';
 import Notification from './components/notification';
 import ChatComonent from './components/chat';
 import { HelmetProvider } from 'react-helmet-async';
+import PopupComponent from './components/popup';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,7 @@ root.render(
         <App />
         <Notification/>
         <ChatComonent/>
+        <PopupComponent/>
       </Provider>
     </HelmetProvider>
     

@@ -91,7 +91,7 @@
     }
   }
 
-  .alert-card{
+  .alert-card,.alert-card-form{
     position: fixed;
     z-index: 10;
     width: 700px;
@@ -104,11 +104,16 @@
     background-color: var(--light_level_1_color);
     animation: upCard 0.3s forwards ease-in;
   }
+  .alert-card-form{
+    width: 40%;
+    font-size: var(--font-size-xs);
+  }
+
   @keyframes upCard {
     from {
 
-      left: 45%;
-      transform: translate(-45%,-50%);
+      bottom: 45%;
+      transform: translate(-50%,-45%);
 
     }to{
      
@@ -193,7 +198,15 @@ table th{
     width: 300px;
     height: 100px;
   }
+  .alert-card-form{
+    width: 50%;
+    font-size: var(--font-size-xxs);
+  }
+
 }
+
+
+
   @media (max-width:768px) {
 
     .avatar{
@@ -205,6 +218,21 @@ table th{
     .alert-card{
       width: 420px;
 
+    }
+    .alert-card-form{
+      width: 60%;
+      font-size: var(--font-size-xxs);
+    }
+    
+  }
+  @media (max-width:710px) {
+    .alert-card{
+      width: 420px;
+
+    }
+    .alert-card-form{
+      width: 60%;
+      font-size: var(--font-size-xxs);
     }
     
   }
@@ -227,6 +255,9 @@ table th{
     .alert-card{
       width: 100%;
 
+    }
+    .alert-card-form{
+      width: 90%;
     }
     
   }

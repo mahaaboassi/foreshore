@@ -104,7 +104,7 @@ function Footer() {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h5 className="weight-regular mt-10 md:mt-0 text-center sm:text-start">{t("footer-subscribe")}</h5>
                     <div   className="flex pt-4 pb-1 justify-center sm:justify-start ">
-                        <input {...register("email")} placeholder={t("email")} />
+                        <input style={{width:"100%"}} {...register("email")} placeholder={t("email")} />
                         <button className="btn-footer p-3 min-w-32 capitalize">{loading?<div className='loader'></div>:t("subscribe")}</button>
                     </div>
                     {errors.email && <p className="p-0.5 text-error">{errors.email.message}</p>}

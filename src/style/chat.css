@@ -1,15 +1,22 @@
+
 .container-chat{
-   overflow: hidden;
-}
-.container-chat h5{
-    font-size: var(--font-size-s);
-    color: var(--main_color);
-}
-.chat-icon{
     position: fixed;
-    z-index: 10;
     bottom: 25px;
     right: 10px;
+    z-index: 10;
+}
+.container-icon{
+    position: relative;
+    z-index: 11;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: end;
+}
+.chat-icon{
+    position: relative;
+    z-index: 10;
     border: 2px solid var(--main_color);
     width: 70px;
     height: 70px;
@@ -51,93 +58,71 @@
     }
 }
 .container-conversation{
-    position: relative;
-    border-radius: 12px;
-    width: 350px;
-    position: fixed;
-    z-index: 11;
-    bottom: 25px;
-    right: 8px;
-    
+    height: 100px;
+    width: 170px;
+    opacity: 0;
+    animation: appendDiv 0.5s forwards;
 
 }
-.row-support{
-    border-bottom: 2px solid var(--main_color);
+.option{
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid var(--main_color);
+    padding: 5px;
+    border-radius: 12px;
+    font-size: var(--font-size-xxs);
+    display: flex;
+    justify-content: center;
+    transition: 0.3s;
+
 }
-.avatar-chat{
-    border: 2px solid var(--main_color);
-    width: 40px;
-    height: 40px;
+.option:hover{
+    border-color: var(--main_color);
+    color: var(--light_level_1_color);
+    background-color: var(--main_color);
+
+}
+.icon-close-chat{
+    cursor: pointer;
+    background-color: var(--main_color);
+    color: var(--light_level_1_color) ;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
- .support-line{
-    padding: 5px;
-    width: fit-content;
-    min-width: 150px;
-    background-color: var(--light_level_1_color);
-    border: 1px solid var(--main_color);
-    border-radius: 12px;
-    font-size: var(--font-size-xxs) !important;
-    max-width: 300px;
-}
-.chat-open{
-    position: absolute;
-    right: 0;
-    left: 0;
-    border-radius: 12px;
-    box-shadow: var(--shadow-box);
-    background-color:  var(--light_level_1_color );
-    animation: openChat 0.5s forwards  ease-in;
+    padding: 2px;
     font-size: var(--font-size-xxs);
 }
-.user-line{
-    width: fit-content;
-    padding: 5px;
-    min-width: 150px;
-    bottom: 0;
-    background-color: var(--light_level_1_color);
-    border: 1px solid var(--dark_level_3_color);
-    color: var(--dark_level_3_color);
-    border-radius: 12px;
-    font-size: var(--font-size-xxs);
-    max-width: 300px;
-
+@keyframes appendDiv {
+    from {
+        opacity: 0;
+    } to{
+        opacity: 1;
+    }
+    
 }
-.message-close{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    background-color: var(--main_color);
-    color: var(--light_level_1_color);
-    font-size: var(--font-size-xxs);
-    padding: 5px;
-}
-@keyframes openChat {
-    from{
-        top :400px
-    }to{
-        top: 0;
-        bottom: 0;
+@media ( max-width : 500px){
+    .chat-icon{
+        width: 60px;
+        height: 60px;
+    }
+    .chat-icon svg{
+        width: 40px;
+        height: 40px;
     }
 }
-@media ( max-width : 1000px){
+@media ( max-width : 678px){
     .container-conversation{
-        width: 300px;
+        position: fixed;
+        right: 45px;
+        height: 100px;
+        width: 170px;
+        bottom: 80px;
     }
 }
 @media ( max-width : 500px){
-    .container-conversation{
-        width: 300px;
-    }
-    .avatar-chat{
-        width: 30px;
-        height: 30px;
-    }
     .chat-icon{
         width: 60px;
         height: 60px;
@@ -148,13 +133,6 @@
     }
 }
 @media ( max-width : 360px){
-    .container-conversation{
-        width: 250px;
-    }
-    .avatar-chat{
-        width: 30px;
-        height: 30px;
-    }
     .chat-icon{
         width: 50px;
         height: 50px;
@@ -162,5 +140,12 @@
     .chat-icon svg{
         width: 30px;
         height: 30px;
+    }
+    .container-conversation{
+        position: fixed;
+        right: 45px;
+        height: 100px;
+        width: 170px;
+        bottom: 70px;
     }
 }

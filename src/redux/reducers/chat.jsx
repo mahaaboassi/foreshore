@@ -1,7 +1,6 @@
 const initialValues = {
     isOpen : true,
 }
-
 export const reducerChat = (state = initialValues , action)=>{
 switch(action.type){
     case "CHANGE-SUPPORT-STATUS":

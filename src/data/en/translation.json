@@ -361,7 +361,9 @@
     "show-all-anemities" : "show all anemities",
 
 
-    "my-properties" : "my properties"
+    "my-properties" : "my properties",
+    "desc-your-property" : "Please leave your Name, Number, and Email. One of our property specialists will Get back to you.",
+    "book-your-property" : "Book Your Property"
 
 
     
