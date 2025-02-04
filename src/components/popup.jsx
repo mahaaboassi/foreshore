@@ -21,7 +21,7 @@ function PopupComponent() {
         setOpen(openPopupRedux.isOpen)
     },[openPopupRedux])
 
-    return ( open && <div style={openPopupRedux.isForm ? {height:window.innerHeight-325}:{height:window.innerHeight-100}} className={`${openPopupRedux.isForm?"alert-card-form":"alert-card"} alert-card div-scroll`}>
+    return ( open && <div style={openPopupRedux.isForm ? {}:{height:window.innerHeight-100}} className={`${openPopupRedux.isForm?"alert-card-form p-5":"alert-card div-scroll"} `}>
         <div>
         <div className="flex justify-end">
                 <div onClick={()=>dispatch(changePopup({
