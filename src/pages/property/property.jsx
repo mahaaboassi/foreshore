@@ -207,7 +207,7 @@ function PropertyDetails() {
             </div>
           </div>
         </div>}
-        {openBoxGallary && <Gallery images={slides} closed={()=>setOpenBoxGallary(false)} />}
+        {openBoxGallary && <Gallery selectedSlide={currentSlide} images={slides} closed={()=>setOpenBoxGallary(false)} />}
     
     </>);
 }

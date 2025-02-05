@@ -10,9 +10,11 @@ const closeIcon = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     </clipPath>
                     </defs>
                 </svg>
-function Gallery({images,closed}) {
+function Gallery({images,closed,selectedSlide}) {
     const [ data, setData ] = useState([])
-    useEffect(()=>setData(images),[images])
+    useEffect(()=>{setData(images)
+        setCurrentSlide(selectedSlide)
+    },[selectedSlide])
     const [currentSlide, setCurrentSlide] = useState(0);
     
     const handleNext = () => {
