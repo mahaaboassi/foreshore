@@ -92,8 +92,7 @@ function FilterInsideProperty() {
         
             <div className='container-filter-Card p-4 mb-3'>
                 <div >
-                    <h4 onClick={()=>console.log(open)
-                    } className='capitalize text-center mb-2'>{t("filter-box")}</h4>
+                    <h4 className='capitalize text-center mb-2'>{t("filter-box")}</h4>
                     <div className='' >
                       
                         <div ref={guestRef}  className='container-options mb-2 relative'>

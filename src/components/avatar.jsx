@@ -58,7 +58,7 @@ function Avatar() {
                 <li onClick={()=>{
                     setIsOpen(false)
                     navigate("/properties")
-                }}  className="flex gap-2">
+                }}  className="flex !py-1 gap-2">
                     <div className="flex capitalize items-center">
                       {t("my-properties")}
                     </div>
