@@ -10,6 +10,7 @@ import PropertyPDF from './component/pdfProperty';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch } from 'react-redux';
 import { changePopup } from '../../redux/actions/popup';
+import Gallery from '../../components/gallery';
 
 function PropertyDetails() {
    const { t ,i18n } = useTranslation();
@@ -17,6 +18,7 @@ function PropertyDetails() {
    const navigate = useNavigate()
    const dispatch = useDispatch()
    const [ slides, setSlides]  = useState([])
+   const [ openBoxGallary, setOpenBoxGallary] = useState(false)
    const bufferToString = (buffer) => {
         return new TextDecoder().decode(new Uint8Array(buffer));
     };  
@@ -123,7 +125,7 @@ function PropertyDetails() {
                 key={slide.id}
                 className={`slider-item ${index === currentSlide ? "active" : ""}`}
               >
-                <img src={slide.image} alt={`Slide ${slide.id}`} />
+                <img className='cursor-pointer' onClick={()=>setOpenBoxGallary(true)} src={slide.image} alt={`Slide ${slide.id}`} />
               </div>))}
               <button className="slider-nav left" onClick={handlePrev}>
                 &#10094;
@@ -205,6 +207,7 @@ function PropertyDetails() {
             </div>
           </div>
         </div>}
+        {openBoxGallary && <Gallery images={slides} closed={()=>setOpenBoxGallary(false)} />}
     
     </>);
 }

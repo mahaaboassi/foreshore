@@ -188,6 +188,25 @@ table th{
   border-radius: 12px;
   box-shadow: var(--shadow-box);  
 }
+/* Gallery */
+.gallery{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: rgba(16, 16, 16, 0.83);
+  
+}
+.gallery .icon-gallery{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 150;
+}
+
+
 @media (max-width:1024px) {
   /* width="441" height="171" */
   .card-404 .parent{
