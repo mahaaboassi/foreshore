@@ -35,6 +35,13 @@ function ListYourProperty() {
                 
             })
         }
+        if(localStorage.getItem("$user")){
+            const user = JSON.parse(localStorage.getItem("$user"))
+            Object.keys(user).forEach((key)=>{
+                data.append(key,user[key])
+                
+            })
+        }
         if(localStorage.getItem("location")){
             const location = JSON.parse(localStorage.getItem("location")) 
             Object.keys(location).forEach((key)=>{

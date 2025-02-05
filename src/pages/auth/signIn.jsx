@@ -46,11 +46,14 @@ function SignIn() {
                     message : response.message
                 }))
             }else{
+                
                 localStorage.setItem("$user",JSON.stringify({
                     name : response.data.name || "",
                     email : response.data.email || "",
                     role : response.data.role || "",
-                    id : response.data.userId || ""
+                    id : response.data.userId || "",
+                    country_dial : response.data.country? response.data.country.country_dial : "",
+                    phone_number : response.data.country? response.data.country.phone_number : ""
                 }))
                 localStorage.setItem("$-TOKEN",response.data.token)
                 dispatch(changeNotification({
