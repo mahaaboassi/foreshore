@@ -356,7 +356,10 @@
   "show-all-anemities" : "عرض جميع المرافق",
   
   
- "my-properties" : "ممتلكاتي",
+  "my-properties" : "ممتلكاتي",
   "desc-your-property" : "يرجى ترك اسمك ورقم هاتفك وبريدك الإلكتروني. سيتواصل معك أحد خبراء العقارات لدينا قريبًا.",
-  "book-your-property" : "احجز عقارك"
+  "book-your-property" : "احجز عقارك",
+  "which-type": "أي نوع ؟",
+  "which-location": "أي موقع ؟",
+  "filter-box": "مربع التصفية"
 }

@@ -136,8 +136,8 @@ function PropertyDetails() {
               </button>
             </div>
           </div>
-          <div className="container-cols  py-3 gap-3 px-6 lg:px-10 ">
-            <div className="first-col">
+          <div className="grid grid-cols-5 mt-8 sm:mt-10">
+            <div className="col-span-5 md:col-span-3 lg:col-span-4 px-6 lg:px-10">
               <div className='content-property p-2 md:p-5'>
                 <p>
                   ({dataFromApi.guests?dataFromApi.guests:""}) {" "} {t("guest")} , ({dataFromApi.bedrooms?dataFromApi.bedrooms:""})  {" "} {t("bedrooms")} , ({dataFromApi.beds?dataFromApi.beds:""}) {" "} {t("beds")} , ({dataFromApi.bathrooms?dataFromApi.bathrooms:""}) {" "} {t("bathrooms")}
@@ -192,11 +192,8 @@ function PropertyDetails() {
               </div>
               
             </div>
-            <div className='second-col'>
-              <FilterInsideProperty/>
-            </div>
           
-            
+            <FilterInsideProperty/>
           </div>
         </div>}
         {openBoxGallary && <Gallery selectedSlide={currentSlide} images={slides} closed={()=>setOpenBoxGallary(false)} />}

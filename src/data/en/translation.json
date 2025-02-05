@@ -363,7 +363,10 @@
 
     "my-properties" : "my properties",
     "desc-your-property" : "Please leave your Name, Number, and Email. One of our property specialists will Get back to you.",
-    "book-your-property" : "Book Your Property"
+    "book-your-property" : "Book Your Property",
+    "which-type" : "which Type ?",
+    "which-location" : "which Location ?",
+    "filter-box" : "Filter box"
 
 
     
