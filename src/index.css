@@ -207,6 +207,9 @@ textarea{
   color:var(--main_color) ;
   border: 2px solid var(--main_color);
 }
+.div-shadow{
+  box-shadow: var(--shadow-arounded);
+}
 
 .call-animated{
   animation: callPhone 0.5s infinite;

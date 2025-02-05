@@ -12,9 +12,9 @@ const DataTable = ({ columns, data }) => {
     getCoreRowModel: getCoreRowModel(),
   });
   return (
-    <div className="p-4">
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+    <div  className="py-4">
+      <div style={{borderRadius:"12px"}} className="overflow-x-auto div-shadow">
+        <table  className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
           <thead className="bg-gray-100 border-b">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
