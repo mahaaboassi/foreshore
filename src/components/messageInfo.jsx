@@ -40,7 +40,7 @@ function MessageInfo({ returnedData, withoutMessage = false}) {
         const [message, setMessage] = useState("")
         const [isSend, setIsSend] = useState(false)
         const [loading, setLoading] = useState(false)
-    return ( <form onSubmit={handleSubmit(onSubmit)}   className="w-full flex bg-white flex-col gap-2">
+    return ( <form onSubmit={handleSubmit(onSubmit)}   className="w-full flex bg-white flex-col gap-3">
         <div>
               <InputWithIcon register={register("name")} placeholder={t("name")} icon={<svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 10 12" fill="none">
                   <path d="M4.85709 5.28571C6.04056 5.28571 6.99995 4.32632 6.99995 3.14286C6.99995 1.95939 6.04056 1 4.85709 1C3.67362 1 2.71423 1.95939 2.71423 3.14286C2.71423 4.32632 3.67362 5.28571 4.85709 5.28571Z" stroke="#27CBBE" strokeLinecap="round" strokeLinejoin="round"/>

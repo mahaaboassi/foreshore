@@ -108,7 +108,13 @@
   .alert-card-form{
     width: 40%;
     overflow-y: unset;
-    font-size: var(--font-size-xs)
+  }
+  .alert-card-form h3{
+    font-size: var(--font-size-l);
+
+  }
+  .alert-card-form p{
+    font-size: var(--font-size-xs);
   }
 
   @keyframes upCard {
@@ -256,6 +262,13 @@ table th{
       width: 60%;
       font-size: var(--font-size-xxs);
     }
+    .alert-card-form h3{
+      font-size: var(--font-size-l);
+  
+    }
+    .alert-card-form p{
+      font-size: var(--font-size-xxs);
+    }
     
   }
 
@@ -281,5 +294,5 @@ table th{
     .alert-card-form{
       width: 90%;
     }
-    
+
   }

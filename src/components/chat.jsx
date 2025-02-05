@@ -75,9 +75,9 @@ function ChatComonent() {
             isOpen : true,
             isForm : true,
             component : <div style={i18n.language == "en" ?{direction : "ltr"}:{direction : "rtl"} } className=" bg-white">
-                    <div className="text-main weight-medium title-card ">{key == "list" ?t("list-your-property"):t("book-your-property")}</div>
+                    <h3 className="text-main weight-medium title-card ">{key == "list" ?t("list-your-property"):t("book-your-property")}</h3>
                     <div>
-                        <div  className="py-1">{t("desc-your-property")}</div>
+                        <p  className="py-2">{t("desc-your-property")}</p>
                         <div><MessageInfo returnedData={(data)=>{
                             let temp = data
                             temp.message = key == "list" ? "This message is from a user requesting to list a property." : "This message is from a user requesting to book a property."
