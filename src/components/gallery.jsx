@@ -26,7 +26,7 @@ function Gallery({images,closed}) {
         <div className="icon-gallery">
             <div onClick={closed} className="cursor-pointer">{closeIcon}</div>
         </div>
-        <div>
+        <div className="container-gallery">
             <div className="slider-container-gallery">
                 {images.map((slide,idx)=>(<div
                 className={`slider-item ${idx === currentSlide ? "active" : ""}`}
