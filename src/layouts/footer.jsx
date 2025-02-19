@@ -121,7 +121,7 @@ function Footer() {
                     <div className="contact">
                         <h4 className="uppercase  weight-semiBold py-3">{t("contact-us")}</h4>
                         <ul className="flex flex-col gap-1">
-                        <li className="capitalize cursor-pointer flex">
+                        <li className=" cursor-pointer flex">
                             <a target="_blank" href={`tel:${contactData.call}`} className="flex items-center space-x-2">
                                 <div className="min-w-8">
                                     <svg width="25" height="25" className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="PhoneIcon" style={{ color: "white" }}>
@@ -131,7 +131,7 @@ function Footer() {
                                 <div>{contactData.call}</div>
                             </a>
                         </li>
-                        <li className="capitalize cursor-pointer flex">
+                        <li className=" cursor-pointer flex">
                             <a target="_blank" href={`mailto:${contactData.email}`} className="flex items-center space-x-2">
                                 <div className="min-w-8">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 25 24" fill="none">
