@@ -123,7 +123,10 @@ function Destinations() {
                         </div>
                   </div>
                   <div className='mt-2 '>
-                    <button className='!w-full btn-main'  >{t("book-now")}</button>
+                    {/* <Link to={e.rms_link.length>0 && e.rms_link != " " ? e.rms_link: "#"} target={e.rms_link.length>0 && e.rms_link != " "?"_blank": ""}> */}
+                        <button className='!w-full btn-main'  >{t("book-now")}</button>
+                    {/* </Link> */}
+                    
                   </div>
                 </div>
                 <div>

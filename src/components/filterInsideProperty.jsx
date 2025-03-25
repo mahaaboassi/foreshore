@@ -20,6 +20,7 @@ const controlIcon = <svg xmlns="http://www.w3.org/2000/svg" width="12" height="1
 <path d="M1.82182 1.50742C1.59852 1.51006 1.38024 1.57384 1.1907 1.69181C1.00117 1.80979 0.847577 1.97746 0.746745 2.1766C0.632949 2.37539 0.572479 2.6002 0.571235 2.82923C0.569992 3.05825 0.628019 3.28372 0.739649 3.48372L6.42136 12.7825C6.51741 12.9847 6.66857 13.1557 6.85746 13.2759C7.04634 13.3959 7.26529 13.4602 7.48912 13.4614C7.71294 13.4626 7.93257 13.4007 8.12275 13.2827C8.31293 13.1646 8.46594 12.9953 8.56418 12.7942L14.3037 3.55735C14.4174 3.35857 14.4779 3.13375 14.4791 2.90472C14.4804 2.6757 14.4224 2.45024 14.3108 2.25023C14.212 2.05001 14.0603 1.88068 13.872 1.76065C13.6838 1.64062 13.4662 1.57448 13.243 1.56942L1.82182 1.50742Z" fill="black" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 function FilterInsideProperty() {
+    
     const { t ,i18n } = useTranslation()
     const navigate = useNavigate()
     const [ types, setTypes] = useState([])
@@ -170,7 +171,7 @@ function FilterInsideProperty() {
                 
             </div>
           <div className='w-full pb-3'>
-           <button style={{borderRadius:"8px"}} className='btn-main capitalize !w-full'>{t("book-now")}</button>
+            <button style={{borderRadius:"8px"}} className='btn-main capitalize !w-full'>{t("book-now")}</button>
           </div>
           {/* <div className='w-full'>
             <PDFDownloadLink document={<PropertyPDF property={dataFromApi} />} fileName="document.pdf">

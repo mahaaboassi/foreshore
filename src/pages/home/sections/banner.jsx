@@ -22,7 +22,7 @@ function Banner({children,data, fromHomePage = false}) {
               effect={'fade'}
               loop={true}
               autoplay={{
-                  delay: 2500,
+                  delay: 3500,
                   disableOnInteraction: false,
                 }}
               simulateTouch={true} 

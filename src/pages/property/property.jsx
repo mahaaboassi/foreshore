@@ -193,7 +193,7 @@ function PropertyDetails() {
               
             </div>
             <div className='second-col'>
-              <FilterInsideProperty/>
+              <FilterInsideProperty link={dataFromApi.rms_link}/>
             </div>
           
             
