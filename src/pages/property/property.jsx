@@ -166,13 +166,10 @@ function PropertyDetails() {
                 <div className='px-2 grid grid-cols-1 sm:grid-cols-2'>
                     {
                           hintAmentities.map((child)=>(<div  key={`Hint_Features_Property_${child.id}`}>
-                            
                               <div className='flex items-center gap-3 mb-2 hint' >
                                   <div dangerouslySetInnerHTML={{__html : bufferToString(child.icon?.data)}}></div>
                                   <div className=''>{i18n.language == "en" ?(child.name_en?child.name_en:""):(child.name_ar?child.name_ar:"")}</div>
                                 </div>
-                            
-
                           </div>))
                         }
                 </div>

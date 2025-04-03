@@ -12,11 +12,16 @@ import small_size from "../../images/500x500-explore.webp"
 import medium_size from "../../images/explore 700x500.webp"
 import banner_3 from "../../images/banner 03 back.webp"
 import { Helmet } from 'react-helmet-async';
+import { useDispatch } from 'react-redux';
+import { changePopup } from '../../redux/actions/popup';
+import { changeNotification } from '../../redux/actions/notification';
+import MessageInfo from '../../components/messageInfo';
 
 function Destinations() {
     const {t,i18n} = useTranslation()
     const [ searchParams, setSearchParams] = useSearchParams()
     const [notFound, setNotFound ] = useState("")
+    const dispatch = useDispatch()
     const data = [{
         img : window.innerWidth <= 500 ? small_size : (window.innerWidth <=700 ? medium_size: image) ,
         background_img : banner_3,
@@ -68,6 +73,65 @@ function Destinations() {
             
         }
     }
+    const showForm = (link) =>{
+        dispatch(changePopup({
+            isOpen : true,
+            isForm : true,
+            component : <div style={i18n.language == "en" ?{direction : "ltr"}:{direction : "rtl"} } className=" bg-white">
+                    <h3 className="text-main weight-medium title-card ">{t("book-your-property")}</h3>
+                    <div>
+                        <p  className="py-2">{t("desc-your-property")}</p>
+                        <div><MessageInfo returnedData={(data)=>{
+                            let temp = data
+                            temp.message = `This message is from a user requesting to book this property ${link}.`
+                            sendData(temp)}} withoutMessage={true}/></div>
+                    </div>
+            </div>       
+       }))
+    }
+    const sendData = async (data) => {
+        const { response , message } = await Helper({
+            url : apiRoutes.contact.contactUs,
+            method : "POST",
+            body : {
+                email : data.email,
+                name : data.name,
+                phone_number :  data.phone_number,
+                country_dial : data.country_dial,
+                message : data.message || ""
+            }
+        })
+        if(response){
+            dispatch(changePopup({
+                isOpen : false,
+                isForm : false,
+                component : <></>     
+            }))
+            dispatch(changeNotification(
+                {
+                    isOpen : true,
+                    message : message,
+                    bgColor : "bg-success"
+                }
+            ))
+
+        }else{
+            dispatch(changePopup({
+                isOpen : false,
+                isForm : false,
+                component : <></>     
+            }))
+            dispatch(changeNotification(
+                {
+                    isOpen : true,
+                    message : message,
+                    bgColor : "bg-error"
+                }
+            ))
+        }
+       
+    }
+
     return ( <div className='our-properties'>
         <Helmet>
             <title>Foreshore | Destinations</title>
@@ -124,7 +188,7 @@ function Destinations() {
                   </div>
                   <div className='mt-2 '>
                     {/* <Link to={e.rms_link.length>0 && e.rms_link != " " ? e.rms_link: "#"} target={e.rms_link.length>0 && e.rms_link != " "?"_blank": ""}> */}
-                        <button className='!w-full btn-main'  >{t("book-now")}</button>
+                        <button onClick={()=>{showForm(e.rms_link)}} className='!w-full btn-main'  >{t("book-now")}</button>
                     {/* </Link> */}
                     
                   </div>

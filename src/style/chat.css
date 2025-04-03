@@ -1,7 +1,7 @@
 
 .container-chat{
     position: fixed;
-    bottom: 25px;
+    bottom: 37px;
     right: 10px;
     z-index: 10;
 }
@@ -114,6 +114,12 @@
     }
 }
 @media ( max-width : 678px){
+    .container-chat{
+        position: fixed;
+        bottom: 25px;
+        right: 10px;
+        z-index: 10;
+    }
     .container-conversation{
         position: fixed;
         right: 45px;

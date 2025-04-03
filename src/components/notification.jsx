@@ -33,7 +33,7 @@ function Notification() {
     useEffect(()=>{
         setData(dataRedux)
     },[dataRedux]) 
-    return ( data.isOpen ? <div ref={noteRef} className={`fixed bottom-4 right-0 md:right-4 ${data.bgColor} max-w-42 md:max-w-96  text-white px-4 py-2 rounded-lg shadow-lg animate-slide-in`}>
+    return ( data.isOpen ? <div ref={noteRef} className={`fixed bottom-4 right-0 md:right-4 ${data.bgColor} max-w-42 md:max-w-96  text-white px-4 pt-2 pb-4 rounded-lg shadow-lg animate-slide-in`}>
         <div onClick={()=>dispatch(changeNotification({
               isOpen : false,
               message : "",
