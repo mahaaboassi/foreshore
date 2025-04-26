@@ -1,7 +1,7 @@
 // export const Host = "https://backendforeshore.vercel.app/api"
 // const Host = "http://localhost:5000/api"
-export const Host = "/api"
-export const HostImages = "/"
+export const Host = "http://localhost:3000/api"
+export const HostImages = "http://localhost:3000//"
 export  const apiRoutes = {
     sendEmail : `${Host}/admin/list`,
     auth : {
