@@ -2,6 +2,7 @@
   "name": "foreshore",
   "version": "0.1.0",
   "private": true,
+  "proxy" : "http://145.223.103.149:5000",
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@react-pdf/renderer": "^4.1.6",
