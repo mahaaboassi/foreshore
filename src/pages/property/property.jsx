@@ -2,7 +2,7 @@ import React ,{useEffect, useState}  from 'react';
 import { useTranslation } from 'react-i18next';
 import Retype from "../../components/retype";
 import { Helper } from '../../functionality/helper';
-import { apiRoutes } from '../../functionality/apiRoutes';
+import { apiRoutes, HostImages } from '../../functionality/apiRoutes';
 import { useNavigate, useParams } from 'react-router-dom';
 // Download PDF
 import { PDFDownloadLink } from '@react-pdf/renderer';
@@ -48,7 +48,7 @@ function PropertyDetails() {
                 setSlides([])
                 setDataFromApi(response.data)
                 response.data.files.forEach(file=>{
-                  setSlides(prev=>[...prev,{ id: file._id, image: file.url, background: file.url }])
+                  setSlides(prev=>[...prev,{ id: file._id, image: HostImages+file.path, background: HostImages+file.path }])
                 })
                 response.data.features.forEach(ele => {
                   let index = 0;
@@ -88,7 +88,7 @@ function PropertyDetails() {
        <div className='px-2 grid grid-cols-1 sm:grid-cols-2'>
      {
        dataFromApi.features.map((e)=>(<div  key={`Features_Property_${e.id}`}>
-         <h5 className='weight-medium'>{i18n.language == "en"? (e.name_en?e.name_en:""):(e.name_ar?e.name_ar:"")}</h5>
+         <h5  className='weight-medium'>{i18n.language == "en"? (e.name_en?e.name_en:""):(e.name_ar?e.name_ar:"")}</h5>
          <ul className='py-2'>
              {e.subFeatures.map(child=>(<li className='flex items-center gap-3 mb-2' key={`Title_amenities_${child.id}`}>
                <div dangerouslySetInnerHTML={{__html : bufferToString(child.icon?.data)}}></div>
@@ -113,7 +113,7 @@ function PropertyDetails() {
         </div>: <div className='one-property'>
             <div
                 className="background-container"
-                style={{ backgroundImage: `url(${slides[currentSlide].background})` }}
+                style={{ backgroundImage: `url(${slides.length>0?slides[currentSlide].background:""})` }}
               >
             <div className="flex justify-center flex-col items-center info-pro">
                 <div>
@@ -126,7 +126,7 @@ function PropertyDetails() {
                 key={slide.id}
                 className={`slider-item ${index === currentSlide ? "active" : ""}`}
               >
-                <img className='cursor-pointer' onClick={()=>setOpenBoxGallary(true)} src={slide.image} alt={`Slide ${slide.id}`} />
+                <img className='cursor-pointer' onClick={()=>setOpenBoxGallary(true)} src={slide.image ? slide.image : ""} alt={`Slide ${slide.id}`} />
               </div>))}
               <button className="slider-nav left" onClick={handlePrev}>
                 &#10094;
