@@ -12,10 +12,9 @@ function Avatar() {
         const handleClickOutside = (e) => {
             
         if (menuRef.current &&!menuRef.current.contains(e.target)  ) {
-            setIsOpen(false);
-        }
+                setIsOpen(false);
+            }
         };
-
         document.addEventListener("click", handleClickOutside);
 
         return () => {

@@ -1,4 +1,5 @@
-export const Host = "https://backendforeshore.vercel.app/api"
+//  Host = "http://145.223.103.149:5000/api"
+export const Host = "https://backendforeshore.vercel.app/api" 
 // const Host = "http://localhost:5000/api"
 
 export  const apiRoutes = {

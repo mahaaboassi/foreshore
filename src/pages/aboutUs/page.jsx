@@ -12,6 +12,7 @@ import about_2 from "../../images/about (2).webp"
 import { dataFAQ } from '../../data/dataFAQ';
 import Accordion from '../../components/accordion';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 
 
 function AboutUs() {
@@ -24,7 +25,7 @@ function AboutUs() {
       hint :  t("about-hint-1")
     }]
     const [offsetY, setOffsetY] = useState(0);
-
+    const navigate = useNavigate()
     const handleScroll = () => {
         setOffsetY(window.scrollY);
     };
@@ -51,7 +52,7 @@ function AboutUs() {
                     <p className='py-3'>{t("about-desc-2")}</p>
                     <p>{t("about-desc-3")}</p>
                     <div className='pt-3 flex justify-center lg:justify-start'>
-                        <button className='btn-main px-4'>{t("benefit-btn")}</button>
+                        <button  onClick={()=>navigate("/destinations")} className='btn-main px-4'>{t("benefit-btn")}</button>
                     </div>
                 </div>
                 
@@ -63,7 +64,7 @@ function AboutUs() {
                     <p className='py-3'>{t("about-desc-5")}</p>
                     <p>{t("about-desc-6")}</p>
                     <div className='pt-3 flex justify-center lg:justify-start'>
-                        <button className='btn-main px-4'>{t("benefit-btn")}</button>
+                        <button onClick={()=>navigate("/destinations")}  className='btn-main px-4'>{t("benefit-btn")}</button>
                     </div>
                 </div>
                 <div  className={`relative flex justify-end items-end root-img `}>
