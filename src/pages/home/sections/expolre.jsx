@@ -14,7 +14,7 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 import { Helper } from '../../../functionality/helper';
-import { apiRoutes } from '../../../functionality/apiRoutes';
+import { apiRoutes, HostImages } from '../../../functionality/apiRoutes';
 
 
 const SlidesComponent = ({images,onClick})=>{
@@ -34,7 +34,7 @@ const SlidesComponent = ({images,onClick})=>{
                 key={slide._id}
                 className={`slider-item-explore ${index === currentSlide ? "active" : ""}`}
             >
-                <img onClick={onClick} src={slide.url} alt={`Slide ${slide._id}`} />
+                <img onClick={onClick} src={HostImages+slide.path} alt={`Slide ${slide._id}`} />
             </div>))}
             <button className="slider-nav-explore left" onClick={handlePrev}>
                 &#10094;
@@ -114,19 +114,23 @@ function ExploreDestination() {
                     // onSlideChange={() => console.log('slide change')}
                     // onSwiper={(swiper) => console.log(swiper)}
                     >
-                        {dataFromApi.map((e)=>(<SwiperSlide key={`Destination_${e.name_en?e.name_en:""}`}>
-                            <div className='flex container-images flex-col items-center'>
-                                {/* <div onClick={()=>navigate(`/property/${e._id}`)}  className={`${isInView&&"animated"} cursor-pointer relative`}>
-                                    <img   src={e.files?e.files[0].url:""} alt={e.name_en?e.name_en:""} /> */}
-                                    {/* <div className={` flex items-center justify-center continer-div explore-title absolute top-0 left-0 right-0 bottom-0`}>
-                                        <h4 className='expolre-title  uppercase'>{e.city?e.city:""},{" "} {e.region?e.region:""}</h4>
-                                    </div> */}
-                                {/* </div> */}
-                                <SlidesComponent onClick={()=>navigate(`/property/${e._id}`)} images={e.files} />
-                                <p className='weight-medium text-center max-w-52 mt-2 capitalize' >{i18n.language == "en"?(e.name_en?e.name_en:""):(e.name_ar?e.name_ar:"")}</p>
-
-                            </div>
-                        </SwiperSlide>))}
+                        {dataFromApi.map((e)=>{
+                            if(e.ready == 1){
+                                return<SwiperSlide key={`Destination_${e.name_en?e.name_en:""}`}>
+                                <div className='flex container-images flex-col items-center'>
+                                    {/* <div onClick={()=>navigate(`/property/${e._id}`)}  className={`${isInView&&"animated"} cursor-pointer relative`}>
+                                        <img   src={e.files?e.files[0].url:""} alt={e.name_en?e.name_en:""} /> */}
+                                        {/* <div className={` flex items-center justify-center continer-div explore-title absolute top-0 left-0 right-0 bottom-0`}>
+                                            <h4 className='expolre-title  uppercase'>{e.city?e.city:""},{" "} {e.region?e.region:""}</h4>
+                                        </div> */}
+                                    {/* </div> */}
+                                    <SlidesComponent onClick={()=>navigate(`/property/${e._id}`)} images={e.files} />
+                                    <p className='weight-medium text-center max-w-52 mt-2 capitalize' >{i18n.language == "en"?(e.name_en?e.name_en:""):(e.name_ar?e.name_ar:"")}</p>
+    
+                                </div>
+                            </SwiperSlide>
+                            }
+                        })}
                     </Swiper>
                 </div>}
         
